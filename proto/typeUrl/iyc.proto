@@ -1,0 +1,11 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+
+package com.ankama.dofus.server.game.protocol;
+
+message iyc {
+    string content = 1;
+    string dateSent = 3;
+	string author = 7;
+    // Other fields based on your observed data
+}

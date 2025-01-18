@@ -1,0 +1,12 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+
+package com.ankama.dofus.server.game.protocol;
+
+message jpx {
+    int32 id = 1;
+    string itemValue1 = 2;
+    string itemValue2 = 3;
+    string itemValue3 = 4;
+    string itemValue4 = 5;
+}

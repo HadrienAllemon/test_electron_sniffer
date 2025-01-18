@@ -1,0 +1,22 @@
+[
+    {
+        "id": 44,
+        "typeId": 6,
+        "name": {
+            "id": "995824",
+            "pt": "Espada de graveto",
+            "de": "Hölzernes Schwert",
+            "en": "Twiggy Sword",
+            "fr": "Épée de Boisaille",
+            "es": "Espada de maderucha"
+        },
+        "description": {
+            "id": "995825",
+            "pt": "Uma espada simples que não transformará seu herói em uma lenda.",
+            "de": "Dieses Schwert einfachster Machart wird aus eurem Charakter bestimmt keinen Helden machen.",
+            "en": "This basic sword won't make a hero out of you, that's for sure.",
+            "fr": "Épée de simple facture, elle ne fera pas de votre héros une légende.",
+            "es": "Espada de sencilla factura, no convertirá a tu héroe en leyenda."
+        }
+    }
+]

@@ -1,0 +1,19 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+
+package com.ankama.dofus.server.game.protocol;
+
+message ipl {
+    repeated Item items = 1;
+}
+
+message Item {
+    int32 itemId = 1;
+    int32 amountSold = 2;
+    ItemDetail details = 3;
+}
+
+message ItemDetail {
+    int64 totalGains = 1;
+}
+

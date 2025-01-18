@@ -1,0 +1,13 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+
+package com.ankama.dofus.server.game.protocol;
+
+message ipd {
+    Info itemInfo = 1;
+    int32 priceSet = 2;
+}
+
+message Info {
+    int32 itemId = 3;
+}

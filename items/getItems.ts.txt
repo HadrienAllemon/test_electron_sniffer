@@ -1,0 +1,33 @@
+const getItems = async (skip: number, n: number = 0, items:any[]=[]):Promise<any[]> => {
+    const url = `https://api.dofusdb.fr/items?typeId[$ne]=203&$sort=-id&level[$gte]=0&level[$lte]=200&lang=fr&$limit=50&$skip=${skip}`
+    const request = await fetch(url)
+    const resp = await request.json();
+    const file = Math.ceil(n / 30);
+    // fs.appendFile(`./itemIds${file}.txt`, "\n" + JSON.stringify((resp as any).data), (err)=> {
+    //     if (err) console.log(err);
+    // });
+    (resp as any).data.forEach((item: any) => {
+        items.push({ id: item.id, typeId: item.typeId, name: item.name, description: item.description })
+    })
+
+    let _lastFetch = (resp as any).data.length
+    if (_lastFetch === 50 && n < 400) {
+        console.log(n, skip);
+        await getItems(skip + 50, n + 1, items)
+    }
+    return items;
+}
+getItems(0).then(async (items:any[])=>{
+console.log(items.length)
+let iteration = 0;
+while (items.length > 0 && iteration < 500){
+    console.log(items.length, iteration);
+    const itemSlice = items.slice(0, 100);
+    fs.writeFile(`items/items${iteration}.json`, JSON.stringify(itemSlice), (err)=>{
+        if (err) console.error(err);
+    })
+    items = items.slice(100);
+    iteration+=1
+}
+console.log("OVER");
+})
