@@ -2,7 +2,7 @@ import { ipcRenderer } from "electron";
 
 export const ButtonTest = () => {
     async function startSniffing() {
-        // const capInstance = await (window as any).electron.ipcRenderer.invoke('start-sniffing', { /* args */ });
+        const capInstance = await ipcRenderer.invoke('start-sniffing', { /* args */ });
         console.log('Cap instance:');
       }
       

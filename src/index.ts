@@ -19,7 +19,7 @@ const createWindow = (): void => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      // preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
   });
 
@@ -52,11 +52,11 @@ app.on('activate', () => {
   }
 });
 
-// ipcMain.handle('start-sniffing', async () => {
-//   // const test = sniff()
-//   // // Configure cap as needed and return results
-//   // return test;
-// });
+ipcMain.handle('start-sniffing', async () => {
+  const test = sniff()
+  // Configure cap as needed and return results
+  return test;
+});
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
