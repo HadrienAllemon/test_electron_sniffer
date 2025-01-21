@@ -2,6 +2,8 @@ export default [
     {
         "id": 1,
         "item_id": 2540,
+        "level": 60,
+        "iconId": 26017,
         "amountBought": 1,
         "price": 3180,
         "de": "Hochwald-Extrakt",
@@ -12,6 +14,8 @@ export default [
     {
         "id": 2,
         "item_id": 2540,
+        "level": 60,
+        "iconId": 26017,
         "amountBought": 1,
         "price": 3180,
         "de": "Hochwald-Extrakt",
@@ -22,6 +26,8 @@ export default [
     {
         "id": 3,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 52,
         "de": "Schale eines Schiefer-Dracheis",
@@ -32,6 +38,8 @@ export default [
     {
         "id": 4,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 52,
         "de": "Schale eines Schiefer-Dracheis",
@@ -42,6 +50,8 @@ export default [
     {
         "id": 5,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 53,
         "de": "Schale eines Schiefer-Dracheis",
@@ -52,6 +62,8 @@ export default [
     {
         "id": 6,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 53,
         "de": "Schale eines Schiefer-Dracheis",
@@ -62,6 +74,8 @@ export default [
     {
         "id": 7,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 53,
         "de": "Schale eines Schiefer-Dracheis",
@@ -72,6 +86,8 @@ export default [
     {
         "id": 8,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 53,
         "de": "Schale eines Schiefer-Dracheis",
@@ -82,6 +98,8 @@ export default [
     {
         "id": 9,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 53,
         "de": "Schale eines Schiefer-Dracheis",
@@ -92,6 +110,8 @@ export default [
     {
         "id": 10,
         "item_id": 844,
+        "level": 74,
+        "iconId": 105204,
         "amountBought": 1,
         "price": 429,
         "de": "Ei eines Schiefer-Dracheis",
@@ -102,6 +122,8 @@ export default [
     {
         "id": 11,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 29,
         "de": "Schale eines Kalk-Dracheis",
@@ -112,6 +134,8 @@ export default [
     {
         "id": 12,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 29,
         "de": "Schale eines Kalk-Dracheis",
@@ -122,6 +146,8 @@ export default [
     {
         "id": 13,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 30,
         "de": "Schale eines Kalk-Dracheis",
@@ -132,6 +158,8 @@ export default [
     {
         "id": 14,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 32,
         "de": "Schale eines Kalk-Dracheis",
@@ -142,6 +170,8 @@ export default [
     {
         "id": 15,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 32,
         "de": "Schale eines Kalk-Dracheis",
@@ -152,6 +182,8 @@ export default [
     {
         "id": 16,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 33,
         "de": "Schale eines Kalk-Dracheis",
@@ -162,6 +194,8 @@ export default [
     {
         "id": 17,
         "item_id": 21271,
+        "level": 70,
+        "iconId": 54714,
         "amountBought": 1,
         "price": 2180,
         "de": "Draegnerys' Haare",
@@ -172,6 +206,8 @@ export default [
     {
         "id": 18,
         "item_id": 21263,
+        "level": 70,
+        "iconId": 59675,
         "amountBought": 1,
         "price": 11,
         "de": "Haut des Alabaster-Dracheis",
@@ -182,6 +218,8 @@ export default [
     {
         "id": 19,
         "item_id": 21263,
+        "level": 70,
+        "iconId": 59675,
         "amountBought": 1,
         "price": 12,
         "de": "Haut des Alabaster-Dracheis",
@@ -192,6 +230,8 @@ export default [
     {
         "id": 20,
         "item_id": 21263,
+        "level": 70,
+        "iconId": 59675,
         "amountBought": 1,
         "price": 12,
         "de": "Haut des Alabaster-Dracheis",
@@ -202,6 +242,8 @@ export default [
     {
         "id": 21,
         "item_id": 21263,
+        "level": 70,
+        "iconId": 59675,
         "amountBought": 1,
         "price": 13,
         "de": "Haut des Alabaster-Dracheis",
@@ -212,6 +254,8 @@ export default [
     {
         "id": 22,
         "item_id": 21263,
+        "level": 70,
+        "iconId": 59675,
         "amountBought": 1,
         "price": 13,
         "de": "Haut des Alabaster-Dracheis",
@@ -222,6 +266,8 @@ export default [
     {
         "id": 23,
         "item_id": 21263,
+        "level": 70,
+        "iconId": 59675,
         "amountBought": 1,
         "price": 13,
         "de": "Haut des Alabaster-Dracheis",
@@ -232,6 +278,8 @@ export default [
     {
         "id": 24,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 44,
         "de": "Schale eines Kohle-Dracheis",
@@ -242,6 +290,8 @@ export default [
     {
         "id": 25,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 44,
         "de": "Schale eines Kohle-Dracheis",
@@ -252,6 +302,8 @@ export default [
     {
         "id": 26,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 44,
         "de": "Schale eines Kohle-Dracheis",
@@ -262,6 +314,8 @@ export default [
     {
         "id": 27,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 45,
         "de": "Schale eines Kohle-Dracheis",
@@ -272,6 +326,8 @@ export default [
     {
         "id": 28,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 46,
         "de": "Schale eines Kohle-Dracheis",
@@ -282,6 +338,8 @@ export default [
     {
         "id": 29,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 46,
         "de": "Schale eines Kohle-Dracheis",
@@ -292,6 +350,8 @@ export default [
     {
         "id": 30,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 700,
         "de": "Ei eines Kohle-Dracheis",
@@ -302,6 +362,8 @@ export default [
     {
         "id": 31,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 772,
         "de": "Ei eines Kohle-Dracheis",
@@ -312,6 +374,8 @@ export default [
     {
         "id": 32,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 773,
         "de": "Ei eines Kohle-Dracheis",
@@ -322,6 +386,8 @@ export default [
     {
         "id": 33,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 774,
         "de": "Ei eines Kohle-Dracheis",
@@ -332,6 +398,8 @@ export default [
     {
         "id": 34,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 46,
         "de": "Schale eines Kohle-Dracheis",
@@ -342,6 +410,8 @@ export default [
     {
         "id": 35,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 46,
         "de": "Schale eines Kohle-Dracheis",
@@ -352,6 +422,8 @@ export default [
     {
         "id": 36,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 46,
         "de": "Schale eines Kohle-Dracheis",
@@ -362,6 +434,8 @@ export default [
     {
         "id": 37,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 46,
         "de": "Schale eines Kohle-Dracheis",
@@ -372,6 +446,8 @@ export default [
     {
         "id": 38,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 46,
         "de": "Schale eines Kohle-Dracheis",
@@ -382,6 +458,8 @@ export default [
     {
         "id": 39,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 48,
         "de": "Schale eines Kohle-Dracheis",
@@ -392,6 +470,8 @@ export default [
     {
         "id": 40,
         "item_id": 21264,
+        "level": 70,
+        "iconId": 55739,
         "amountBought": 1,
         "price": 99,
         "de": "Draegnerys' Stoffstück",
@@ -402,6 +482,8 @@ export default [
     {
         "id": 41,
         "item_id": 21264,
+        "level": 70,
+        "iconId": 55739,
         "amountBought": 1,
         "price": 99,
         "de": "Draegnerys' Stoffstück",
@@ -412,6 +494,8 @@ export default [
     {
         "id": 42,
         "item_id": 842,
+        "level": 70,
+        "iconId": 111202,
         "amountBought": 1,
         "price": 14,
         "de": "Schale eines Lehm-Dracheis",
@@ -422,6 +506,8 @@ export default [
     {
         "id": 43,
         "item_id": 842,
+        "level": 70,
+        "iconId": 111202,
         "amountBought": 1,
         "price": 14,
         "de": "Schale eines Lehm-Dracheis",
@@ -432,6 +518,8 @@ export default [
     {
         "id": 44,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1199,
         "de": "Ei eines Lehm-Dracheis",
@@ -442,6 +530,8 @@ export default [
     {
         "id": 45,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1199,
         "de": "Ei eines Lehm-Dracheis",
@@ -452,6 +542,8 @@ export default [
     {
         "id": 46,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1200,
         "de": "Ei eines Lehm-Dracheis",
@@ -462,6 +554,8 @@ export default [
     {
         "id": 47,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1200,
         "de": "Ei eines Lehm-Dracheis",
@@ -472,6 +566,8 @@ export default [
     {
         "id": 48,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 53,
         "de": "Schale eines Schiefer-Dracheis",
@@ -482,6 +578,8 @@ export default [
     {
         "id": 49,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 53,
         "de": "Schale eines Schiefer-Dracheis",
@@ -492,6 +590,8 @@ export default [
     {
         "id": 50,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 53,
         "de": "Schale eines Schiefer-Dracheis",
@@ -502,6 +602,8 @@ export default [
     {
         "id": 51,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 54,
         "de": "Schale eines Schiefer-Dracheis",
@@ -512,6 +614,8 @@ export default [
     {
         "id": 52,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 55,
         "de": "Schale eines Schiefer-Dracheis",
@@ -522,6 +626,8 @@ export default [
     {
         "id": 53,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 55,
         "de": "Schale eines Schiefer-Dracheis",
@@ -532,6 +638,8 @@ export default [
     {
         "id": 54,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 55,
         "de": "Schale eines Schiefer-Dracheis",
@@ -542,6 +650,8 @@ export default [
     {
         "id": 55,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 1,
         "price": 55,
         "de": "Schale eines Schiefer-Dracheis",
@@ -552,6 +662,8 @@ export default [
     {
         "id": 56,
         "item_id": 21256,
+        "level": 70,
+        "iconId": 47701,
         "amountBought": 1,
         "price": 3996,
         "de": "Klaue des Alabaster-Dracheis",
@@ -562,6 +674,8 @@ export default [
     {
         "id": 57,
         "item_id": 748,
+        "level": 60,
+        "iconId": 40659,
         "amountBought": 1,
         "price": 2949,
         "de": "Magnesit",
@@ -572,6 +686,8 @@ export default [
     {
         "id": 58,
         "item_id": 748,
+        "level": 60,
+        "iconId": 40659,
         "amountBought": 1,
         "price": 2949,
         "de": "Magnesit",
@@ -582,6 +698,8 @@ export default [
     {
         "id": 59,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 33,
         "de": "Schale eines Kalk-Dracheis",
@@ -592,6 +710,8 @@ export default [
     {
         "id": 60,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 33,
         "de": "Schale eines Kalk-Dracheis",
@@ -602,6 +722,8 @@ export default [
     {
         "id": 61,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 33,
         "de": "Schale eines Kalk-Dracheis",
@@ -612,6 +734,8 @@ export default [
     {
         "id": 62,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 33,
         "de": "Schale eines Kalk-Dracheis",
@@ -622,6 +746,8 @@ export default [
     {
         "id": 63,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 34,
         "de": "Schale eines Kalk-Dracheis",
@@ -632,6 +758,8 @@ export default [
     {
         "id": 64,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 34,
         "de": "Schale eines Kalk-Dracheis",
@@ -642,6 +770,8 @@ export default [
     {
         "id": 65,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 34,
         "de": "Schale eines Kalk-Dracheis",
@@ -652,6 +782,8 @@ export default [
     {
         "id": 66,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 34,
         "de": "Schale eines Kalk-Dracheis",
@@ -662,6 +794,8 @@ export default [
     {
         "id": 67,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 104,
         "de": "Ei eines Kalk-Dracheis",
@@ -672,6 +806,8 @@ export default [
     {
         "id": 68,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 105,
         "de": "Ei eines Kalk-Dracheis",
@@ -682,6 +818,8 @@ export default [
     {
         "id": 69,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 105,
         "de": "Ei eines Kalk-Dracheis",
@@ -692,6 +830,8 @@ export default [
     {
         "id": 70,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 105,
         "de": "Ei eines Kalk-Dracheis",
@@ -702,6 +842,8 @@ export default [
     {
         "id": 71,
         "item_id": 8367,
+        "level": 120,
+        "iconId": 59612,
         "amountBought": 1,
         "price": 2998,
         "de": "Crocabulia-Haut",
@@ -712,6 +854,8 @@ export default [
     {
         "id": 72,
         "item_id": 8367,
+        "level": 120,
+        "iconId": 59612,
         "amountBought": 1,
         "price": 2998,
         "de": "Crocabulia-Haut",
@@ -722,6 +866,8 @@ export default [
     {
         "id": 73,
         "item_id": 8367,
+        "level": 120,
+        "iconId": 59612,
         "amountBought": 1,
         "price": 2999,
         "de": "Crocabulia-Haut",
@@ -732,6 +878,8 @@ export default [
     {
         "id": 74,
         "item_id": 8367,
+        "level": 120,
+        "iconId": 59612,
         "amountBought": 1,
         "price": 2999,
         "de": "Crocabulia-Haut",
@@ -742,6 +890,8 @@ export default [
     {
         "id": 75,
         "item_id": 8367,
+        "level": 120,
+        "iconId": 59612,
         "amountBought": 1,
         "price": 2999,
         "de": "Crocabulia-Haut",
@@ -752,6 +902,8 @@ export default [
     {
         "id": 76,
         "item_id": 8367,
+        "level": 120,
+        "iconId": 59612,
         "amountBought": 1,
         "price": 2999,
         "de": "Crocabulia-Haut",
@@ -762,6 +914,8 @@ export default [
     {
         "id": 77,
         "item_id": 8367,
+        "level": 120,
+        "iconId": 59612,
         "amountBought": 1,
         "price": 2999,
         "de": "Crocabulia-Haut",
@@ -772,6 +926,8 @@ export default [
     {
         "id": 78,
         "item_id": 8367,
+        "level": 120,
+        "iconId": 59612,
         "amountBought": 1,
         "price": 2999,
         "de": "Crocabulia-Haut",
@@ -782,6 +938,8 @@ export default [
     {
         "id": 79,
         "item_id": 8367,
+        "level": 120,
+        "iconId": 59612,
         "amountBought": 1,
         "price": 2999,
         "de": "Crocabulia-Haut",
@@ -792,6 +950,8 @@ export default [
     {
         "id": 80,
         "item_id": 8367,
+        "level": 120,
+        "iconId": 59612,
         "amountBought": 1,
         "price": 2999,
         "de": "Crocabulia-Haut",
@@ -802,6 +962,8 @@ export default [
     {
         "id": 81,
         "item_id": 8365,
+        "level": 120,
+        "iconId": 47652,
         "amountBought": 1,
         "price": 4496,
         "de": "Geborstenes Crocabulia-Horn",
@@ -812,6 +974,8 @@ export default [
     {
         "id": 82,
         "item_id": 8365,
+        "level": 120,
+        "iconId": 47652,
         "amountBought": 1,
         "price": 4496,
         "de": "Geborstenes Crocabulia-Horn",
@@ -822,6 +986,8 @@ export default [
     {
         "id": 83,
         "item_id": 8363,
+        "level": 120,
+        "iconId": 47651,
         "amountBought": 10,
         "price": 996,
         "de": "Horn des Drachmatika",
@@ -832,6 +998,8 @@ export default [
     {
         "id": 84,
         "item_id": 8363,
+        "level": 120,
+        "iconId": 47651,
         "amountBought": 10,
         "price": 997,
         "de": "Horn des Drachmatika",
@@ -842,6 +1010,8 @@ export default [
     {
         "id": 85,
         "item_id": 8363,
+        "level": 120,
+        "iconId": 47651,
         "amountBought": 1,
         "price": 94,
         "de": "Horn des Drachmatika",
@@ -852,6 +1022,8 @@ export default [
     {
         "id": 86,
         "item_id": 8363,
+        "level": 120,
+        "iconId": 47651,
         "amountBought": 1,
         "price": 94,
         "de": "Horn des Drachmatika",
@@ -862,6 +1034,8 @@ export default [
     {
         "id": 87,
         "item_id": 8363,
+        "level": 120,
+        "iconId": 47651,
         "amountBought": 1,
         "price": 94,
         "de": "Horn des Drachmatika",
@@ -872,6 +1046,8 @@ export default [
     {
         "id": 88,
         "item_id": 8363,
+        "level": 120,
+        "iconId": 47651,
         "amountBought": 1,
         "price": 94,
         "de": "Horn des Drachmatika",
@@ -882,6 +1058,8 @@ export default [
     {
         "id": 89,
         "item_id": 8363,
+        "level": 120,
+        "iconId": 47651,
         "amountBought": 1,
         "price": 94,
         "de": "Horn des Drachmatika",
@@ -892,6 +1070,8 @@ export default [
     {
         "id": 90,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 57,
         "de": "Horn des Drachzorn",
@@ -902,6 +1082,8 @@ export default [
     {
         "id": 91,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 58,
         "de": "Horn des Drachzorn",
@@ -912,6 +1094,8 @@ export default [
     {
         "id": 92,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 58,
         "de": "Horn des Drachzorn",
@@ -922,6 +1106,8 @@ export default [
     {
         "id": 93,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 58,
         "de": "Horn des Drachzorn",
@@ -932,6 +1118,8 @@ export default [
     {
         "id": 94,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 58,
         "de": "Horn des Drachzorn",
@@ -942,6 +1130,8 @@ export default [
     {
         "id": 95,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 59,
         "de": "Horn des Drachzorn",
@@ -952,6 +1142,8 @@ export default [
     {
         "id": 96,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 60,
         "de": "Horn des Drachzorn",
@@ -962,6 +1154,8 @@ export default [
     {
         "id": 97,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 69,
         "de": "Horn des Drachzorn",
@@ -972,6 +1166,8 @@ export default [
     {
         "id": 98,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 70,
         "de": "Horn des Drachzorn",
@@ -982,6 +1178,8 @@ export default [
     {
         "id": 99,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 73,
         "de": "Horn des Drachzorn",
@@ -992,6 +1190,8 @@ export default [
     {
         "id": 100,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 73,
         "de": "Horn des Drachzorn",
@@ -1002,6 +1202,8 @@ export default [
     {
         "id": 101,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 73,
         "de": "Horn des Drachzorn",
@@ -1012,6 +1214,8 @@ export default [
     {
         "id": 102,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 73,
         "de": "Horn des Drachzorn",
@@ -1022,6 +1226,8 @@ export default [
     {
         "id": 103,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 73,
         "de": "Horn des Drachzorn",
@@ -1032,6 +1238,8 @@ export default [
     {
         "id": 104,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 73,
         "de": "Horn des Drachzorn",
@@ -1042,6 +1250,8 @@ export default [
     {
         "id": 105,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 74,
         "de": "Horn des Drachzorn",
@@ -1052,6 +1262,8 @@ export default [
     {
         "id": 106,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 74,
         "de": "Horn des Drachzorn",
@@ -1062,6 +1274,8 @@ export default [
     {
         "id": 107,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 75,
         "de": "Horn des Drachzorn",
@@ -1072,6 +1286,8 @@ export default [
     {
         "id": 108,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 75,
         "de": "Horn des Drachzorn",
@@ -1082,6 +1298,8 @@ export default [
     {
         "id": 109,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 75,
         "de": "Horn des Drachzorn",
@@ -1092,6 +1310,8 @@ export default [
     {
         "id": 110,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 77,
         "de": "Horn des Drachzorn",
@@ -1102,6 +1322,8 @@ export default [
     {
         "id": 111,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 77,
         "de": "Horn des Drachzorn",
@@ -1112,6 +1334,8 @@ export default [
     {
         "id": 112,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 77,
         "de": "Horn des Drachzorn",
@@ -1122,6 +1346,8 @@ export default [
     {
         "id": 113,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 78,
         "de": "Horn des Drachzorn",
@@ -1132,6 +1358,8 @@ export default [
     {
         "id": 114,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 78,
         "de": "Horn des Drachzorn",
@@ -1142,6 +1370,8 @@ export default [
     {
         "id": 115,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 78,
         "de": "Horn des Drachzorn",
@@ -1152,6 +1382,8 @@ export default [
     {
         "id": 116,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 79,
         "de": "Horn des Drachzorn",
@@ -1162,6 +1394,8 @@ export default [
     {
         "id": 117,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 79,
         "de": "Horn des Drachzorn",
@@ -1172,6 +1406,8 @@ export default [
     {
         "id": 118,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 80,
         "de": "Horn des Drachzorn",
@@ -1182,6 +1418,8 @@ export default [
     {
         "id": 119,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 93,
         "de": "Horn des Drachzorn",
@@ -1192,6 +1430,8 @@ export default [
     {
         "id": 120,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 93,
         "de": "Horn des Drachzorn",
@@ -1202,6 +1442,8 @@ export default [
     {
         "id": 121,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 93,
         "de": "Horn des Drachzorn",
@@ -1212,6 +1454,8 @@ export default [
     {
         "id": 122,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 94,
         "de": "Horn des Drachzorn",
@@ -1222,6 +1466,8 @@ export default [
     {
         "id": 123,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 94,
         "de": "Horn des Drachzorn",
@@ -1232,6 +1478,8 @@ export default [
     {
         "id": 124,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 95,
         "de": "Horn des Drachzorn",
@@ -1242,6 +1490,8 @@ export default [
     {
         "id": 125,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 95,
         "de": "Horn des Drachzorn",
@@ -1252,6 +1502,8 @@ export default [
     {
         "id": 126,
         "item_id": 8361,
+        "level": 120,
+        "iconId": 47650,
         "amountBought": 1,
         "price": 98,
         "de": "Horn des Drachzorn",
@@ -1262,6 +1514,8 @@ export default [
     {
         "id": 127,
         "item_id": 842,
+        "level": 70,
+        "iconId": 111202,
         "amountBought": 10,
         "price": 184,
         "de": "Schale eines Lehm-Dracheis",
@@ -1272,6 +1526,8 @@ export default [
     {
         "id": 128,
         "item_id": 842,
+        "level": 70,
+        "iconId": 111202,
         "amountBought": 1,
         "price": 14,
         "de": "Schale eines Lehm-Dracheis",
@@ -1282,6 +1538,8 @@ export default [
     {
         "id": 129,
         "item_id": 842,
+        "level": 70,
+        "iconId": 111202,
         "amountBought": 1,
         "price": 14,
         "de": "Schale eines Lehm-Dracheis",
@@ -1292,6 +1550,8 @@ export default [
     {
         "id": 130,
         "item_id": 21271,
+        "level": 70,
+        "iconId": 54714,
         "amountBought": 1,
         "price": 2189,
         "de": "Draegnerys' Haare",
@@ -1302,6 +1562,8 @@ export default [
     {
         "id": 131,
         "item_id": 21271,
+        "level": 70,
+        "iconId": 54714,
         "amountBought": 1,
         "price": 2190,
         "de": "Draegnerys' Haare",
@@ -1312,6 +1574,8 @@ export default [
     {
         "id": 132,
         "item_id": 21271,
+        "level": 70,
+        "iconId": 54714,
         "amountBought": 1,
         "price": 2191,
         "de": "Draegnerys' Haare",
@@ -1322,6 +1586,8 @@ export default [
     {
         "id": 133,
         "item_id": 21271,
+        "level": 70,
+        "iconId": 54714,
         "amountBought": 1,
         "price": 2192,
         "de": "Draegnerys' Haare",
@@ -1332,6 +1598,8 @@ export default [
     {
         "id": 134,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 10,
         "price": 539,
         "de": "Schale eines Schiefer-Dracheis",
@@ -1342,6 +1610,8 @@ export default [
     {
         "id": 135,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 10,
         "price": 320,
         "de": "Schale eines Kalk-Dracheis",
@@ -1352,6 +1622,8 @@ export default [
     {
         "id": 136,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 38,
         "de": "Schale eines Kalk-Dracheis",
@@ -1362,6 +1634,8 @@ export default [
     {
         "id": 137,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 39,
         "de": "Schale eines Kalk-Dracheis",
@@ -1372,6 +1646,8 @@ export default [
     {
         "id": 138,
         "item_id": 21263,
+        "level": 70,
+        "iconId": 59675,
         "amountBought": 10,
         "price": 97,
         "de": "Haut des Alabaster-Dracheis",
@@ -1382,6 +1658,8 @@ export default [
     {
         "id": 139,
         "item_id": 21263,
+        "level": 70,
+        "iconId": 59675,
         "amountBought": 1,
         "price": 18,
         "de": "Haut des Alabaster-Dracheis",
@@ -1392,6 +1670,8 @@ export default [
     {
         "id": 140,
         "item_id": 21263,
+        "level": 70,
+        "iconId": 59675,
         "amountBought": 1,
         "price": 18,
         "de": "Haut des Alabaster-Dracheis",
@@ -1402,6 +1682,8 @@ export default [
     {
         "id": 141,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 10,
         "price": 641,
         "de": "Schale eines Kohle-Dracheis",
@@ -1412,6 +1694,8 @@ export default [
     {
         "id": 142,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 60,
         "de": "Schale eines Kohle-Dracheis",
@@ -1422,6 +1706,8 @@ export default [
     {
         "id": 143,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 60,
         "de": "Schale eines Kohle-Dracheis",
@@ -1432,6 +1718,8 @@ export default [
     {
         "id": 144,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 775,
         "de": "Ei eines Kohle-Dracheis",
@@ -1442,6 +1730,8 @@ export default [
     {
         "id": 145,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 776,
         "de": "Ei eines Kohle-Dracheis",
@@ -1452,6 +1742,8 @@ export default [
     {
         "id": 146,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 777,
         "de": "Ei eines Kohle-Dracheis",
@@ -1462,6 +1754,8 @@ export default [
     {
         "id": 147,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 791,
         "de": "Ei eines Kohle-Dracheis",
@@ -1472,6 +1766,8 @@ export default [
     {
         "id": 148,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 792,
         "de": "Ei eines Kohle-Dracheis",
@@ -1482,6 +1778,8 @@ export default [
     {
         "id": 149,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 793,
         "de": "Ei eines Kohle-Dracheis",
@@ -1492,6 +1790,8 @@ export default [
     {
         "id": 150,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 794,
         "de": "Ei eines Kohle-Dracheis",
@@ -1502,6 +1802,8 @@ export default [
     {
         "id": 151,
         "item_id": 846,
+        "level": 74,
+        "iconId": 105206,
         "amountBought": 1,
         "price": 794,
         "de": "Ei eines Kohle-Dracheis",
@@ -1512,6 +1814,8 @@ export default [
     {
         "id": 152,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 10,
         "price": 642,
         "de": "Schale eines Kohle-Dracheis",
@@ -1522,6 +1826,8 @@ export default [
     {
         "id": 153,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 61,
         "de": "Schale eines Kohle-Dracheis",
@@ -1532,6 +1838,8 @@ export default [
     {
         "id": 154,
         "item_id": 843,
+        "level": 70,
+        "iconId": 111203,
         "amountBought": 1,
         "price": 61,
         "de": "Schale eines Kohle-Dracheis",
@@ -1542,6 +1850,8 @@ export default [
     {
         "id": 155,
         "item_id": 21264,
+        "level": 70,
+        "iconId": 55739,
         "amountBought": 1,
         "price": 99,
         "de": "Draegnerys' Stoffstück",
@@ -1552,6 +1862,8 @@ export default [
     {
         "id": 156,
         "item_id": 842,
+        "level": 70,
+        "iconId": 111202,
         "amountBought": 10,
         "price": 185,
         "de": "Schale eines Lehm-Dracheis",
@@ -1562,6 +1874,8 @@ export default [
     {
         "id": 157,
         "item_id": 842,
+        "level": 70,
+        "iconId": 111202,
         "amountBought": 1,
         "price": 14,
         "de": "Schale eines Lehm-Dracheis",
@@ -1572,6 +1886,8 @@ export default [
     {
         "id": 158,
         "item_id": 842,
+        "level": 70,
+        "iconId": 111202,
         "amountBought": 1,
         "price": 14,
         "de": "Schale eines Lehm-Dracheis",
@@ -1582,6 +1898,8 @@ export default [
     {
         "id": 159,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1243,
         "de": "Ei eines Lehm-Dracheis",
@@ -1592,6 +1910,8 @@ export default [
     {
         "id": 160,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1243,
         "de": "Ei eines Lehm-Dracheis",
@@ -1602,6 +1922,8 @@ export default [
     {
         "id": 161,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1243,
         "de": "Ei eines Lehm-Dracheis",
@@ -1612,6 +1934,8 @@ export default [
     {
         "id": 162,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1244,
         "de": "Ei eines Lehm-Dracheis",
@@ -1622,6 +1946,8 @@ export default [
     {
         "id": 163,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1268,
         "de": "Ei eines Lehm-Dracheis",
@@ -1632,6 +1958,8 @@ export default [
     {
         "id": 164,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1268,
         "de": "Ei eines Lehm-Dracheis",
@@ -1642,6 +1970,8 @@ export default [
     {
         "id": 165,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1268,
         "de": "Ei eines Lehm-Dracheis",
@@ -1652,6 +1982,8 @@ export default [
     {
         "id": 166,
         "item_id": 845,
+        "level": 74,
+        "iconId": 105205,
         "amountBought": 1,
         "price": 1268,
         "de": "Ei eines Lehm-Dracheis",
@@ -1662,6 +1994,8 @@ export default [
     {
         "id": 167,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 10,
         "price": 540,
         "de": "Schale eines Schiefer-Dracheis",
@@ -1672,6 +2006,8 @@ export default [
     {
         "id": 168,
         "item_id": 1129,
+        "level": 70,
+        "iconId": 111211,
         "amountBought": 10,
         "price": 541,
         "de": "Schale eines Schiefer-Dracheis",
@@ -1682,6 +2018,8 @@ export default [
     {
         "id": 169,
         "item_id": 21256,
+        "level": 70,
+        "iconId": 47701,
         "amountBought": 1,
         "price": 4190,
         "de": "Klaue des Alabaster-Dracheis",
@@ -1692,6 +2030,8 @@ export default [
     {
         "id": 170,
         "item_id": 21256,
+        "level": 70,
+        "iconId": 47701,
         "amountBought": 1,
         "price": 4190,
         "de": "Klaue des Alabaster-Dracheis",
@@ -1702,6 +2042,8 @@ export default [
     {
         "id": 171,
         "item_id": 748,
+        "level": 60,
+        "iconId": 40659,
         "amountBought": 1,
         "price": 2988,
         "de": "Magnesit",
@@ -1712,6 +2054,8 @@ export default [
     {
         "id": 172,
         "item_id": 748,
+        "level": 60,
+        "iconId": 40659,
         "amountBought": 1,
         "price": 2988,
         "de": "Magnesit",
@@ -1722,6 +2066,8 @@ export default [
     {
         "id": 173,
         "item_id": 748,
+        "level": 60,
+        "iconId": 40659,
         "amountBought": 1,
         "price": 2988,
         "de": "Magnesit",
@@ -1732,6 +2078,8 @@ export default [
     {
         "id": 174,
         "item_id": 748,
+        "level": 60,
+        "iconId": 40659,
         "amountBought": 1,
         "price": 2988,
         "de": "Magnesit",
@@ -1742,6 +2090,8 @@ export default [
     {
         "id": 175,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 10,
         "price": 320,
         "de": "Schale eines Kalk-Dracheis",
@@ -1752,6 +2102,8 @@ export default [
     {
         "id": 176,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 38,
         "de": "Schale eines Kalk-Dracheis",
@@ -1762,6 +2114,8 @@ export default [
     {
         "id": 177,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 38,
         "de": "Schale eines Kalk-Dracheis",
@@ -1772,6 +2126,8 @@ export default [
     {
         "id": 178,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 38,
         "de": "Schale eines Kalk-Dracheis",
@@ -1782,6 +2138,8 @@ export default [
     {
         "id": 179,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 39,
         "de": "Schale eines Kalk-Dracheis",
@@ -1792,6 +2150,8 @@ export default [
     {
         "id": 180,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 39,
         "de": "Schale eines Kalk-Dracheis",
@@ -1802,6 +2162,8 @@ export default [
     {
         "id": 181,
         "item_id": 308,
+        "level": 70,
+        "iconId": 111021,
         "amountBought": 1,
         "price": 40,
         "de": "Schale eines Kalk-Dracheis",
@@ -1812,6 +2174,8 @@ export default [
     {
         "id": 182,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 110,
         "de": "Ei eines Kalk-Dracheis",
@@ -1822,6 +2186,8 @@ export default [
     {
         "id": 183,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 111,
         "de": "Ei eines Kalk-Dracheis",
@@ -1832,6 +2198,8 @@ export default [
     {
         "id": 184,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 111,
         "de": "Ei eines Kalk-Dracheis",
@@ -1842,6 +2210,8 @@ export default [
     {
         "id": 185,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 112,
         "de": "Ei eines Kalk-Dracheis",
@@ -1852,6 +2222,8 @@ export default [
     {
         "id": 186,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 112,
         "de": "Ei eines Kalk-Dracheis",
@@ -1862,6 +2234,8 @@ export default [
     {
         "id": 187,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 113,
         "de": "Ei eines Kalk-Dracheis",
@@ -1872,6 +2246,8 @@ export default [
     {
         "id": 188,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 114,
         "de": "Ei eines Kalk-Dracheis",
@@ -1882,6 +2258,8 @@ export default [
     {
         "id": 189,
         "item_id": 847,
+        "level": 74,
+        "iconId": 105648,
         "amountBought": 1,
         "price": 114,
         "de": "Ei eines Kalk-Dracheis",
@@ -1892,6 +2270,8 @@ export default [
     {
         "id": 190,
         "item_id": 2540,
+        "level": 60,
+        "iconId": 26017,
         "amountBought": 1,
         "price": 3178,
         "de": "Hochwald-Extrakt",
@@ -1902,6 +2282,8 @@ export default [
     {
         "id": 191,
         "item_id": 2540,
+        "level": 60,
+        "iconId": 26017,
         "amountBought": 1,
         "price": 3178,
         "de": "Hochwald-Extrakt",
@@ -1912,6 +2294,8 @@ export default [
     {
         "id": 192,
         "item_id": 2540,
+        "level": 60,
+        "iconId": 26017,
         "amountBought": 1,
         "price": 3178,
         "de": "Hochwald-Extrakt",
@@ -1922,6 +2306,8 @@ export default [
     {
         "id": 193,
         "item_id": 2540,
+        "level": 60,
+        "iconId": 26017,
         "amountBought": 1,
         "price": 3178,
         "de": "Hochwald-Extrakt",
@@ -1932,6 +2318,8 @@ export default [
     {
         "id": 194,
         "item_id": 844,
+        "level": 74,
+        "iconId": 105204,
         "amountBought": 1,
         "price": 432,
         "de": "Ei eines Schiefer-Dracheis",
@@ -1942,6 +2330,8 @@ export default [
     {
         "id": 195,
         "item_id": 844,
+        "level": 74,
+        "iconId": 105204,
         "amountBought": 1,
         "price": 432,
         "de": "Ei eines Schiefer-Dracheis",

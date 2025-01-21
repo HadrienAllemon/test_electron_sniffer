@@ -5,7 +5,7 @@ import { ItemsBought } from './components/pages/ItemsBought'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <div style={{height:"100%"}}>
-        {/* <ItemsBought/> */}
-        <ButtonTest />
+        <ItemsBought/>
+        {/* <ButtonTest /> */}
     </div>
 )

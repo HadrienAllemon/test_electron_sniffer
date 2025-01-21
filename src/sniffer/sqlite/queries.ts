@@ -41,7 +41,20 @@ export const addTax = (taxes: tax[]) => {
 
 export const getItemsBought = () => {
     if (!db) return;
-    const select = db.prepare("select itemsBought.id, item_id, amountBought, price, de,en,fr,es from itemsBought left join itemNames on itemsBought.item_id = itemNames.itemId")
+    const select = db.prepare(`
+        select 
+            itemsBought.id, 
+            item_id, 
+            level, 
+            iconId, 
+            amountBought, 
+            price, 
+            de,en,fr,es 
+        from itemsBought 
+            left join itemNames
+            on itemsBought.item_id = itemNames.itemId
+            left join items 
+            on itemsBought.item_id = items.id`)
     const rows = select.all();
     return rows;
 }
