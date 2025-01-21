@@ -5,6 +5,8 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 import sniff from "./sniffer"
+import { getItemsBought } from './sniffer/sqlite/queries';
+import { ensureDB } from './sniffer/sqlite/ensureDatabase';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -14,8 +16,8 @@ if (require('electron-squirrel-startup')) {
 const createWindow = (): void => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    height: 600,
-    width: 800,
+    height: 1080,
+    width: 1920,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -57,6 +59,13 @@ ipcMain.handle('start-sniffing', async () => {
   // Configure cap as needed and return results
   return test;
 });
+ipcMain.handle('getItemsBought', async () => {
+  console.log("INVOKING getItemsBought")
+  const rows = getItemsBought()
+  console.log(rows);
+  return rows;
+});
+ensureDB()
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.

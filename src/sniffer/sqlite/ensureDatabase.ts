@@ -1,76 +1,45 @@
-import sqlite3 from "sqlite3";
+import Sq3Database from "better-sqlite3";
+
 import fs from "node:fs"
 
-let db: sqlite3.Database = new sqlite3.Database('./db/itemsHistory.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
-    if (err && err.message == "SQLITE_CANTOPEN") {
-        createDatabase();
-        return;
-    } else if (err) {
-        console.log("Getting error " + err);
-    }
-    createTables(db)
-    addItemsIdToDb()
-    // runQueries(db);
-});
+let db = new Sq3Database('./db/itemsHistory.db');
 export const ensureDB = () => {
-    db = new sqlite3.Database('./itemsHistory.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
-        if (err && err.message == "SQLITE_CANTOPEN") {
-            createDatabase();
-            return;
-        } else if (err) {
-            console.log("Getting error " + err);
-        }
-        // runQueries(db);
-    });
+    createDatabase();
 }
 
 const createDatabase = () => {
-    var db = new sqlite3.Database('db/itemsHistory.db', (err) => {
-        if (err) {
-            console.log("Getting error " + err);
-            return (1);
-        }
-        console.log("CREATING TABLE");
-        createTables(db);
-    });
+    var db = new Sq3Database('./db/itemsHistory.db');
+    createTables(db);
     console.log("DATABASE CREATED")
 
 }
 
-function createTables(db: sqlite3.Database) {
+function createTables(db: Sq3Database.Database) {
     db.exec(`
     CREATE TABLE IF NOT EXISTS itemsSold (
         id INTEGER PRIMARY KEY ,
         item_id int not null,
         amountSold int not null,
         profit int not null
-    )`, err => {
-        if (err) console.log(err)
-    });
+    )`);
     db.exec(`
         CREATE TABLE IF NOT EXISTS itemsBought (
             id INTEGER PRIMARY KEY ,
             item_id int not null,
             amountBought int not null,
             price int not null
-        )`, err => {
-            if (err) console.log(err)
-        });
+        )`);
     db.exec(`
     CREATE TABLE IF NOT EXISTS taxes (
         id INTEGER PRIMARY KEY ,
         tax_nature int not null,
         value int not null
-    )`, err => {
-        if (err) console.log(err)
-    });
+    )`);
     db.exec(`
         CREATE TABLE IF NOT EXISTS items (
             id INTEGER PRIMARY KEY ,
             typeId integer not null
-        )`, err => {
-        if (err) console.log(err)
-    });
+        )`);
     db.exec(`
         CREATE TABLE IF NOT EXISTS itemDescriptions (
             id INTEGER PRIMARY KEY ,
@@ -80,9 +49,7 @@ function createTables(db: sqlite3.Database) {
             en text,
             fr text,
             es text
-        )`, err => {
-        if (err) console.log(err)
-    });
+        )`);
     db.exec(`
         CREATE TABLE IF NOT EXISTS itemNames (
             id INTEGER PRIMARY KEY ,
@@ -92,9 +59,7 @@ function createTables(db: sqlite3.Database) {
             en text,
             fr text,
             es text
-        )`, err => {
-        if (err) console.log(err)
-    });
+        )`);
 
     db.exec(`
         CREATE INDEX IF NOT EXISTS idx_item_id ON items(id);
@@ -119,7 +84,7 @@ const addItemsIdToDb = (index = 0) => {
                 insertName.run(items[i].name.id, items[i].id, items[i].name.pt, items[i].name.de, items[i].name.en, items[i].name.fr, items[i].name.es)
             }
         })
-        addItemsIdToDb(index+1)
+        addItemsIdToDb(index + 1)
     } else {
         console.log("no such file ", `./items/items${index}.json`)
         return

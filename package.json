@@ -26,11 +26,12 @@
     "@electron-forge/plugin-fuses": "^7.6.0",
     "@electron-forge/plugin-webpack": "^7.6.0",
     "@electron/fuses": "^1.8.0",
+    "@types/better-sqlite3": "^7.6.12",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "@vercel/webpack-asset-relocator-loader": "^1.7.3",
+    "@vercel/webpack-asset-relocator-loader": "1.7.3",
     "css-loader": "^6.11.0",
     "electron": "32.2.0",
     "eslint": "^8.57.1",
@@ -49,12 +50,13 @@
   },
   "license": "MIT",
   "dependencies": {
+    "ag-grid-react": "^33.0.4",
+    "better-sqlite3": "^11.8.1",
     "cap": "^0.2.1",
     "chalk": "^5.4.1",
     "electron-squirrel-startup": "^1.0.1",
     "protobufjs": "^7.4.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "sqlite3": "^5.1.7"
+    "react-dom": "^19.0.0"
   }
 }
