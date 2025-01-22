@@ -60,10 +60,17 @@ export const ItemTable = () => {
 
   // Column Definitions: Defines the columns to be displayed.
   const [colDefs, setColDefs] = useState<ColDef<any>[]>([
-    { field: "", headerName:"", flex:.2,cellClass:"cellImg", cellRenderer:(item:any)=><div className="tableImg" style={{backgroundImage:`url("https://api.dofusdb.fr/img/items/${item.data.iconId}.png")`}} /> },
-    { field: "fr", headerName:"Nom", flex:3 },
-    { field: "price" , headerName:"Prix", flex:3},
-    { field: "amountBought" , headerName:"Nombre Vendu", flex:3},
+    {
+      field: "",
+      sortable: false,
+      headerName: "",
+      flex: .2,
+      cellClass: "cellImg",
+      cellRenderer: (item: any) => <div className="tableImg" style={{ backgroundImage: `url("https://api.dofusdb.fr/img/items/${item.data.iconId}.png")` }} />
+    },
+    { field: "fr", headerName: "Nom", flex: 3 },
+    { field: "price", headerName: "Prix", flex: 3 },
+    { field: "amountBought", headerName: "Nombre Vendu", flex: 3 },
   ]);
 
   return (
