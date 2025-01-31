@@ -49,7 +49,8 @@ export const getItemsBought = () => {
             iconId, 
             amountBought, 
             price, 
-            de,en,fr,es 
+            de,en,fr,es,
+            created_at
         from itemsBought 
             left join itemNames
             on itemsBought.item_id = itemNames.itemId

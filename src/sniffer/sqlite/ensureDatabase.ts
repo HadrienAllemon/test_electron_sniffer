@@ -21,26 +21,29 @@ function createTables(db: Sq3Database.Database, resolve:(value:any)=>void) {
         id INTEGER PRIMARY KEY ,
         item_id int not null,
         amountSold int not null,
-        profit int not null
+        profit int not null,
+        created_at datetime not null
     )`);
     db.exec(`
         CREATE TABLE IF NOT EXISTS itemsBought (
             id INTEGER PRIMARY KEY ,
             item_id int not null,
             amountBought int not null,
-            price int not null
+            price int not null,
+            created_at datetime not null
         )`);
     db.exec(`
     CREATE TABLE IF NOT EXISTS taxes (
         id INTEGER PRIMARY KEY ,
         tax_nature int not null,
-        value int not null
+        value int not null,
+        created_at datetime not null
     )`);
     db.exec(`
         CREATE TABLE IF NOT EXISTS items (
             id INTEGER PRIMARY KEY ,
             typeId integer not null , 
-            level integer , 
+            level integer, 
             iconId integer
         )`);
     db.exec(`

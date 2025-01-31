@@ -43,12 +43,17 @@
 // }
 import { AgGridReact } from 'ag-grid-react'; // React Data Grid Component
 
-import { AllCommunityModule, ColDef, ModuleRegistry } from 'ag-grid-community';
+import { AllCommunityModule, ColDef, IRowNode, ModuleRegistry } from 'ag-grid-community';
 import { useState } from 'react';
-import dummyData from './dummyData';
+import {dummyData} from './dummyData';
 
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
+
+const sortDate = (valueA: any, valueB: any) =>{
+  // @ts-ignore
+  return new Date(valueA) - new Date(valueB);
+}
 
 export const ItemTable = () => {
   // Row Data: The data to be displayed.
@@ -59,6 +64,7 @@ export const ItemTable = () => {
   // ]);
 
   // Column Definitions: Defines the columns to be displayed.
+  var DateOptions:Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric', hour:"numeric", minute:"numeric" };
   const [colDefs, setColDefs] = useState<ColDef<any>[]>([
     {
       field: "",
@@ -71,6 +77,7 @@ export const ItemTable = () => {
     { field: "fr", headerName: "Nom", flex: 3 },
     { field: "price", headerName: "Prix", flex: 3 },
     { field: "amountBought", headerName: "Nombre Vendu", flex: 3 },
+    { field:"created_at", headerName:"Date", flex:3, cellRenderer:(item:any)=> <div>{new Date(item.data.created_at).toLocaleDateString("fr-fr",DateOptions)}</div>, comparator:sortDate }
   ]);
 
   return (

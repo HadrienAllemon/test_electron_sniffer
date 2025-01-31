@@ -1,4 +1,4 @@
-export default [
+export const dummyData = [
     {
         "id": 1,
         "item_id": 2540,
@@ -9,7 +9,8 @@ export default [
         "de": "Hochwald-Extrakt",
         "en": "Timber Substrate",
         "fr": "Substrat de Futaie",
-        "es": "Concentrado de oquedal"
+        "es": "Concentrado de oquedal",
+        "created_at": "2025-01-31 16:55:57"
     },
     {
         "id": 2,
@@ -21,7 +22,8 @@ export default [
         "de": "Hochwald-Extrakt",
         "en": "Timber Substrate",
         "fr": "Substrat de Futaie",
-        "es": "Concentrado de oquedal"
+        "es": "Concentrado de oquedal",
+        "created_at": "2025-01-31 16:55:57"
     },
     {
         "id": 3,
@@ -33,7 +35,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:55:57"
     },
     {
         "id": 4,
@@ -45,7 +48,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:55:57"
     },
     {
         "id": 5,
@@ -57,7 +61,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:55:57"
     },
     {
         "id": 6,
@@ -69,7 +74,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 7,
@@ -81,7 +87,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 8,
@@ -93,7 +100,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 9,
@@ -105,7 +113,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 10,
@@ -117,7 +126,8 @@ export default [
         "de": "Ei eines Schiefer-Dracheis",
         "en": "Slate Dreggon Egg",
         "fr": "Œuf de Dragoeuf Ardoise",
-        "es": "Huevo de dragohuevo pizarroso"
+        "es": "Huevo de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 11,
@@ -129,7 +139,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 12,
@@ -141,7 +152,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 13,
@@ -153,7 +165,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 14,
@@ -165,7 +178,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 15,
@@ -177,7 +191,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 16,
@@ -189,7 +204,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 17,
@@ -201,7 +217,8 @@ export default [
         "de": "Draegnerys' Haare",
         "en": "Draegnerys's Hair",
         "fr": "Cheveux de Draegnerys",
-        "es": "Pelo de Dragenerys"
+        "es": "Pelo de Dragenerys",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 18,
@@ -213,7 +230,8 @@ export default [
         "de": "Haut des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Skin",
         "fr": "Peau de Dragoeuf Albâtre",
-        "es": "Piel de dragohuevo alabastrado"
+        "es": "Piel de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 19,
@@ -225,7 +243,8 @@ export default [
         "de": "Haut des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Skin",
         "fr": "Peau de Dragoeuf Albâtre",
-        "es": "Piel de dragohuevo alabastrado"
+        "es": "Piel de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 20,
@@ -237,7 +256,8 @@ export default [
         "de": "Haut des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Skin",
         "fr": "Peau de Dragoeuf Albâtre",
-        "es": "Piel de dragohuevo alabastrado"
+        "es": "Piel de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 21,
@@ -249,7 +269,8 @@ export default [
         "de": "Haut des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Skin",
         "fr": "Peau de Dragoeuf Albâtre",
-        "es": "Piel de dragohuevo alabastrado"
+        "es": "Piel de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 22,
@@ -261,7 +282,8 @@ export default [
         "de": "Haut des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Skin",
         "fr": "Peau de Dragoeuf Albâtre",
-        "es": "Piel de dragohuevo alabastrado"
+        "es": "Piel de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 23,
@@ -273,7 +295,8 @@ export default [
         "de": "Haut des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Skin",
         "fr": "Peau de Dragoeuf Albâtre",
-        "es": "Piel de dragohuevo alabastrado"
+        "es": "Piel de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 24,
@@ -285,7 +308,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 25,
@@ -297,7 +321,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 26,
@@ -309,7 +334,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 27,
@@ -321,7 +347,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 28,
@@ -333,7 +360,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 29,
@@ -345,7 +373,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 30,
@@ -357,7 +386,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 31,
@@ -369,7 +399,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 32,
@@ -381,7 +412,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 33,
@@ -393,7 +425,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 34,
@@ -405,7 +438,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 35,
@@ -417,7 +451,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 36,
@@ -429,7 +464,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 37,
@@ -441,7 +477,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 38,
@@ -453,7 +490,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 39,
@@ -465,7 +503,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 40,
@@ -477,7 +516,8 @@ export default [
         "de": "Draegnerys' Stoffstück",
         "en": "Draegnerys's Cloth",
         "fr": "Étoffe de Draegnerys",
-        "es": "Tejido de Dragenerys"
+        "es": "Tejido de Dragenerys",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 41,
@@ -489,7 +529,8 @@ export default [
         "de": "Draegnerys' Stoffstück",
         "en": "Draegnerys's Cloth",
         "fr": "Étoffe de Draegnerys",
-        "es": "Tejido de Dragenerys"
+        "es": "Tejido de Dragenerys",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 42,
@@ -501,7 +542,8 @@ export default [
         "de": "Schale eines Lehm-Dracheis",
         "en": "Clay Dreggon Shell",
         "fr": "Coquille de Dragoeuf Argile",
-        "es": "Cáscara de dragohuevo arcilloso"
+        "es": "Cáscara de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 43,
@@ -513,7 +555,8 @@ export default [
         "de": "Schale eines Lehm-Dracheis",
         "en": "Clay Dreggon Shell",
         "fr": "Coquille de Dragoeuf Argile",
-        "es": "Cáscara de dragohuevo arcilloso"
+        "es": "Cáscara de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 44,
@@ -525,7 +568,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 45,
@@ -537,7 +581,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 46,
@@ -549,7 +594,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 47,
@@ -561,7 +607,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 48,
@@ -573,7 +620,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 49,
@@ -585,7 +633,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 50,
@@ -597,7 +646,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 51,
@@ -609,7 +659,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 52,
@@ -621,7 +672,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 53,
@@ -633,7 +685,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 54,
@@ -645,7 +698,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 55,
@@ -657,7 +711,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 56,
@@ -669,7 +724,8 @@ export default [
         "de": "Klaue des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Claw",
         "fr": "Griffe de Dragoeuf Albâtre",
-        "es": "Garra de dragohuevo alabastrado"
+        "es": "Garra de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 57,
@@ -681,7 +737,8 @@ export default [
         "de": "Magnesit",
         "en": "Magnesite",
         "fr": "Magnésite",
-        "es": "Magnesita"
+        "es": "Magnesita",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 58,
@@ -693,7 +750,8 @@ export default [
         "de": "Magnesit",
         "en": "Magnesite",
         "fr": "Magnésite",
-        "es": "Magnesita"
+        "es": "Magnesita",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 59,
@@ -705,7 +763,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 60,
@@ -717,7 +776,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 61,
@@ -729,7 +789,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 62,
@@ -741,7 +802,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 63,
@@ -753,7 +815,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 64,
@@ -765,7 +828,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 65,
@@ -777,7 +841,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 66,
@@ -789,7 +854,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 67,
@@ -801,7 +867,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 68,
@@ -813,7 +880,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 69,
@@ -825,7 +893,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 70,
@@ -837,7 +906,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 71,
@@ -849,7 +919,8 @@ export default [
         "de": "Crocabulia-Haut",
         "en": "Crocabulia Skin",
         "fr": "Peau de Crocabulia",
-        "es": "Piel de Cocabulia"
+        "es": "Piel de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 72,
@@ -861,7 +932,8 @@ export default [
         "de": "Crocabulia-Haut",
         "en": "Crocabulia Skin",
         "fr": "Peau de Crocabulia",
-        "es": "Piel de Cocabulia"
+        "es": "Piel de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 73,
@@ -873,7 +945,8 @@ export default [
         "de": "Crocabulia-Haut",
         "en": "Crocabulia Skin",
         "fr": "Peau de Crocabulia",
-        "es": "Piel de Cocabulia"
+        "es": "Piel de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 74,
@@ -885,7 +958,8 @@ export default [
         "de": "Crocabulia-Haut",
         "en": "Crocabulia Skin",
         "fr": "Peau de Crocabulia",
-        "es": "Piel de Cocabulia"
+        "es": "Piel de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 75,
@@ -897,7 +971,8 @@ export default [
         "de": "Crocabulia-Haut",
         "en": "Crocabulia Skin",
         "fr": "Peau de Crocabulia",
-        "es": "Piel de Cocabulia"
+        "es": "Piel de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 76,
@@ -909,7 +984,8 @@ export default [
         "de": "Crocabulia-Haut",
         "en": "Crocabulia Skin",
         "fr": "Peau de Crocabulia",
-        "es": "Piel de Cocabulia"
+        "es": "Piel de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 77,
@@ -921,7 +997,8 @@ export default [
         "de": "Crocabulia-Haut",
         "en": "Crocabulia Skin",
         "fr": "Peau de Crocabulia",
-        "es": "Piel de Cocabulia"
+        "es": "Piel de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 78,
@@ -933,7 +1010,8 @@ export default [
         "de": "Crocabulia-Haut",
         "en": "Crocabulia Skin",
         "fr": "Peau de Crocabulia",
-        "es": "Piel de Cocabulia"
+        "es": "Piel de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 79,
@@ -945,7 +1023,8 @@ export default [
         "de": "Crocabulia-Haut",
         "en": "Crocabulia Skin",
         "fr": "Peau de Crocabulia",
-        "es": "Piel de Cocabulia"
+        "es": "Piel de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 80,
@@ -957,7 +1036,8 @@ export default [
         "de": "Crocabulia-Haut",
         "en": "Crocabulia Skin",
         "fr": "Peau de Crocabulia",
-        "es": "Piel de Cocabulia"
+        "es": "Piel de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 81,
@@ -969,7 +1049,8 @@ export default [
         "de": "Geborstenes Crocabulia-Horn",
         "en": "Crocabulia's Broken Horn",
         "fr": "Corne brisée de Crocabulia",
-        "es": "Cuerno roto de Cocabulia"
+        "es": "Cuerno roto de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 82,
@@ -981,7 +1062,8 @@ export default [
         "de": "Geborstenes Crocabulia-Horn",
         "en": "Crocabulia's Broken Horn",
         "fr": "Corne brisée de Crocabulia",
-        "es": "Cuerno roto de Cocabulia"
+        "es": "Cuerno roto de Cocabulia",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 83,
@@ -993,7 +1075,8 @@ export default [
         "de": "Horn des Drachmatika",
         "en": "Dragmatic Horn",
         "fr": "Corne de Dragmatique",
-        "es": "Cuerno de dragmático"
+        "es": "Cuerno de dragmático",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 84,
@@ -1005,7 +1088,8 @@ export default [
         "de": "Horn des Drachmatika",
         "en": "Dragmatic Horn",
         "fr": "Corne de Dragmatique",
-        "es": "Cuerno de dragmático"
+        "es": "Cuerno de dragmático",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 85,
@@ -1017,7 +1101,8 @@ export default [
         "de": "Horn des Drachmatika",
         "en": "Dragmatic Horn",
         "fr": "Corne de Dragmatique",
-        "es": "Cuerno de dragmático"
+        "es": "Cuerno de dragmático",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 86,
@@ -1029,7 +1114,8 @@ export default [
         "de": "Horn des Drachmatika",
         "en": "Dragmatic Horn",
         "fr": "Corne de Dragmatique",
-        "es": "Cuerno de dragmático"
+        "es": "Cuerno de dragmático",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 87,
@@ -1041,7 +1127,8 @@ export default [
         "de": "Horn des Drachmatika",
         "en": "Dragmatic Horn",
         "fr": "Corne de Dragmatique",
-        "es": "Cuerno de dragmático"
+        "es": "Cuerno de dragmático",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 88,
@@ -1053,7 +1140,8 @@ export default [
         "de": "Horn des Drachmatika",
         "en": "Dragmatic Horn",
         "fr": "Corne de Dragmatique",
-        "es": "Cuerno de dragmático"
+        "es": "Cuerno de dragmático",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 89,
@@ -1065,7 +1153,8 @@ export default [
         "de": "Horn des Drachmatika",
         "en": "Dragmatic Horn",
         "fr": "Corne de Dragmatique",
-        "es": "Cuerno de dragmático"
+        "es": "Cuerno de dragmático",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 90,
@@ -1077,7 +1166,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 91,
@@ -1089,7 +1179,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 92,
@@ -1101,7 +1192,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 93,
@@ -1113,7 +1205,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 94,
@@ -1125,7 +1218,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 95,
@@ -1137,7 +1231,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 96,
@@ -1149,7 +1244,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 97,
@@ -1161,7 +1257,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 98,
@@ -1173,7 +1270,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 99,
@@ -1185,7 +1283,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 100,
@@ -1197,7 +1296,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 101,
@@ -1209,7 +1309,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 102,
@@ -1221,7 +1322,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 103,
@@ -1233,7 +1335,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 104,
@@ -1245,7 +1348,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 105,
@@ -1257,7 +1361,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 106,
@@ -1269,7 +1374,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 107,
@@ -1281,7 +1387,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 108,
@@ -1293,7 +1400,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 109,
@@ -1305,7 +1413,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 110,
@@ -1317,7 +1426,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 111,
@@ -1329,7 +1439,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 112,
@@ -1341,7 +1452,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 113,
@@ -1353,7 +1465,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 114,
@@ -1365,7 +1478,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 115,
@@ -1377,7 +1491,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 116,
@@ -1389,7 +1504,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 117,
@@ -1401,7 +1517,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 118,
@@ -1413,7 +1530,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 119,
@@ -1425,7 +1543,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 120,
@@ -1437,7 +1556,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 121,
@@ -1449,7 +1569,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 122,
@@ -1461,7 +1582,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 123,
@@ -1473,7 +1595,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 124,
@@ -1485,7 +1608,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 125,
@@ -1497,7 +1621,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 126,
@@ -1509,7 +1634,8 @@ export default [
         "de": "Horn des Drachzorn",
         "en": "Dragnnoyed Horn",
         "fr": "Corne de Dragacé",
-        "es": "Cuerno de draguirritado"
+        "es": "Cuerno de draguirritado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 127,
@@ -1521,7 +1647,8 @@ export default [
         "de": "Schale eines Lehm-Dracheis",
         "en": "Clay Dreggon Shell",
         "fr": "Coquille de Dragoeuf Argile",
-        "es": "Cáscara de dragohuevo arcilloso"
+        "es": "Cáscara de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 128,
@@ -1533,7 +1660,8 @@ export default [
         "de": "Schale eines Lehm-Dracheis",
         "en": "Clay Dreggon Shell",
         "fr": "Coquille de Dragoeuf Argile",
-        "es": "Cáscara de dragohuevo arcilloso"
+        "es": "Cáscara de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 129,
@@ -1545,7 +1673,8 @@ export default [
         "de": "Schale eines Lehm-Dracheis",
         "en": "Clay Dreggon Shell",
         "fr": "Coquille de Dragoeuf Argile",
-        "es": "Cáscara de dragohuevo arcilloso"
+        "es": "Cáscara de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 130,
@@ -1557,7 +1686,8 @@ export default [
         "de": "Draegnerys' Haare",
         "en": "Draegnerys's Hair",
         "fr": "Cheveux de Draegnerys",
-        "es": "Pelo de Dragenerys"
+        "es": "Pelo de Dragenerys",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 131,
@@ -1569,7 +1699,8 @@ export default [
         "de": "Draegnerys' Haare",
         "en": "Draegnerys's Hair",
         "fr": "Cheveux de Draegnerys",
-        "es": "Pelo de Dragenerys"
+        "es": "Pelo de Dragenerys",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 132,
@@ -1581,7 +1712,8 @@ export default [
         "de": "Draegnerys' Haare",
         "en": "Draegnerys's Hair",
         "fr": "Cheveux de Draegnerys",
-        "es": "Pelo de Dragenerys"
+        "es": "Pelo de Dragenerys",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 133,
@@ -1593,7 +1725,8 @@ export default [
         "de": "Draegnerys' Haare",
         "en": "Draegnerys's Hair",
         "fr": "Cheveux de Draegnerys",
-        "es": "Pelo de Dragenerys"
+        "es": "Pelo de Dragenerys",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 134,
@@ -1605,7 +1738,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 135,
@@ -1617,7 +1751,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 136,
@@ -1629,7 +1764,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 137,
@@ -1641,7 +1777,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 138,
@@ -1653,7 +1790,8 @@ export default [
         "de": "Haut des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Skin",
         "fr": "Peau de Dragoeuf Albâtre",
-        "es": "Piel de dragohuevo alabastrado"
+        "es": "Piel de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 139,
@@ -1665,7 +1803,8 @@ export default [
         "de": "Haut des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Skin",
         "fr": "Peau de Dragoeuf Albâtre",
-        "es": "Piel de dragohuevo alabastrado"
+        "es": "Piel de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 140,
@@ -1677,7 +1816,8 @@ export default [
         "de": "Haut des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Skin",
         "fr": "Peau de Dragoeuf Albâtre",
-        "es": "Piel de dragohuevo alabastrado"
+        "es": "Piel de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 141,
@@ -1689,7 +1829,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 142,
@@ -1701,7 +1842,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 143,
@@ -1713,7 +1855,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 144,
@@ -1725,7 +1868,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 145,
@@ -1737,7 +1881,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 146,
@@ -1749,7 +1894,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 147,
@@ -1761,7 +1907,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 148,
@@ -1773,7 +1920,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 149,
@@ -1785,7 +1933,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 150,
@@ -1797,7 +1946,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 151,
@@ -1809,7 +1959,8 @@ export default [
         "de": "Ei eines Kohle-Dracheis",
         "en": "Coal Dreggon Egg",
         "fr": "Œuf de Dragoeuf Charbon",
-        "es": "Huevo de dragohuevo carbonoso"
+        "es": "Huevo de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 152,
@@ -1821,7 +1972,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 153,
@@ -1833,7 +1985,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 154,
@@ -1845,7 +1998,8 @@ export default [
         "de": "Schale eines Kohle-Dracheis",
         "en": "Coal Dreggon Shell",
         "fr": "Coquille de Dragoeuf Charbon",
-        "es": "Cáscara de dragohuevo carbonoso"
+        "es": "Cáscara de dragohuevo carbonoso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 155,
@@ -1857,7 +2011,8 @@ export default [
         "de": "Draegnerys' Stoffstück",
         "en": "Draegnerys's Cloth",
         "fr": "Étoffe de Draegnerys",
-        "es": "Tejido de Dragenerys"
+        "es": "Tejido de Dragenerys",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 156,
@@ -1869,7 +2024,8 @@ export default [
         "de": "Schale eines Lehm-Dracheis",
         "en": "Clay Dreggon Shell",
         "fr": "Coquille de Dragoeuf Argile",
-        "es": "Cáscara de dragohuevo arcilloso"
+        "es": "Cáscara de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 157,
@@ -1881,7 +2037,8 @@ export default [
         "de": "Schale eines Lehm-Dracheis",
         "en": "Clay Dreggon Shell",
         "fr": "Coquille de Dragoeuf Argile",
-        "es": "Cáscara de dragohuevo arcilloso"
+        "es": "Cáscara de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 158,
@@ -1893,7 +2050,8 @@ export default [
         "de": "Schale eines Lehm-Dracheis",
         "en": "Clay Dreggon Shell",
         "fr": "Coquille de Dragoeuf Argile",
-        "es": "Cáscara de dragohuevo arcilloso"
+        "es": "Cáscara de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 159,
@@ -1905,7 +2063,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 160,
@@ -1917,7 +2076,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 161,
@@ -1929,7 +2089,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 162,
@@ -1941,7 +2102,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 163,
@@ -1953,7 +2115,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 164,
@@ -1965,7 +2128,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 165,
@@ -1977,7 +2141,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 166,
@@ -1989,7 +2154,8 @@ export default [
         "de": "Ei eines Lehm-Dracheis",
         "en": "Clay Dreggon Egg",
         "fr": "Œuf de Dragoeuf Argile",
-        "es": "Huevo de dragohuevo arcilloso"
+        "es": "Huevo de dragohuevo arcilloso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 167,
@@ -2001,7 +2167,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 168,
@@ -2013,7 +2180,8 @@ export default [
         "de": "Schale eines Schiefer-Dracheis",
         "en": "Slate Dreggon Shell",
         "fr": "Coquille de Dragoeuf Ardoise",
-        "es": "Cáscara de dragohuevo pizarroso"
+        "es": "Cáscara de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 169,
@@ -2025,7 +2193,8 @@ export default [
         "de": "Klaue des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Claw",
         "fr": "Griffe de Dragoeuf Albâtre",
-        "es": "Garra de dragohuevo alabastrado"
+        "es": "Garra de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 170,
@@ -2037,7 +2206,8 @@ export default [
         "de": "Klaue des Alabaster-Dracheis",
         "en": "Alabaster Dreggon Claw",
         "fr": "Griffe de Dragoeuf Albâtre",
-        "es": "Garra de dragohuevo alabastrado"
+        "es": "Garra de dragohuevo alabastrado",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 171,
@@ -2049,7 +2219,8 @@ export default [
         "de": "Magnesit",
         "en": "Magnesite",
         "fr": "Magnésite",
-        "es": "Magnesita"
+        "es": "Magnesita",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 172,
@@ -2061,7 +2232,8 @@ export default [
         "de": "Magnesit",
         "en": "Magnesite",
         "fr": "Magnésite",
-        "es": "Magnesita"
+        "es": "Magnesita",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 173,
@@ -2073,7 +2245,8 @@ export default [
         "de": "Magnesit",
         "en": "Magnesite",
         "fr": "Magnésite",
-        "es": "Magnesita"
+        "es": "Magnesita",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 174,
@@ -2085,7 +2258,8 @@ export default [
         "de": "Magnesit",
         "en": "Magnesite",
         "fr": "Magnésite",
-        "es": "Magnesita"
+        "es": "Magnesita",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 175,
@@ -2097,7 +2271,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 176,
@@ -2109,7 +2284,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 177,
@@ -2121,7 +2297,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 178,
@@ -2133,7 +2310,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 179,
@@ -2145,7 +2323,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 180,
@@ -2157,7 +2336,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 181,
@@ -2169,7 +2349,8 @@ export default [
         "de": "Schale eines Kalk-Dracheis",
         "en": "Limestone Dreggon Shell",
         "fr": "Coquille de Dragoeuf Calcaire",
-        "es": "Cáscara de dragohuevo calizo"
+        "es": "Cáscara de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 182,
@@ -2181,7 +2362,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 183,
@@ -2193,7 +2375,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 184,
@@ -2205,7 +2388,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 185,
@@ -2217,7 +2401,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 186,
@@ -2229,7 +2414,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 187,
@@ -2241,7 +2427,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 188,
@@ -2253,7 +2440,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 189,
@@ -2265,7 +2453,8 @@ export default [
         "de": "Ei eines Kalk-Dracheis",
         "en": "Limestone Dreggon Egg",
         "fr": "Œuf de Dragoeuf Calcaire",
-        "es": "Huevo de dragohuevo calizo"
+        "es": "Huevo de dragohuevo calizo",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 190,
@@ -2277,7 +2466,8 @@ export default [
         "de": "Hochwald-Extrakt",
         "en": "Timber Substrate",
         "fr": "Substrat de Futaie",
-        "es": "Concentrado de oquedal"
+        "es": "Concentrado de oquedal",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 191,
@@ -2289,7 +2479,8 @@ export default [
         "de": "Hochwald-Extrakt",
         "en": "Timber Substrate",
         "fr": "Substrat de Futaie",
-        "es": "Concentrado de oquedal"
+        "es": "Concentrado de oquedal",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 192,
@@ -2301,7 +2492,8 @@ export default [
         "de": "Hochwald-Extrakt",
         "en": "Timber Substrate",
         "fr": "Substrat de Futaie",
-        "es": "Concentrado de oquedal"
+        "es": "Concentrado de oquedal",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 193,
@@ -2313,7 +2505,8 @@ export default [
         "de": "Hochwald-Extrakt",
         "en": "Timber Substrate",
         "fr": "Substrat de Futaie",
-        "es": "Concentrado de oquedal"
+        "es": "Concentrado de oquedal",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 194,
@@ -2325,7 +2518,8 @@ export default [
         "de": "Ei eines Schiefer-Dracheis",
         "en": "Slate Dreggon Egg",
         "fr": "Œuf de Dragoeuf Ardoise",
-        "es": "Huevo de dragohuevo pizarroso"
+        "es": "Huevo de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     },
     {
         "id": 195,
@@ -2337,6 +2531,7 @@ export default [
         "de": "Ei eines Schiefer-Dracheis",
         "en": "Slate Dreggon Egg",
         "fr": "Œuf de Dragoeuf Ardoise",
-        "es": "Huevo de dragohuevo pizarroso"
+        "es": "Huevo de dragohuevo pizarroso",
+        "created_at": "2025-01-31 16:38:57"
     }
 ]

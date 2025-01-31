@@ -1,6 +1,7 @@
 
 import protobuf from 'protobufjs';
 import startSniffing from './sniffer/sniffer';
+import { ensureDB } from './sqlite/ensureDatabase';
 // const Cap = require('cap').Cap;
 // const decoders = require('cap').decoders;
 // const PROTOCOL = decoders.PROTOCOL;
@@ -29,7 +30,9 @@ const Message = root.lookupType('com.ankama.dofus.server.game.protocol.Message')
 // ensureDB()
 // decodeMessage(testIplMessage.event.content.type_url, testIplMessage.event.content.value);
 // exmapleSniffing()
-const sniff = () => startSniffing(Message)
+const sniff = () => {
+    startSniffing(Message)
+}
 
 // interpretItems()
 
