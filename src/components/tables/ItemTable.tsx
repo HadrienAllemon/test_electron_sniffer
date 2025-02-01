@@ -45,7 +45,6 @@ import { AgGridReact } from 'ag-grid-react'; // React Data Grid Component
 
 import { AllCommunityModule, ColDef, IRowNode, ModuleRegistry } from 'ag-grid-community';
 import { useState } from 'react';
-import {dummyData} from './dummyData';
 
 // Register all Community features
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -54,8 +53,10 @@ const sortDate = (valueA: any, valueB: any) =>{
   // @ts-ignore
   return new Date(valueA) - new Date(valueB);
 }
-
-export const ItemTable = () => {
+interface ItemTableProps{
+  data:any[]
+}
+export const ItemTable:React.FC<ItemTableProps> = ({data}) => {
   // Row Data: The data to be displayed.
   // const [rowData, setRowData] = useState([
   //   { make: "Tesla", model: "Model Y", price: 64950, electric: true },
@@ -86,7 +87,7 @@ export const ItemTable = () => {
       style={{ height: '100%' }}
     >
       <AgGridReact
-        rowData={dummyData}
+        rowData={data}
         columnDefs={colDefs}
         animateRows={false}
       />

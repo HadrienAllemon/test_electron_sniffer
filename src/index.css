@@ -14,13 +14,15 @@ body {
   background: url("../assets/bg.jpg") !important;
   background-size: cover !important;
   --ag-background-color: rgba(38, 48, 63, 0.75);
-  --ag-foreground-color:lightgrey;
-  --ag-border-color:#dbd4ac;
-  --ag-row-border:1px solid #f0ecdaaa;
+  --ag-foreground-color: lightgrey;
+  --ag-border-color: #dbd4ac;
+  --ag-row-border: 1px solid #f0ecdaaa;
 }
 
 .tableImg {
-  background: url(https://api.dofusdb.fr/img/items/26017.png) center / contain no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
 }
@@ -54,6 +56,38 @@ body {
 .placdeHodlerGlider {
   height: 7px;
 
+}
+
+.kamaIcon {
+  background: url("../assets/Kama.png");
+  height: 30px;
+  width: 30px;
+  background-size: contain;
+}
+
+.summaryWrapper {
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  /* background: #131517; */
+  background: url("../assets/kamaBg.png");
+  width: 100%;
+  border: 1px solid #dbd4ac;
+  height: 70px;
+  border-radius: 10px;
+  background-size: cover;
+  margin-bottom: 30px;
+}
+
+.summaryWrapper::before{
+  content:"";
+  position: absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width: 100%;
+  background: linear-gradient(#00000055 0 5%, transparent 50% , #00000055 95% 100%);
 }
 
 @keyframes GliderWidth {

@@ -6,10 +6,10 @@ import { TopTabs } from './components/topTabs/TopTabs'
 import { ChakraProvider } from '@chakra-ui/react'
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <ChakraProvider>
-        <div style={{ height: "100%", display:"flex", flexDirection:"column" }}>
-            {/* <ButtonTest /> */}
-            <TopTabs />
-            <ItemsBought />
-        </div>
+            <div style={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", maxWidth: "1500px", margin:"0 auto" }}>
+                {/* <ButtonTest /> */}
+                <TopTabs />
+                <ItemsBought />
+            </div>
     </ChakraProvider>
 )
