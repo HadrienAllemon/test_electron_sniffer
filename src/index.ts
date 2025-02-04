@@ -5,7 +5,7 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 import sniff from "./sniffer"
-import { getItemsBought } from './sniffer/sqlite/queries';
+import { getItemsBought, getItemsSold } from './sniffer/sqlite/queries';
 import { ensureDB } from './sniffer/sqlite/ensureDatabase';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -65,9 +65,11 @@ ipcMain.handle('start-sniffing', async () => {
   return test;
 });
 ipcMain.handle('getItemsBought', async () => {
-  console.log("INVOKING getItemsBought")
   const rows = getItemsBought()
-  console.log(rows);
+  return rows;
+});
+ipcMain.handle('getItemsSold', async () => {
+  const rows = getItemsSold()
   return rows;
 });
 

@@ -1,8 +1,11 @@
 import { Tabs, TabList, Tab, TabPanels, TabPanel, Box, Button, useMultiStyleConfig, useTab } from "@chakra-ui/react"
+import { useSetAtom } from "jotai"
 import React, { Ref } from "react"
+import { TabIndex } from "../stores/MainStore";
 
 
 const CustomTab = React.forwardRef((props: any, ref: Ref<HTMLElement>) => {
+    const setTabIndex = useSetAtom(TabIndex);
     const tabProps = useTab({ ...props, ref })
     const isSelected = !!tabProps['aria-selected']
 
@@ -10,10 +13,7 @@ const CustomTab = React.forwardRef((props: any, ref: Ref<HTMLElement>) => {
     const styles = useMultiStyleConfig('Tabs', tabProps)
 
     return (
-        <Button __css={{ ...styles.tab }} {...tabProps} className={"tabButton " + (isSelected ? "selected" : "")} >
-            {/* <Box as='span' mr='2'>
-                {isSelected ? '😎' : '😐'}
-            </Box> */}
+        <Button __css={{ ...styles.tab }} {...tabProps} className={"tabButton " + (isSelected ? "selected" : "")} onClick={() => setTabIndex(props.index)} >
             {tabProps.children}
             {isSelected ? <div className="tabGlider" /> : <div className="placdeHodlerGlider" />}
         </Button>
@@ -25,9 +25,9 @@ export const TopTabs = () => {
     return (
         <Tabs>
             <TabList style={{ borderBottom: 0, justifyContent: "space-around" }}>
-                <CustomTab>Items Bought</CustomTab>
-                <CustomTab>Items Sold</CustomTab>
-                <CustomTab>Taxes</CustomTab>
+                <CustomTab index={0}>Items Bought</CustomTab>
+                <CustomTab index={1}>Items Sold</CustomTab>
+                <CustomTab index={2}>Taxes</CustomTab>
             </TabList>
             {/* <TabPanels>
                 <TabPanel>1</TabPanel>

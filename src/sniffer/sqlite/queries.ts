@@ -59,3 +59,23 @@ export const getItemsBought = () => {
     const rows = select.all();
     return rows;
 }
+export const getItemsSold = () => {
+    if (!db) return;
+    const select = db.prepare(`
+        select 
+            itemsSold.id, 
+            item_id, 
+            level, 
+            iconId, 
+            amountSold, 
+            profit, 
+            de,en,fr,es,
+            created_at
+        from itemsSold 
+            left join itemNames
+            on itemsSold.item_id = itemNames.itemId
+            left join items 
+            on itemsSold.item_id = items.id`)
+    const rows = select.all();
+    return rows;
+}
