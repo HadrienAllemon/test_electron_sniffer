@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { ipcRenderer } from "electron";
 import { Summary } from "../summaries/Summary";
 import { ItemTable } from "../tables/ItemTable";
-import { AllCommunityModule, ColDef, IRowNode, ModuleRegistry } from 'ag-grid-community';
+import { ColDef, ModuleRegistry } from 'ag-grid-community';
+import { dateDiff } from "../../utils/DateFunctions";
 
 export const ItemsSold = () => {
     const [ItemsSold, setItemsSold] = useState<any[] | undefined>(undefined);
@@ -42,13 +43,19 @@ export const ItemsSold = () => {
 
     if (!ItemsSold) return null;
 
+    const total7Days = ItemsSold
+        .filter(item => dateDiff(new Date(), new Date(item.created_at)) < 7)
+        .reduce((a: number, b: any) => a + b.profit, 0);
+    const total31Days = ItemsSold
+        .filter(item => dateDiff(new Date(), new Date(item.created_at)) < 31)
+        .reduce((a: number, b: any) => a + b.profit, 0);
     const total = ItemsSold.reduce((a: number, b: any) => a + b.profit, 0)
     return (
         <div style={{ padding: "20px", height: "100%", boxSizing: "border-box", width: "100%", display: "flex", flexDirection: "column" }} >
             <div style={{ display: "flex", justifyContent: "space-around", gap: "20px", flex: 1 }} >
-                <Summary title="total (7 derniers jours)" total={total} />
-                <Summary title="total (7 derniers jours)" total={total} />
-                <Summary title="total (7 derniers jours)" total={total} />
+                <Summary title="total (7 derniers jours)" total={total7Days} />
+                <Summary title="total (31 derniers jours)" total={total31Days} />
+                <Summary title="total (tous les temps)" total={total} />
             </div>
             <div style={{ flex: 9 }}>
                 <ItemTable data={ItemsSold} colDefs={colDefs} />

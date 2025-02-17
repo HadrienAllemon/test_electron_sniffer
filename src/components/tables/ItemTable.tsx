@@ -10,16 +10,16 @@ interface ItemTableProps{
   colDefs:ColDef<any>[];
 }
 export const ItemTable:React.FC<ItemTableProps> = ({data, colDefs}) => {
-  
-
+  const [hidden,setHidden] = useState(true);
   return (
     <div
-      style={{ height: '100%' }}
+      style={{ height: '100%', visibility:hidden?"hidden" : "visible" }}
     >
       <AgGridReact
         rowData={data}
         columnDefs={colDefs}
         animateRows={false}
+        onFirstDataRendered={()=>setHidden(false)}
       />
     </div>
   )

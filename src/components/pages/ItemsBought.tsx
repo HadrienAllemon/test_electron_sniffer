@@ -3,6 +3,9 @@ import { Summary } from "../summaries/Summary";
 import { ItemTable } from "../tables/ItemTable"
 import { ipcRenderer } from "electron";
 import { ColDef } from 'ag-grid-community';
+import { dateDiff } from "../../utils/DateFunctions";
+
+
 
 export const ItemsBought = () => {
 
@@ -39,15 +42,20 @@ export const ItemsBought = () => {
         })
     }, []);
 
-    if (!ItemsBought) return null;
-
+    if (!ItemsBought || !ItemsBought.length) return null;
+    const total7Days = ItemsBought
+        .filter(item => dateDiff(new Date(), new Date(item.created_at)) < 7)
+        .reduce((a: number, b: any) => a + b.price, 0);
+    const total31Days = ItemsBought
+        .filter(item => dateDiff(new Date(), new Date(item.created_at)) < 31)
+        .reduce((a: number, b: any) => a + b.price, 0);
     const total = ItemsBought.reduce((a: number, b: any) => a + b.price, 0)
     return (
         <div style={{ padding: "20px", height: "100%", boxSizing: "border-box", width: "100%", display: "flex", flexDirection: "column" }} >
             <div style={{ display: "flex", justifyContent: "space-around", gap: "20px", flex: 1 }} >
-                <Summary title="total (7 derniers jours)" total={total} />
-                <Summary title="total (7 derniers jours)" total={total} />
-                <Summary title="total (7 derniers jours)" total={total} />
+                <Summary title="total (7 derniers jours)" total={total7Days} />
+                <Summary title="total (31 derniers jours)" total={total31Days} />
+                <Summary title="total (tous les temps)" total={total} />
             </div>
             <div style={{ flex: 9 }}>
                 <ItemTable data={ItemsBought} colDefs={colDefs} />
