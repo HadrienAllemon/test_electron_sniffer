@@ -3,7 +3,8 @@ import "google/protobuf/any.proto";
 
 package com.ankama.dofus.server.game.protocol;
 
-message ina {
-    int32 quantity = 2;
-    int32 priceSet = 3;
+message jcv {
+    int32 id = 2;
+    int32 quantity = 3;
+    int32 price = 5;
 }

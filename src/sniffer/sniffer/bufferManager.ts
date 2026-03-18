@@ -85,7 +85,6 @@ class BufferManager {
         }
 
         if (size === 0 || buffer.length < sizeLength + size) {
-            console.log(chalk.red('Incomplete message — waiting for more data'));
             fs.appendFile(
                 './logs.txt',
                 `DATA TOO LARGE — size: ${size}, sizeLength: ${sizeLength}, bufLen: ${buffer.length}\n`,
@@ -95,7 +94,6 @@ class BufferManager {
         }
 
         const messageData = buffer.subarray(sizeLength, sizeLength + size);
-        console.log(messageData)
         const remainingBuffer = buffer.subarray(sizeLength + size);
 
         /* -------------------------------- DEBUG LOGGING ------------------------------- */

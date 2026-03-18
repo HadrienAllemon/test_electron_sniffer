@@ -3,6 +3,7 @@ import protobuf from 'protobufjs';
 import bufferManager from './bufferManager';
 import { decoders } from './decoders';
 import { decodeMessage } from '../interpretMessage/interpretMessage';
+import fs from 'node:fs';
 
 export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType: protobuf.Type): void {
     if (trunc) {
@@ -31,7 +32,6 @@ export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType
 
     while (currentBuffer.length > 0) {
         const [message, remainingBuffer, shouldClear] = bufferManager.processBuffer(lookupType, isClientToServer);
-        console.log(message, remainingBuffer, shouldClear)
         if (shouldClear) {
             bufferManager.clearBuffer(isClientToServer);
             break;
@@ -49,6 +49,7 @@ export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType
 
         const decoded = message.toJSON();
         const content = decoded?.request?.content ?? decoded?.event?.content;
+        fs.appendFileSync("logs.txt", JSON.stringify(decoded) + "\n\n");
 
         if (content?.type_url && content?.value) {
             decodeMessage(content.type_url, content.value);

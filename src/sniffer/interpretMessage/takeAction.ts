@@ -55,7 +55,7 @@ function flattenOllineItems(message: offlineItemsSold): itemSold[] {
     // };
 }
 
-export const takeAction = (typeName: string, messageContent: object, base64Data: string, buffer: any) => {
+export const takeAction = (typeName: string, messageContent: any, base64Data: string, buffer: any) => {
     console.log("Received message of type:", typeName)
     switch (typeName) {
         case "iyc": {
@@ -76,20 +76,37 @@ export const takeAction = (typeName: string, messageContent: object, base64Data:
             break
         }
         case "ipd": {
-            // mise en vente
-            console.log("Mise en vente : ", messageContent, base64Data)
+            // unknown - 
             break
         }
         case "imz": {
-            // mise en vente
+            // guild login ? 
+        }
+        case "jif": {
+            // mise en vente - Tax Added
+            console.log("Mise en vente : ", messageContent, base64Data)
             const taxValue = -Math.round(-(messageContent as any).priceSet / 100 * 2)
             addTax([{ tax_nature: taxNatures["AuctionNewItem"], value: taxValue }])
             break
         }
-        case "ina": {
-            // mise en vente
+        case "jcv": {
+            // mise en vente - Tax Added
+            console.log("Achat :", messageContent, base64Data)
+            const itemBought: itemBought = {
+                itemId: messageContent["id"],
+                price: messageContent["price"],
+                amountBought: messageContent["quantity"]
+            }
+            // const taxValue = -Math.round(-(messageContent as any).priceSet / 100 * 2)
+            addItemsBought([itemBought])
+            break
+        }
+        case "jfv": {
+            // mise en vente - Tax Modified
+            console.log("Modification d'item en vente : ", messageContent, base64Data)
             const taxValue = -Math.round(-(messageContent as any).priceSet / 100 * 1)
             addTax([{ tax_nature: taxNatures["AuctionNewPrice"], value: taxValue }])
+            
 
             break
         }

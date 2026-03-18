@@ -8,7 +8,9 @@ const typeUrlToProtoFile: { [key: string]: protobuf.Root } = {
     'ipd': protobuf.loadSync('./proto/typeUrl/ipd.proto'),
     'jpx': protobuf.loadSync('./proto/typeUrl/jpx.proto'),
     'imz': protobuf.loadSync('./proto/typeUrl/imz.proto'),
-    'ina': protobuf.loadSync('./proto/typeUrl/ina.proto')
+    'jfv': protobuf.loadSync('./proto/typeUrl/jfv.proto'),
+    'jif': protobuf.loadSync('./proto/typeUrl/jif.proto'),
+    'jcv': protobuf.loadSync('./proto/typeUrl/jcv.proto'),
 };
 
 
