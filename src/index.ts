@@ -39,6 +39,7 @@ const createWindow = (): void => {
 app.on('ready', async () => {
   // await ensureDB();
   createWindow();
+  sniff()
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -59,11 +60,11 @@ app.on('activate', () => {
   }
 });
 
-ipcMain.handle('start-sniffing', async () => {
-  const test = sniff()
-  // Configure cap as needed and return results
-  return test;
-});
+// ipcMain.handle('start-sniffing', async () => {
+//   const test = sniff()
+//   // Configure cap as needed and return results
+//   return test;
+// });
 ipcMain.handle('getItemsBought', async () => {
   const rows = getItemsBought()
   return rows;

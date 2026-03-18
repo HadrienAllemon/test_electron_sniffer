@@ -18,8 +18,6 @@ import { ensureDB } from './sqlite/ensureDatabase';
 // const hdvDecoder = protobuf.loadSync('./proto/typeUrl/ipd.proto');
 // const sellerDecoder = protobuf.loadSync('./proto/typeUrl/jpx.proto');
 
-const root = protobuf.loadSync('./proto/game/message.proto');
-const Message = root.lookupType('com.ankama.dofus.server.game.protocol.Message');
 // const IycMessage = chatDecoder.lookupType('com.ankama.dofus.server.game.protocol.Iyc');
 // const IpdMessage = hdvDecoder.lookupType('com.ankama.dofus.server.game.protocol.Ipd');
 // const JpxMessage = sellerDecoder.lookupType('com.ankama.dofus.server.game.protocol.Jpx');
@@ -30,8 +28,12 @@ const Message = root.lookupType('com.ankama.dofus.server.game.protocol.Message')
 // ensureDB()
 // decodeMessage(testIplMessage.event.content.type_url, testIplMessage.event.content.value);
 // exmapleSniffing()
+const root = protobuf.loadSync('./proto/game/message.proto');
+const Message = root.lookupType('com.ankama.dofus.server.game.protocol.Message');
 const sniff = () => {
-    startSniffing(Message)
+    ensureDB().then(() => {
+        startSniffing(Message)
+    })
 }
 
 // interpretItems()

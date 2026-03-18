@@ -21,7 +21,7 @@ export const decodeMessage = (typeUrl: string, base64Data: string) => {
     }
     const protoRoot = typeUrlToProtoFile[typeName];
     if (!protoRoot) {
-        // console.error(`Unknown type URL: ${typeUrl}`);
+        console.error(`Unknown type URL: ${typeUrl}`);
         return;
     }
    

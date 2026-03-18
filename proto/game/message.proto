@@ -20,8 +20,7 @@ message Request {
 }
 
 message Response {
-	int32 uid = 1;
-	.google.protobuf.Any content = 2;
+	.google.protobuf.Any content = 1;
 }
 
 message Event {

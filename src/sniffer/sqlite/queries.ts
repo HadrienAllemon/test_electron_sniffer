@@ -17,7 +17,7 @@ export const addItemsSold = (items: itemSold[]) => {
     items.forEach(item => {
         insert.run(item.itemId, item.profit, item.amountSold)
     })
-    insert.all();
+    insert.run();
 }
 export const addItemsBought = (items: itemBought[]) => {
     if (!db) return;
@@ -26,17 +26,18 @@ export const addItemsBought = (items: itemBought[]) => {
     items.forEach(item => {
         insert.run(item.itemId, item.price, item.amountBought)
     })
-    insert.all();
+    insert.run();
 }
 
 export const addTax = (taxes: tax[]) => {
     if (!db) return;
+    console.log("adding taxes", taxes);
     const insert = db.prepare("insert into taxes (tax_nature, value) values (?,?)");
 
     taxes.forEach(tax => {
         insert.run(tax.tax_nature, tax.value)
     })
-    insert.all();
+    insert.run();
 }
 
 export const getItemsBought = () => {

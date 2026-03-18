@@ -32,7 +32,8 @@ export type tax = {
 
 enum taxNatures {
     "AuctionNewItem" = 1,
-    "AuctionNewPrice" = 2
+    "AuctionNewPrice" = 2,
+    "Zaap" = 3
 }
 
 function flattenOllineItems(message: offlineItemsSold): itemSold[] {
@@ -55,6 +56,7 @@ function flattenOllineItems(message: offlineItemsSold): itemSold[] {
 }
 
 export const takeAction = (typeName: string, messageContent: object, base64Data: string, buffer: any) => {
+    console.log("Received message of type:", typeName)
     switch (typeName) {
         case "iyc": {
             // chat message
@@ -117,6 +119,8 @@ export const takeAction = (typeName: string, messageContent: object, base64Data:
                 }
                 console.log("adding item to db : ", itemBought, allValuesItem2)
                 addItemsBought([itemBought])
+            } else if (allValuesItem1.length === 1 && allValuesItem1.every(str => str.match(/[1-9]/))) {
+                addTax([{tax_nature: taxNatures["Zaap"], value: +allValuesItem1[0]}])
             }
             break
         }

@@ -1,62 +1,47 @@
-import { networkInterfaces } from 'os';
-import { readableInterface } from '../types/interfaces.type';
+import protobuf from 'protobufjs';
 import { handlePacket } from './handlePacket';
-import { Cap } from "./decoders"
+import { Cap } from './decoders';
+import { networkInterfaces } from "os";
 
 
-const getReadableInterfaces = () => {
-    const interfaces: readableInterface = {};
+const DEVICE_IP = '192.168.0.101';
+const CAPTURE_FILTER = 'tcp port 5555';
+const BUF_SIZE = 10 * 1024 * 1024; // 10MB ring buffer
+const PACKET_SIZE = 65535;          // Max Ethernet frame size
+
+function getInterfaces(): Record<string, string> {
     const nets = networkInterfaces();
+    const result: Record<string, string> = {};
 
-    for (const [name, info] of Object.entries(nets)) {
-        if (info) {
-            const iface = info[0];
-            interfaces[name] = iface.address;
-        }
+    for (const [name, infos] of Object.entries(nets)) {
+        if (!infos) continue;
+        const ipv4 = infos.find(i => i.family === "IPv4");
+        if (ipv4) result[name] = ipv4.address;
     }
 
-    return interfaces
+    return result;
 }
 
-const startSniffing = (lookupType: protobuf.Type) => {
+const startSniffing = (lookupType: protobuf.Type): void => {
     try {
-        const interfaces = getReadableInterfaces();
+        const buffer = Buffer.alloc(PACKET_SIZE);
+        const interfaces = getInterfaces();
+        const device = Cap.findDevice(Object.values(interfaces)[0]);
+        // const device = Cap.findDevice(DEVICE_IP);
         const cap = new Cap();
-        const bufSize = 10 * 1024 * 1024; // 10MB buffer
-        const buffer = Buffer.alloc(65535); // Maximum packet size
-        const device = Cap.findDevice('192.168.0.101')
-        cap.open(device, 'tcp port 5555', bufSize, buffer);
-        cap.setMinBytes && cap.setMinBytes(0);
-        console.log("STARTED SNIFFING")
-        cap.on('packet', (nbytes: any, trunc: any) => {
-            handlePacket(nbytes, trunc, buffer, lookupType)
+
+        cap.open(device, CAPTURE_FILTER, BUF_SIZE, buffer);
+        cap.setMinBytes?.(0);
+
+        console.log(`Sniffing on ${device} (${DEVICE_IP}) — filter: "${CAPTURE_FILTER}"`);
+
+        cap.on('packet', (nbytes: number, trunc: boolean) => {
+            handlePacket(nbytes, trunc, buffer, lookupType);
         });
-        // if (Object.keys(interfaces).length === 0) {
-        //     console.log("No network interfaces found");
-        //     return;
-        // }
-
-        // console.log("Available interfaces:");
-        // for (const [name, address] of Object.entries(interfaces)) {
-        //     console.log(`- ${name} (${address})`);
-        // }
-
-        // console.log("\nStarting packet capture... Press Ctrl+C to stop");
-
-        // const c = new Cap();
-        // const bufSize = 10 * 1024 * 1024; // 10MB buffer
-        // const buffer = Buffer.alloc(65535); // Maximum packet size
-
-        // c.open(Cap.findDevice('192.168.1.168'), 'tcp port 5555', bufSize, buffer);
-        // c.setMinBytes && c.setMinBytes(0);
-
-        // c.on('packet', (nbytes, trunc) => {
-        //     handlePacket(nbytes, trunc, buffer);
-        // });
     } catch (e) {
-        console.error("Error during network sniffing:", e);
+        console.error('Error during network sniffing:', e);
         process.exit(1);
     }
-}
+};
 
-export default startSniffing
+export default startSniffing;
