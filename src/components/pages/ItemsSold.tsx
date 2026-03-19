@@ -51,8 +51,8 @@ export const ItemsSold = () => {
         .reduce((a: number, b: any) => a + b.profit, 0);
     const total = ItemsSold.reduce((a: number, b: any) => a + b.profit, 0)
     return (
-        <div style={{ padding: "20px", height: "100%", boxSizing: "border-box", width: "100%", display: "flex", flexDirection: "column" }} >
-            <div style={{ display: "flex", justifyContent: "space-around", gap: "20px", flex: 1 }} >
+        <div className="tabWrapper" >
+            <div className="summaryRow" >
                 <Summary title="total (7 derniers jours)" total={total7Days} />
                 <Summary title="total (31 derniers jours)" total={total31Days} />
                 <Summary title="total (tous les temps)" total={total} />

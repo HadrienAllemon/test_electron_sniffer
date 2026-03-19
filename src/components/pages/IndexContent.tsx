@@ -3,6 +3,7 @@ import { TabIndex } from "../stores/MainStore"
 import { ItemsBought } from "./ItemsBought";
 import { ItemsSold } from "./ItemsSold";
 import { Taxes } from "./Taxes";
+import ProfitChart from "../charts/ProfitChart";
 
 export const IndexContent = () =>{
     const tabIndex = useAtomValue(TabIndex);
@@ -15,7 +16,7 @@ export const IndexContent = () =>{
                 return <ItemsSold/>
             }
             case 2:{
-                return <Taxes/>
+                return <ProfitChart/>
             }
         }
     }

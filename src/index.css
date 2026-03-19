@@ -7,16 +7,21 @@ body,
   height: 100%
 }
 
+:root {
+  --ag-background-color: rgba(38, 48, 63, 0.75);
+  --ag-foreground-color: lightgrey;
+  --ag-border-color: #dbd4ac;
+  --ag-row-border: 1px solid #f0ecdaaa;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
     Arial, sans-serif;
 
   background: url("../assets/bg.jpg") !important;
   background-size: cover !important;
-  --ag-background-color: rgba(38, 48, 63, 0.75);
-  --ag-foreground-color: lightgrey;
-  --ag-border-color: #dbd4ac;
-  --ag-row-border: 1px solid #f0ecdaaa;
+
+
 }
 
 .tableImg {
@@ -58,11 +63,28 @@ body {
 
 }
 
+.tabWrapper {
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .kamaIcon {
   background: url("../assets/Kama.png");
   height: 30px;
   width: 30px;
   background-size: contain;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex: 0 1 0%;
+  margin-bottom: 1rem;
 }
 
 .summaryWrapper {
@@ -96,6 +118,12 @@ body {
   position: absolute;
   top: 5px;
   left: 15px;
+}
+
+.chartContainer {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: var(--ag-background-color);
 }
 
 @keyframes GliderWidth {

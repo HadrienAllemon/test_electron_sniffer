@@ -1,5 +1,6 @@
 import db from "./ensureDatabase"
 import { itemBought, itemSold, tax } from "../interpretMessage/takeAction";
+import { ItemSoldRow } from "../../components/types/ItemSold";
 export const selectItems = () => {
     if (!db) return;
     const select = db.prepare(`select * from itemsSold`)
@@ -60,9 +61,9 @@ export const getItemsBought = () => {
     const rows = select.all();
     return rows;
 }
-export const getItemsSold = () => {
+export const getItemsSold = ():ItemSoldRow[] => {
     if (!db) return;
-    const select = db.prepare(`
+    const select = db.prepare<ItemSoldRow[],ItemSoldRow>(`
         select 
             itemsSold.id, 
             item_id, 

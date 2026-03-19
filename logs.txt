@@ -2061,3 +2061,99 @@ Buffer slice [1, 43]: GigI////////////ARIbChN0eXBlLmFua2FtYS5jb20vamd1EgQQ34QC
 {"response":{"content":{"type_url":"type.ankama.com/jgd","value":"CN+EAhjDAg=="}}}
 
 Buffer slice [1, 35]: EiAKHgoTdHlwZS5hbmthbWEuY29tL2pnZBIHCN+EAhjDAg==
+{"response":{"content":{"type_url":"type.ankama.com/koc"}}}
+
+{"response":{"content":{"type_url":"type.ankama.com/koi"}}}
+
+{"event":{"content":{"type_url":"type.ankama.com/kol","value":"EAM="}}}
+
+Buffer slice [1, 26]: EhcKFQoTdHlwZS5hbmthbWEuY29tL2tvYw==
+Buffer slice [1, 26]: EhcKFQoTdHlwZS5hbmthbWEuY29tL2tvaQ==
+Buffer slice [1, 41]: GiYI////////////ARIZChN0eXBlLmFua2FtYS5jb20va29sEgIQAw==
+{"event":{"content":{"type_url":"type.ankama.com/kod","value":"CC8="}}}
+
+Buffer slice [1, 32]: Gh0IGBIZChN0eXBlLmFua2FtYS5jb20va29kEgIILw==
+{"event":{"content":{"type_url":"type.ankama.com/jse","value":"EAE="}}}
+
+Buffer slice [1, 41]: GiYI////////////ARIZChN0eXBlLmFua2FtYS5jb20vanNlEgIQAQ==
+{"response":{"content":{"type_url":"type.ankama.com/jsh","value":"CAE="}}}
+
+Buffer slice [1, 30]: EhsKGQoTdHlwZS5hbmthbWEuY29tL2pzaBICCAE=
+{"event":{"content":{"type_url":"type.ankama.com/jse","value":"EAE="}}}
+
+Buffer slice [1, 41]: GiYI////////////ARIZChN0eXBlLmFua2FtYS5jb20vanNlEgIQAQ==
+{"response":{"content":{"type_url":"type.ankama.com/jsh","value":"CAE="}}}
+
+Buffer slice [1, 30]: EhsKGQoTdHlwZS5hbmthbWEuY29tL2pzaBICCAE=
+{"event":{"content":{"type_url":"type.ankama.com/jse","value":"EAE="}}}
+
+Buffer slice [1, 41]: GiYI////////////ARIZChN0eXBlLmFua2FtYS5jb20vanNlEgIQAQ==
+{"response":{"content":{"type_url":"type.ankama.com/jsh","value":"CAE="}}}
+
+Buffer slice [1, 30]: EhsKGQoTdHlwZS5hbmthbWEuY29tL2pzaBICCAE=
+{"response":{"content":{"type_url":"type.ankama.com/koc"}}}
+
+{"response":{"content":{"type_url":"type.ankama.com/koi"}}}
+
+{"event":{"content":{"type_url":"type.ankama.com/kol","value":"EAc="}}}
+
+Buffer slice [1, 26]: EhcKFQoTdHlwZS5hbmthbWEuY29tL2tvYw==
+Buffer slice [1, 26]: EhcKFQoTdHlwZS5hbmthbWEuY29tL2tvaQ==
+Buffer slice [1, 41]: GiYI////////////ARIZChN0eXBlLmFua2FtYS5jb20va29sEgIQBw==
+{"event":{"content":{"type_url":"type.ankama.com/kod","value":"CC8="}}}
+
+Buffer slice [1, 32]: Gh0IHhIZChN0eXBlLmFua2FtYS5jb20va29kEgIILw==
+{"response":{"content":{"type_url":"type.ankama.com/koc"}}}
+
+{"response":{"content":{"type_url":"type.ankama.com/koi"}}}
+
+{"event":{"content":{"type_url":"type.ankama.com/kol","value":"EAg="}}}
+
+Buffer slice [1, 26]: EhcKFQoTdHlwZS5hbmthbWEuY29tL2tvYw==
+Buffer slice [1, 26]: EhcKFQoTdHlwZS5hbmthbWEuY29tL2tvaQ==
+Buffer slice [1, 41]: GiYI////////////ARIZChN0eXBlLmFua2FtYS5jb20va29sEgIQCA==
+{"event":{"content":{"type_url":"type.ankama.com/kod","value":"CC8="}}}
+
+Buffer slice [1, 32]: Gh0IHxIZChN0eXBlLmFua2FtYS5jb20va29kEgIILw==
+{"event":{"content":{"type_url":"type.ankama.com/jse","value":"EAE="}}}
+
+Buffer slice [1, 41]: GiYI////////////ARIZChN0eXBlLmFua2FtYS5jb20vanNlEgIQAQ==
+{"response":{"content":{"type_url":"type.ankama.com/jsh","value":"CAE="}}}
+
+Buffer slice [1, 30]: EhsKGQoTdHlwZS5hbmthbWEuY29tL2pzaBICCAE=
+{"event":{"content":{"type_url":"type.ankama.com/jse","value":"EAE="}}}
+
+Buffer slice [1, 41]: GiYI////////////ARIZChN0eXBlLmFua2FtYS5jb20vanNlEgIQAQ==
+{"response":{"content":{"type_url":"type.ankama.com/jsh","value":"CAE="}}}
+
+Buffer slice [1, 30]: EhsKGQoTdHlwZS5hbmthbWEuY29tL2pzaBICCAE=
+{"event":{"content":{"type_url":"type.ankama.com/jse","value":"EAE="}}}
+
+Buffer slice [1, 41]: GiYI////////////ARIZChN0eXBlLmFua2FtYS5jb20vanNlEgIQAQ==
+{"response":{"content":{"type_url":"type.ankama.com/jsh","value":"CAE="}}}
+
+Buffer slice [1, 30]: EhsKGQoTdHlwZS5hbmthbWEuY29tL2pzaBICCAE=
+{"response":{"content":{"type_url":"type.ankama.com/koc"}}}
+
+{"response":{"content":{"type_url":"type.ankama.com/koi"}}}
+
+{"event":{"content":{"type_url":"type.ankama.com/kol","value":"EAk="}}}
+
+Buffer slice [1, 26]: EhcKFQoTdHlwZS5hbmthbWEuY29tL2tvYw==
+Buffer slice [1, 41]: GiYI////////////ARIZChN0eXBlLmFua2FtYS5jb20va29sEgIQCQ==
+Buffer slice [1, 26]: EhcKFQoTdHlwZS5hbmthbWEuY29tL2tvaQ==
+{"event":{"content":{"type_url":"type.ankama.com/kod","value":"CC8="}}}
+
+Buffer slice [1, 32]: Gh0IIBIZChN0eXBlLmFua2FtYS5jb20va29kEgIILw==
+{"response":{"content":{"type_url":"type.ankama.com/koc"}}}
+
+{"response":{"content":{"type_url":"type.ankama.com/koi"}}}
+
+{"event":{"content":{"type_url":"type.ankama.com/kol","value":"EAo="}}}
+
+Buffer slice [1, 26]: EhcKFQoTdHlwZS5hbmthbWEuY29tL2tvYw==
+Buffer slice [1, 26]: EhcKFQoTdHlwZS5hbmthbWEuY29tL2tvaQ==
+Buffer slice [1, 41]: GiYI////////////ARIZChN0eXBlLmFua2FtYS5jb20va29sEgIQCg==
+{"event":{"content":{"type_url":"type.ankama.com/kod","value":"CC8="}}}
+
+Buffer slice [1, 32]: Gh0IIRIZChN0eXBlLmFua2FtYS5jb20va29kEgIILw==
