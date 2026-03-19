@@ -4,6 +4,7 @@ import bufferManager from './bufferManager';
 import { decoders } from './decoders';
 import { decodeMessage } from '../interpretMessage/interpretMessage';
 import fs from 'node:fs';
+import appendLogs from '../utls/appendLogs';
 
 export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType: protobuf.Type): void {
     if (trunc) {
@@ -49,7 +50,7 @@ export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType
 
         const decoded = message.toJSON();
         const content = decoded?.request?.content ?? decoded?.event?.content;
-        fs.appendFileSync("logs.txt", JSON.stringify(decoded) + "\n\n");
+        appendLogs(JSON.stringify(decoded) + "\n\n");
 
         if (content?.type_url && content?.value) {
             decodeMessage(content.type_url, content.value);

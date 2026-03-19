@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import protobuf from 'protobufjs';
 import fs from 'node:fs';
+import appendLogs from '../utls/appendLogs';
 const root = protobuf.loadSync('./proto/game/message.proto');
 const MAX_MESSAGE_SIZE = 1_000_000; // 1MB
 
@@ -85,10 +86,8 @@ class BufferManager {
         }
 
         if (size === 0 || buffer.length < sizeLength + size) {
-            fs.appendFile(
-                './logs.txt',
+            appendLogs(
                 `DATA TOO LARGE — size: ${size}, sizeLength: ${sizeLength}, bufLen: ${buffer.length}\n`,
-                () => { },
             );
             return [null, buffer, false];
         }
@@ -104,10 +103,8 @@ class BufferManager {
         // }
         /* -------------------------------- DEBUG LOGGING ------------------------------- */
 
-        fs.appendFile(
-            './logs.txt',
+        appendLogs(
             `Buffer slice [${sizeLength}, ${sizeLength + size}]: ${messageData.toString('base64')}\n`,
-            () => { },
         );
 
         try {

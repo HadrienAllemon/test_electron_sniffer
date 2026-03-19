@@ -4,13 +4,14 @@ import { ItemsBought } from "./ItemsBought";
 import { ItemsSold } from "./ItemsSold";
 import { Taxes } from "./Taxes";
 import ProfitChart from "../charts/ProfitChart";
+import { Transactions } from "./Transactions/Transactions";
 
 export const IndexContent = () =>{
     const tabIndex = useAtomValue(TabIndex);
     const pageToReturn = () => {
         switch(tabIndex){
             case 0:{
-                return <ItemsBought/>
+                return <Transactions/>
             }
             case 1:{
                 return <ItemsSold/>

@@ -10,7 +10,7 @@ import {
   Filler,
 } from "chart.js";
 import { getItemsSold } from "../../sniffer/sqlite/queries";
-import { ItemSoldRow } from "../types/ItemSold";
+import { IItemSold } from "../../interfaces/IItemSold";
 import { Summary } from "../summaries/Summary";
 
 Chart.register(
@@ -32,7 +32,7 @@ function formatDate(d: Date): string {
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
-function groupRows(rows: ItemSoldRow[], mode: GroupBy) {
+function groupRows(rows: IItemSold[], mode: GroupBy) {
   const map = new Map<string, number>();
   rows.forEach(({ created_at, profit }) => {
     const date = new Date(created_at);
@@ -59,7 +59,7 @@ interface ProfitChartProps {
 }
 
 export default function ProfitChart({ height = 280 }: ProfitChartProps) {
-  const [rows, setRows] = useState<ItemSoldRow[]>([]);
+  const [rows, setRows] = useState<IItemSold[]>([]);
   console.log(rows);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const chartRef = useRef<Chart | null>(null);
