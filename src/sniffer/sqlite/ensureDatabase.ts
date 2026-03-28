@@ -4,7 +4,9 @@ import fs from "node:fs"
 
 let db = new Sq3Database('./db/itemsHistory.db');
 export const ensureDB = () => {
-    return createDatabase();
+    console.log("current db ovbject: ", db)
+    return db;
+    // return createDatabase();
 }
 
 const createDatabase = () => {

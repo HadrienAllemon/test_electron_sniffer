@@ -1,5 +1,6 @@
 import protobuf from 'protobufjs';
 import { takeAction } from './takeAction';
+import appendLogs from '../utls/appendLogs';
 
 
 const typeUrlToProtoFile: { [key: string]: protobuf.Root } = {
@@ -16,7 +17,6 @@ const typeUrlToProtoFile: { [key: string]: protobuf.Root } = {
 
 export const decodeMessage = (typeUrl: string, base64Data: string) => {
     const typeName = typeUrl.split('/').pop(); // Extract the type name
-    if (typeName === "imz") console.log("IMZ : ", base64Data)
     if (!typeName){
         console.error("No type name in ", typeUrl)
         return;
@@ -24,6 +24,8 @@ export const decodeMessage = (typeUrl: string, base64Data: string) => {
     const protoRoot = typeUrlToProtoFile[typeName];
     if (!protoRoot) {
         console.error(`Unknown type URL: ${typeUrl}`);
+        appendLogs(`Unknown message type: ${typeName}, content: ${JSON.stringify(base64Data)}\n\n`);
+        console.error("Log appended")
         return;
     }
    

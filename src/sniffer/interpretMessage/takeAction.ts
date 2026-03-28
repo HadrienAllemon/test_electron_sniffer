@@ -1,4 +1,5 @@
 import { addItemsBought, addItemsSold, addTax } from "../sqlite/queries";
+import appendLogs from "../utls/appendLogs";
 
 type offlineItemsSold = {
     items: offlineItemSold[];
@@ -148,6 +149,16 @@ export const takeAction = (typeName: string, messageContent: any, base64Data: st
             console.log("OFFLINE AUCTION", itemsSold.length)
             addItemsSold(itemsSold)
             break
+        }
+
+        case "ien": {
+            // chat msg
+            break
+        }
+
+        default: {
+            appendLogs(`Unknown message type: ${typeName}, content: ${JSON.stringify(messageContent)}\n\n`)
+            // console.log("Unknown message type:", typeName, messageContent)
         }
     }
 }

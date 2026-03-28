@@ -37,7 +37,8 @@ export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType
             bufferManager.clearBuffer(isClientToServer);
             break;
         }
-
+        
+        if (!message && !shouldClear) break 
         if (Buffer.compare(remainingBuffer, currentBuffer) === 0) {
             console.log(chalk.red('Partial packet detected — waiting for more data'));
             break;
@@ -46,11 +47,10 @@ export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType
         currentBuffer = remainingBuffer;
         bufferManager.updateBuffer(isClientToServer, currentBuffer);
 
-        if (!message) break;
 
         const decoded = message.toJSON();
         const content = decoded?.request?.content ?? decoded?.event?.content;
-        appendLogs(JSON.stringify(decoded) + "\n\n");
+        // appendLogs(JSON.stringify(decoded) + "\n\n");
 
         if (content?.type_url && content?.value) {
             decodeMessage(content.type_url, content.value);

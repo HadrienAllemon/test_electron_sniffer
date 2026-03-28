@@ -87,7 +87,7 @@ class BufferManager {
 
         if (size === 0 || buffer.length < sizeLength + size) {
             appendLogs(
-                `DATA TOO LARGE — size: ${size}, sizeLength: ${sizeLength}, bufLen: ${buffer.length}\n`,
+                `TCP fragmentation — size: ${size}, sizeLength: ${sizeLength}, bufLen: ${buffer.length}\n\n`,
             );
             return [null, buffer, false];
         }
@@ -103,9 +103,9 @@ class BufferManager {
         // }
         /* -------------------------------- DEBUG LOGGING ------------------------------- */
 
-        appendLogs(
-            `Buffer slice [${sizeLength}, ${sizeLength + size}]: ${messageData.toString('base64')}\n`,
-        );
+        // appendLogs(
+        //     `Buffer slice [${sizeLength}, ${sizeLength + size}]: ${messageData.toString('base64')}\n\n`,
+        // );
 
         try {
             const message = lookupType.decode(messageData);
