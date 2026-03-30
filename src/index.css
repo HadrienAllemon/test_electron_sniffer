@@ -87,6 +87,11 @@ body {
   margin-bottom: 1rem;
 }
 
+.kamaBgBackground {
+  background: url("../assets/kamaBg.png");
+  background-size: cover;
+}
+
 .summaryWrapper {
   position: relative;
   color: white;

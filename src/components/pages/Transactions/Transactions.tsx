@@ -6,6 +6,7 @@ import { dateDiff } from "../../../utils/DateFunctions";
 import { getTransactions } from "../../../sniffer/sqlite/queries";
 import { ITransaction } from "../../../interfaces";
 import "./Transactions.css";
+import ProfitChart from "../../charts/ProfitChart";
 
 interface TableItem {
     data: ITransaction
@@ -125,7 +126,7 @@ export const Transactions = () => {
     const total = Transactions.reduce((a: number, b: any) => a + b.value, 0)
     return (
         <div className="tabWrapper" >
-            <div className="filterRow">
+            <div className="filterRow kamaBgBackground">
                 <select onChange={(e) => handleDateRangeChange(e.target.value)}>
                     <option value="all">All time</option>
                     <option value="last7">Last 7 days</option>
@@ -156,7 +157,7 @@ export const Transactions = () => {
                 {viewMode === "table" ? (
                     <ItemTable data={filteredTransactions} colDefs={colDefs} />
                 ) : (
-                    <div>Chart view not implemented yet</div>
+                    <ProfitChart transactions={filteredTransactions} height={"50vh"} />
                 )}
             </div>
         </div>

@@ -45,7 +45,9 @@ class BufferManager {
             json?.request?.content ||
             json?.event?.content;
 
-        if (!content?.type_url || !content?.value) return;
+        if (!content?.type_url || !content?.value) {
+            throw new Error("No content with type_url and value found in message");
+        };
 
         const typeName = content.type_url.split("/").pop();
 

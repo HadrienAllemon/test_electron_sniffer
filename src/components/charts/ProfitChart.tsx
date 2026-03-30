@@ -12,6 +12,8 @@ import {
 import { getItemsSold } from "../../sniffer/sqlite/queries";
 import { IItemSold } from "../../interfaces/IItemSold";
 import { Summary } from "../summaries/Summary";
+import { getChatConfig } from "./getChatConfig";
+import { ITransaction } from "../../interfaces";
 
 Chart.register(
   LineElement,
@@ -32,43 +34,59 @@ function formatDate(d: Date): string {
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
-function groupRows(rows: IItemSold[], mode: GroupBy) {
+function groupRows(rows: ITransaction[], mode: GroupBy) {
   const map = new Map<string, number>();
-  rows.forEach(({ created_at, profit }) => {
-    const date = new Date(created_at);
+  rows.forEach(({ date, value }) => {
+    const _date = new Date(date);
     let key: string;
     if (mode === "day") {
-      key = formatDate(date);
+      key = formatDate(_date);
     } else if (mode === "week") {
-      const d = new Date(date);
+      const d = new Date(_date);
       d.setDate(d.getDate() - d.getDay());
       key = "W of " + formatDate(d);
     } else {
       key = date.toLocaleDateString("en-US", { month: "short", year: "numeric" });
     }
-    map.set(key, (map.get(key) ?? 0) + profit);
+    map.set(key, (map.get(key) ?? 0) + value);
   });
   return { labels: [...map.keys()], data: [...map.values()] };
 }
+
+const btnStyle = (active: boolean): React.CSSProperties => ({
+  fontSize: 12,
+  padding: "6px 12px",
+  borderRadius: 8,
+  border: "1px solid rgba(212,175,55,0.2)",
+  background: active
+    ? "linear-gradient(180deg, #1e3a5f, #12263f)"
+    : "rgba(255,255,255,0.03)",
+  color: active ? "#D4AF37" : "rgba(200,210,230,0.6)",
+  cursor: "pointer",
+  transition: "all 0.2s ease",
+});
 
 
 interface ProfitChartProps {
   /** Pass rows directly from your SQLite query result */
   /** Optional height for the chart canvas wrapper (default 280) */
-  height?: number;
+  height?: number|string;
+  transactions: ITransaction[];
 }
 
-export default function ProfitChart({ height = 280 }: ProfitChartProps) {
-  const [rows, setRows] = useState<IItemSold[]>([]);
-  console.log(rows);
+export default function ProfitChart({ height = 280, transactions}: ProfitChartProps) {
+  // const [rows, setRows] = useState<IItemSold[]>([]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const chartRef = useRef<Chart | null>(null);
   const [groupBy, setGroupBy] = useState<GroupBy>("day");
+  const sortedTransactions = useMemo(() => {
+    return [...transactions].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  }, [transactions]);
 
-  const { labels, data } = useMemo(() => groupRows(rows, groupBy), [rows, groupBy]);
+  const { labels, data } = useMemo(() => groupRows(sortedTransactions, groupBy), [transactions, groupBy]);
 
   useEffect(() => {
-    setRows(getItemsSold())
+    // setRows(getItemsSold())
   }, [])
 
   // Derived stats
@@ -79,142 +97,17 @@ export default function ProfitChart({ height = 280 }: ProfitChartProps) {
   useEffect(() => {
     if (!canvasRef.current) return;
     chartRef.current?.destroy();
-    chartRef.current = new Chart(canvasRef.current, {
-      plugins: [
-        {
-          id: "glow",
-          beforeDraw: (chart) => {
-            const ctx = chart.ctx;
-            ctx.save();
-            ctx.shadowColor = "rgba(212,175,55,0.6)";
-            ctx.shadowBlur = 12;
-            ctx.lineJoin = "round";
-            ctx.lineCap = "round";
-          },
-          afterDraw: (chart) => {
-            chart.ctx.restore();
-          },
-        },
-      ],
-      type: "line",
-      data: {
-        labels,
-        datasets: [
-          {
-            label: "Profit",
-            data,
-            borderColor: "#D4AF37", // gold
-            borderWidth: 2,
-            tension: 0.4,
-    
-            pointRadius: groupBy === "day" ? 2 : 3,
-            pointHoverRadius: 6,
-            pointBackgroundColor: "#D4AF37",
-            pointBorderWidth: 0,
-    
-            fill: true,
-            backgroundColor: (ctx) => {
-              const chart = ctx.chart;
-              const { ctx: canvasCtx, chartArea } = chart;
-              if (!chartArea) return "rgba(212,175,55,0.1)";
-    
-              const gradient = canvasCtx.createLinearGradient(
-                0,
-                chartArea.top,
-                0,
-                chartArea.bottom
-              );
-              gradient.addColorStop(0, "rgba(212,175,55,0.25)");
-              gradient.addColorStop(1, "rgba(212,175,55,0.02)");
-              return gradient;
-            },
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: {
-          mode: "index",
-          intersect: false,
-        },
-        plugins: {
-          legend: { display: false },
-    
-          tooltip: {
-            backgroundColor: "rgba(10, 20, 40, 0.95)",
-            borderColor: "rgba(212,175,55,0.4)",
-            borderWidth: 1,
-            padding: 10,
-            titleColor: "#D4AF37",
-            bodyColor: "#E5E7EB",
-            displayColors: false,
-            callbacks: {
-              label: (ctx) =>
-                ` ${ctx.parsed.y.toLocaleString()} K`,
-            },
-          },
-        },
-
-        
-    
-        scales: {
-          x: {
-            ticks: {
-              color: "rgba(200, 210, 230, 0.6)",
-              maxTicksLimit: 10,
-              font: { size: 11 },
-            },
-            grid: {
-              color: "rgba(255,255,255,0.04)",
-              
-            },
-          },
-          y: {
-            ticks: {
-              color: "rgba(200, 210, 230, 0.6)",
-              font: { size: 11 },
-              callback: (v) => Number(v).toLocaleString(),
-            },
-            grid: {
-              color: "rgba(255,255,255,0.04)",
-              // drawBorder: false,
-            },
-          },
-        },
-      },
-    });
+    chartRef.current = new Chart(canvasRef.current,getChatConfig(labels, data,groupBy));
 
     return () => {
       chartRef.current?.destroy();
     };
   }, [labels, data, groupBy]);
 
-  const btnStyle = (active: boolean): React.CSSProperties => ({
-    fontSize: 12,
-    padding: "6px 12px",
-    borderRadius: 8,
-    border: "1px solid rgba(212,175,55,0.2)",
-    background: active
-      ? "linear-gradient(180deg, #1e3a5f, #12263f)"
-      : "rgba(255,255,255,0.03)",
-    color: active ? "#D4AF37" : "rgba(200,210,230,0.6)",
-    cursor: "pointer",
-    transition: "all 0.2s ease",
-  });
-
+  
   return (
-    <div className="tabWrapper" style={{ fontFamily: "sans-serif" }}>
+    <div className="tabWrapper" style={{ fontFamily: "sans-serif", height:"100%" }}>
       {/* Stat cards */}
-      <div className="summaryRow">
-        {/* <StatCard label="Total profit" value={total.toLocaleString()} />
-        <StatCard label="Best period" value={best.toLocaleString()} />
-        <StatCard label="Avg per period" value={avg.toLocaleString()} /> */}
-        <Summary title="Total profit" total={total} />
-        <Summary title="Best period" total={best} />
-        <Summary title="Avg per period" total={avg} />
-
-      </div>
       <div className="chartContainer" >
 
         {/* Group-by buttons */}
@@ -228,7 +121,7 @@ export default function ProfitChart({ height = 280 }: ProfitChartProps) {
         </div>
 
         {/* Chart */}
-        <div style={{ position: "relative", width: "100%", height }}>
+        <div style={{ position: "relative", width: "100%", height}}>
           <canvas ref={canvasRef} />
         </div>
 

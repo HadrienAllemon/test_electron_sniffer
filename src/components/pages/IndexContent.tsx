@@ -17,7 +17,7 @@ export const IndexContent = () =>{
                 return <ItemsSold/>
             }
             case 2:{
-                return <ProfitChart/>
+                return null
             }
         }
     }

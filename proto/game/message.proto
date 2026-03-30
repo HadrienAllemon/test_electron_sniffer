@@ -24,6 +24,6 @@ message Response {
 }
 
 message Event {
-	.google.protobuf.Any content = 2;
+	.google.protobuf.Any content = 1;
 }
 

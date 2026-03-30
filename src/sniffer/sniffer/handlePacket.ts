@@ -3,7 +3,6 @@ import protobuf from 'protobufjs';
 import bufferManager from './bufferManager';
 import { decoders } from './decoders';
 import { decodeMessage } from '../interpretMessage/interpretMessage';
-import fs from 'node:fs';
 import appendLogs from '../utls/appendLogs';
 
 export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType: protobuf.Type): void {
@@ -12,9 +11,10 @@ export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType
         return;
     }
 
-    const ethernet = decoders.Ethernet(buffer);
-    const ipv4 = decoders.IPV4(buffer, ethernet.offset);
-    const tcp = decoders.TCP(buffer, ipv4.offset);
+    const rawPacket = buffer.slice(0, nbytes); // trim to actual received bytes
+    const ethernet = decoders.Ethernet(rawPacket);
+    const ipv4 = decoders.IPV4(rawPacket, ethernet.offset);
+    const tcp = decoders.TCP(rawPacket, ipv4.offset);
     const dataLength = ipv4.info.totallen - ipv4.hdrlen - tcp.hdrlen;
 
     const isRelevantPacket =
@@ -24,7 +24,7 @@ export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType
         dataLength > 0;
     if (!isRelevantPacket) return;
 
-    const packetData = buffer.slice(tcp.offset, tcp.offset + dataLength);
+    const packetData = rawPacket.slice(tcp.offset, tcp.offset + dataLength);
     const isClientToServer = tcp.info.dstport === 5555;
 
     bufferManager.appendToBuffer(isClientToServer, packetData);
@@ -37,8 +37,7 @@ export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType
             bufferManager.clearBuffer(isClientToServer);
             break;
         }
-        
-        if (!message && !shouldClear) break 
+
         if (Buffer.compare(remainingBuffer, currentBuffer) === 0) {
             console.log(chalk.red('Partial packet detected — waiting for more data'));
             break;
@@ -47,10 +46,12 @@ export function handlePacket(nbytes: any, trunc: any, buffer: Buffer, lookupType
         currentBuffer = remainingBuffer;
         bufferManager.updateBuffer(isClientToServer, currentBuffer);
 
+        if (!message) break;
+
 
         const decoded = message.toJSON();
         const content = decoded?.request?.content ?? decoded?.event?.content;
-        // appendLogs(JSON.stringify(decoded) + "\n\n");
+        appendLogs(JSON.stringify(decoded) + "\n\n");
 
         if (content?.type_url && content?.value) {
             decodeMessage(content.type_url, content.value);
