@@ -83,15 +83,14 @@ export const takeAction = (typeName: string, messageContent: any, base64Data: st
         case "imz": {
             // guild login ? 
         }
-        case "jif": {
+        case "jhr": {
             // mise en vente - Tax Added
             console.log("Mise en vente : ", messageContent, base64Data)
-            const taxValue = -Math.round(-(messageContent as any).priceSet / 100 * 2)
+            const taxValue = -Math.round(-(messageContent as any).price / 100 * 2)
             addTax([{ tax_nature: taxNatures["AuctionNewItem"], value: taxValue }])
             break
         }
         case "jcv": {
-            // mise en vente - Tax Added
             console.log("Achat :", messageContent, base64Data)
             const itemBought: itemBought = {
                 itemId: messageContent["id"],

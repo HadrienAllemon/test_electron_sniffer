@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+
+package com.ankama.dofus.server.game.protocol;
+
+message jhr {
+    int32 price = 3;
+    ItemInfo itemInfo = 4;
+}
+
+message ItemInfo {
+    int32 amountSold = 1;
+    int32 itemId = 4;
+}
+
+
