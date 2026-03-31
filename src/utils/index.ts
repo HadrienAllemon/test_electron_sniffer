@@ -1,2 +1,2 @@
-export * from "./formatPrice"
+export * from "./FormatPrice"
 export * from "./DateFunctions"

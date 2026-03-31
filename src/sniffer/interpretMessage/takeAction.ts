@@ -141,7 +141,7 @@ export const takeAction = (typeName: string, messageContent: any, base64Data: st
             }
             break
         }
-        case "ipl": {
+        case "jer": {
             // auction sell - OFFLINE -
             const offlineItems = messageContent as offlineItemsSold
             const itemsSold = flattenOllineItems(offlineItems)

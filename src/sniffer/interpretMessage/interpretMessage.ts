@@ -12,6 +12,7 @@ const typeUrlToProtoFile: { [key: string]: protobuf.Root } = {
     'jfv': protobuf.loadSync('./proto/typeUrl/jfv.proto'),
     'jif': protobuf.loadSync('./proto/typeUrl/jif.proto'),
     'jcv': protobuf.loadSync('./proto/typeUrl/jcv.proto'),
+    'jer': protobuf.loadSync('./proto/typeUrl/jer.proto'),
 };
 
 
