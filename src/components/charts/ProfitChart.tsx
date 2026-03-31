@@ -28,16 +28,25 @@ Chart.register(
 
 
 type GroupBy = "day" | "week" | "month";
-
+type Aggregated = {
+  profit: number;
+  sold: number;
+  bought: number;
+  tax: number;
+  date:Date;
+};
 
 function formatDate(d: Date): string {
-  return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  return d.toLocaleDateString("fr-FR", { month: "short", day: "numeric", year: "numeric" });
+  
 }
 
 function groupRows(rows: ITransaction[], mode: GroupBy) {
-  const map = new Map<string, number>();
-  rows.forEach(({ date, value }) => {
+  const map = new Map<string, Aggregated>();
+
+  rows.forEach(({ date, value, type }) => {
     const _date = new Date(date);
+
     let key: string;
     if (mode === "day") {
       key = formatDate(_date);
@@ -46,11 +55,28 @@ function groupRows(rows: ITransaction[], mode: GroupBy) {
       d.setDate(d.getDate() - d.getDay());
       key = "W of " + formatDate(d);
     } else {
-      key = date.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+      key = _date.toLocaleDateString("fr-FR", { month: "short", year: "numeric" });
     }
-    map.set(key, (map.get(key) ?? 0) + value);
+
+    if (!map.has(key)) {
+      map.set(key, { profit: 0, sold: 0, bought: 0, tax: 0, date : _date });
+    }
+
+    const entry = map.get(key)!;
+
+    entry.profit += value;
+
+    if (type === "sold") entry.sold += value;
+    else if (type === "bought") entry.bought += value;
+    else if (type === "tax") entry.tax += value;
   });
-  return { labels: [...map.keys()], data: [...map.values()] };
+
+  return {
+    labels: [...map.keys()],
+    data: [...map.values()].map(v => v.profit),
+    meta: [...map.values()], 
+    dates: [...map.values()].map(v => v.date)
+  };
 }
 
 const btnStyle = (active: boolean): React.CSSProperties => ({
@@ -68,14 +94,12 @@ const btnStyle = (active: boolean): React.CSSProperties => ({
 
 
 interface ProfitChartProps {
-  /** Pass rows directly from your SQLite query result */
-  /** Optional height for the chart canvas wrapper (default 280) */
-  height?: number|string;
   transactions: ITransaction[];
+  height?: number | string;
+  onPointClick?: (from: Date, to: Date) => void;
 }
 
-export default function ProfitChart({ height = 280, transactions}: ProfitChartProps) {
-  // const [rows, setRows] = useState<IItemSold[]>([]);
+export default function ProfitChart({ height = 280, transactions, onPointClick}: ProfitChartProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const chartRef = useRef<Chart | null>(null);
   const [groupBy, setGroupBy] = useState<GroupBy>("day");
@@ -83,21 +107,15 @@ export default function ProfitChart({ height = 280, transactions}: ProfitChartPr
     return [...transactions].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   }, [transactions]);
 
-  const { labels, data } = useMemo(() => groupRows(sortedTransactions, groupBy), [transactions, groupBy]);
-
-  useEffect(() => {
-    // setRows(getItemsSold())
-  }, [])
-
-  // Derived stats
-  const total = data.reduce((a, b) => a + b, 0);
-  const best = data.length ? Math.max(...data) : 0;
-  const avg = data.length ? Math.round(total / data.length) : 0;
+  const { labels, data, meta, dates } = useMemo(
+    () => groupRows(sortedTransactions, groupBy),
+    [transactions, groupBy]
+  );
 
   useEffect(() => {
     if (!canvasRef.current) return;
     chartRef.current?.destroy();
-    chartRef.current = new Chart(canvasRef.current,getChatConfig(labels, data,groupBy));
+    chartRef.current = new Chart(canvasRef.current,getChatConfig(labels, data,groupBy, meta, dates, onPointClick || (() => {})));
 
     return () => {
       chartRef.current?.destroy();

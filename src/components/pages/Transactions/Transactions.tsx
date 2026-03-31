@@ -7,6 +7,7 @@ import { getTransactions } from "../../../sniffer/sqlite/queries";
 import { ITransaction } from "../../../interfaces";
 import "./Transactions.css";
 import ProfitChart from "../../charts/ProfitChart";
+import { formatPrice } from "../../../utils";
 
 interface TableItem {
     data: ITransaction
@@ -23,10 +24,7 @@ const sortDate = (valueA: any, valueB: any) => {
     // @ts-ignore
     return new Date(valueA) - new Date(valueB);
 }
-const formatPrice = (value: number) => {
-    const formatter = new Intl.NumberFormat("fr-FR", { maximumSignificantDigits: 3 })
-    return formatter.format(value) + "K"
-}
+
 const taxTypeToStringFr = (type: string) => {
     switch (type) {
         case "sold": return "Vente";
@@ -35,6 +33,8 @@ const taxTypeToStringFr = (type: string) => {
         default: return type;
     }
 }
+
+
 
 
 export const Transactions = () => {
@@ -74,6 +74,14 @@ export const Transactions = () => {
 
     const handleFilterChange = (key: keyof Filters, value: any) => {
         setFilters((prev) => ({ ...prev, [key]: value }));
+    };
+
+    const setDateRange = (from: Date, to: Date) => {
+        setFilters(prev => ({
+            ...prev,
+            from,
+            to
+        }));
     };
 
     const handleDateRangeChange = (range: string) => {
@@ -157,7 +165,14 @@ export const Transactions = () => {
                 {viewMode === "table" ? (
                     <ItemTable data={filteredTransactions} colDefs={colDefs} />
                 ) : (
-                    <ProfitChart transactions={filteredTransactions} height={"50vh"} />
+                    <ProfitChart
+                    transactions={filteredTransactions}
+                    height={"50vh"}
+                    onPointClick={(from, to) => {
+                        setDateRange(from, to);
+                        setViewMode("table");
+                    }}
+                  />
                 )}
             </div>
         </div>
