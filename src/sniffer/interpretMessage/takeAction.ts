@@ -1,6 +1,31 @@
 import { addItemsBought, addItemsSold, addTax } from "../sqlite/queries";
 import appendLogs from "../utls/appendLogs";
 
+function decodePackedVarints(buffer: Buffer): number[] {
+    const result = [];
+    let i = 0;
+
+    while (i < buffer.length) {
+        let value = 0;
+        let shift = 0;
+
+        while (true) {
+            const byte = buffer[i];
+            value |= (byte & 0x7F) << shift;
+
+            if (!(byte & 0x80)) break;
+
+            shift += 7;
+            i++;
+        }
+
+        result.push(value);
+        i++;
+    }
+
+    return result;
+}
+
 type offlineItemsSold = {
     items: offlineItemSold[];
 }
@@ -106,7 +131,7 @@ export const takeAction = (typeName: string, messageContent: any, base64Data: st
             console.log("Modification d'item en vente : ", messageContent, base64Data)
             const taxValue = -Math.round(-(messageContent as any).priceSet / 100 * 1)
             addTax([{ tax_nature: taxNatures["AuctionNewPrice"], value: taxValue }])
-            
+
 
             break
         }
@@ -137,7 +162,7 @@ export const takeAction = (typeName: string, messageContent: any, base64Data: st
                 console.log("adding item to db : ", itemBought, allValuesItem2)
                 addItemsBought([itemBought])
             } else if (allValuesItem1.length === 1 && allValuesItem1.every(str => str.match(/[1-9]/))) {
-                addTax([{tax_nature: taxNatures["Zaap"], value: +allValuesItem1[0]}])
+                addTax([{ tax_nature: taxNatures["Zaap"], value: +allValuesItem1[0] }])
             }
             break
         }
@@ -154,6 +179,21 @@ export const takeAction = (typeName: string, messageContent: any, base64Data: st
             // chat msg
             break
         }
+
+        case 'jgj': {
+            // ITEMS CURRENTLY LISTED IN AUCTION
+            break
+        }
+
+        case "jgd": {
+            // Auction Price checking
+            if (messageContent?.auctionInfo?.pricesBytes) {
+                const raw = Buffer.from(messageContent.auctionInfo.pricesBytes, "hex");
+                const prices = decodePackedVarints(raw);
+                console.log("FOUND PRICES", prices);
+            }
+        }
+
 
         default: {
             appendLogs(`Unknown message type: ${typeName}, content: ${JSON.stringify(messageContent)}\n\n`)

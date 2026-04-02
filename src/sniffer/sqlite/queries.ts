@@ -14,28 +14,28 @@ export const selectItems = () => {
 }
 export const addItemsSold = (items: itemSold[]) => {
     if (!db) return;
-    const insert = db.prepare("insert into itemsSold (item_id, profit, amountSold) values (?,?,?)")
+    const insert = db.prepare("insert into itemsSold (item_id, profit, amountSold, created_at) values (?,?,?,?)")
 
     items.forEach(item => {
-        insert.run(item.itemId, item.profit, item.amountSold)
+        insert.run(item.itemId, item.profit, item.amountSold, new Date().toISOString())
     })
 }
 export const addItemsBought = (items: itemBought[]) => {
     if (!db) return;
-    const insert = db.prepare("insert into itemsBought (item_id, price, amountbought) values (?,?,?)")
+    const insert = db.prepare("insert into itemsBought (item_id, price, amountbought, created_at) values (?,?,?,?)")
 
     items.forEach(item => {
-        insert.run(item.itemId, item.price, item.amountBought)
+        insert.run(item.itemId, item.price, item.amountBought, new Date().toISOString())
     })
 }
 
 export const addTax = (taxes: tax[]) => {
     if (!db) return;
     console.log("adding taxes", taxes);
-    const insert = db.prepare("insert into taxes (tax_nature, value) values (?,?)");
+    const insert = db.prepare("insert into taxes (tax_nature, value, created_at) values (?,?,?)");
 
     taxes.forEach(tax => {
-        insert.run(tax.tax_nature, tax.value)
+        insert.run(tax.tax_nature, tax.value, new Date().toISOString())
     })
 }
 
