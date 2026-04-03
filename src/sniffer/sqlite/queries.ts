@@ -1,5 +1,4 @@
 import db from "./ensureDatabase"
-import { itemBought, itemSold, tax } from "../interpretMessage/takeAction";
 import { IItemSold, IItemBought, ITransaction, ITax } from "../../interfaces";
 
 export const selectItems = () => {

@@ -1,88 +1,102 @@
-[2026-04-02T14:07:04.336Z] {"event":{"content":{"type_url":"type.ankama.com/idk","value":"COMCEAEg44K4/HsoxPMf"}}}
+[2026-04-03T13:51:16.475Z] {"event":{"content":{"type_url":"type.ankama.com/idk","value":"COMCEAEg44KY6FUoxvMf"}}}
 
-[2026-04-02T14:07:04.336Z] Unknown message type: idk, content: "COMCEAEg44K4/HsoxPMf"
+[2026-04-03T13:51:16.475Z] Unknown message type: idk, content: "COMCEAEg44KY6FUoxvMf"
 
-[2026-04-02T14:07:05.102Z] Unknown message type: jsh, content: "EAE="
+[2026-04-03T13:51:17.734Z] {"event":{"content":{"type_url":"type.ankama.com/isj","value":"EAMaBNgD8wMg3+P+////////AQ=="}}}
 
-[2026-04-02T14:07:05.102Z] {"event":{"content":{"type_url":"type.ankama.com/jsh","value":"EAE="}}}
+[2026-04-03T13:51:17.734Z] Unknown message type: isj, content: "EAMaBNgD8wMg3+P+////////AQ=="
 
-[2026-04-02T14:07:05.460Z] {"event":{"content":{"type_url":"type.ankama.com/jgd","value":"ChoKBSgBSOEEENYRIEwongYyCbQev58CoMIeABBMGJ4G"}}}
+[2026-04-03T13:51:18.087Z] {"event":{"content":{"type_url":"type.ankama.com/iac","value":"CNqItxE="}}}
 
-[2026-04-02T14:07:05.461Z] Unknown message type: jgd, content: "ChoKBSgBSOEEENYRIEwongYyCbQev58CoMIeABBMGJ4G"
+[2026-04-03T13:51:18.087Z] {"event":{"content":{"type_url":"type.ankama.com/jfs","value":"CNSeAhDMgAEiCPucAYboDAAAKLcB"}}}
 
-[2026-04-02T14:07:05.956Z] {"event":{"content":{"type_url":"type.ankama.com/jgd","value":"EEwYngY="}}}
+[2026-04-03T13:51:18.087Z] Unknown message type: jfs, content: "CNSeAhDMgAEiCPucAYboDAAAKLcB"
 
-[2026-04-02T14:07:05.956Z] Unknown message type: jgd, content: "EEwYngY="
+[2026-04-03T13:51:18.087Z] {"event":{"content":{"type_url":"type.ankama.com/jdu","value":"CNfUqwI="}}}
 
-[2026-04-02T14:07:06.654Z] {"event":{"content":{"type_url":"type.ankama.com/jgd","value":"ChoKBSgBSOEEENYRIEwongYyCbQev58CoMIeABBMGJ4G"}}}
+[2026-04-03T13:51:18.089Z] {"event":{"content":{"type_url":"type.ankama.com/jhr","value":"EIDUkwEY+5wBIgsIARDl3KsCIMyAAQ=="}}}
 
-[2026-04-02T14:07:06.654Z] Unknown message type: jgd, content: "ChoKBSgBSOEEENYRIEwongYyCbQev58CoMIeABBMGJ4G"
+[2026-04-03T13:51:18.091Z] Modification d'un item en vente aux enchères : {"price":20091,"itemInfo":{"amountSold":1,"itemId":16460}}
 
-[2026-04-02T14:07:06.956Z] {"event":{"content":{"type_url":"type.ankama.com/jgd","value":"EEwYngY="}}}
+[2026-04-03T13:51:18.095Z] Unknown message type: jfs, content: "CNSeAhDMgAEiCPucAYboDAAAKLcB"
 
-[2026-04-02T14:07:06.957Z] Unknown message type: jgd, content: "EEwYngY="
+[2026-04-03T13:51:18.095Z] {"event":{"content":{"type_url":"type.ankama.com/jfs","value":"CNSeAhDMgAEiCPucAYboDAAAKLcB"}}}
 
-[2026-04-02T14:07:07.288Z] {"event":{"content":{"type_url":"type.ankama.com/jgd","value":"ChoKBSgBSOEEENYRIEwongYyCbQev58CoMIeABBMGJ4G"}}}
+[2026-04-03T13:51:18.095Z] {"event":{"content":{"type_url":"type.ankama.com/iac","value":"CJGHtxE="}}}
 
-[2026-04-02T14:07:07.288Z] Unknown message type: jgd, content: "ChoKBSgBSOEEENYRIEwongYyCbQev58CoMIeABBMGJ4G"
+[2026-04-03T13:51:18.095Z] Unknown message type: iac, content: "CJGHtxE="
 
-[2026-04-02T14:07:07.442Z] {"event":{"content":{"type_url":"type.ankama.com/jgd","value":"EEwYngY="}}}
+[2026-04-03T13:51:18.087Z] Unknown message type: iac, content: "CNqItxE="
 
-[2026-04-02T14:07:07.442Z] Unknown message type: jgd, content: "EEwYngY="
+[2026-04-03T13:51:18.095Z] {"event":{"content":{"type_url":"type.ankama.com/jfs","value":"CNSeAhDMgAEiCPucAYboDAAAKLcB"}}}
 
-[2026-04-02T14:07:07.449Z] {"event":{"content":{"type_url":"type.ankama.com/isj","value":"EAcaBL8B6wEg3+P+////////AQ=="}}}
+[2026-04-03T13:51:18.096Z] {"event":{"content":{"type_url":"type.ankama.com/jhr","value":"EIDUkwEY+5wBIgsIARDm3KsCIMyAAQ=="}}}
 
-[2026-04-02T14:07:07.449Z] Unknown message type: isj, content: "EAcaBL8B6wEg3+P+////////AQ=="
+[2026-04-03T13:51:18.095Z] Unknown message type: jfs, content: "CNSeAhDMgAEiCPucAYboDAAAKLcB"
 
-[2026-04-02T14:19:43.858Z] {"event":{"content":{"type_url":"type.ankama.com/isj","value":"EAUaBKADuwMg3uP+////////AQ=="}}}
+[2026-04-03T13:51:18.095Z] {"event":{"content":{"type_url":"type.ankama.com/jdu","value":"CNjUqwI="}}}
 
-[2026-04-02T14:19:43.862Z] Unknown message type: isj, content: "EAUaBKADuwMg3uP+////////AQ=="
+[2026-04-03T13:51:18.100Z] Unknown message type: jfs, content: "CNSeAhDMgAEiCPucAYboDAAAKLcB"
 
-[2026-04-02T14:19:50.788Z] {"event":{"content":{"type_url":"type.ankama.com/jsh","value":"EAE="}}}
+[2026-04-03T13:51:18.097Z] Modification d'un item en vente aux enchères : {"price":20091,"itemInfo":{"amountSold":1,"itemId":16460}}
 
-[2026-04-02T14:19:50.789Z] Unknown message type: jsh, content: "EAE="
+[2026-04-03T13:51:18.100Z] {"event":{"content":{"type_url":"type.ankama.com/jfs","value":"CNSeAhDMgAEiCPucAYboDAAAKLcB"}}}
 
-[2026-04-02T14:19:50.852Z] {"event":{"content":{"type_url":"type.ankama.com/isj","value":"EAcaBPIDgAQg4OP+////////AQ=="}}}
+[2026-04-03T13:51:18.133Z] {"event":{"content":{"type_url":"type.ankama.com/iac","value":"CMiFtxE="}}}
 
-[2026-04-02T14:19:50.853Z] Unknown message type: isj, content: "EAcaBPIDgAQg4OP+////////AQ=="
+[2026-04-03T13:51:18.133Z] {"event":{"content":{"type_url":"type.ankama.com/jfs","value":"CNSeAhDMgAEiCPucAYboDAAAKLcB"}}}
 
-[2026-04-02T14:19:50.881Z] {"event":{"content":{"type_url":"type.ankama.com/jhw","value":"CEwSMJsGnAadBp4GnwagBqEGogajBqQGpQamBqcGqAapBqoGqwWrBqwGrgWuBq8GsAaxBg=="}}}
+[2026-04-03T13:51:18.133Z] {"event":{"content":{"type_url":"type.ankama.com/jdu","value":"CNbUqwI="}}}
 
-[2026-04-02T14:19:50.882Z] {"event":{"content":{"type_url":"type.ankama.com/jhw","value":"CEoSvAGuZK9kvXC+cL9wwHDBcMJww3DEcMVwxnDHcMhw8XDycI0zjjOQM5IzkzOUM5UzljOXM5kzmjObM5wznTOeM58zoDOhM6IzozOkM6RJpTOmM6czqDOpM6ozqzOsM60zrjOvM7AzsH+xM7IzszO0M7UztjO3+wG4M7kzujO7M7wzvTO+M78zwDPAEcEzwjPDM8QzxTPGM8czyDPeVd+ZAeMz5DPlM+Yz5zPoM+kz6jPrM+wz7TPuM/Az8TP/Vw=="}}}
+[2026-04-03T13:51:18.133Z] Unknown message type: jfs, content: "CNSeAhDMgAEiCPucAYboDAAAKLcB"
 
-[2026-04-02T14:19:50.882Z] Unknown message type: jhw, content: "CEoSvAGuZK9kvXC+cL9wwHDBcMJww3DEcMVwxnDHcMhw8XDycI0zjjOQM5IzkzOUM5UzljOXM5kzmjObM5wznTOeM58zoDOhM6IzozOkM6RJpTOmM6czqDOpM6ozqzOsM60zrjOvM7AzsH+xM7IzszO0M7UztjO3+wG4M7kzujO7M7wzvTO+M78zwDPAEcEzwjPDM8QzxTPGM8czyDPeVd+ZAeMz5DPlM+Yz5zPoM+kz6jPrM+wz7TPuM/Az8TP/Vw=="
+[2026-04-03T13:51:18.133Z] Unknown message type: iac, content: "CMiFtxE="
 
-[2026-04-02T14:19:50.882Z] Unknown message type: jhw, content: "CEwSMJsGnAadBp4GnwagBqEGogajBqQGpQamBqcGqAapBqoGqwWrBqwGrgWuBq8GsAaxBg=="
+[2026-04-03T13:51:18.135Z] Modification d'un item en vente aux enchères : {"price":20091,"itemInfo":{"amountSold":1,"itemId":16460}}
 
-[2026-04-02T14:19:50.890Z] {"event":{"content":{"type_url":"type.ankama.com/jhw","value":"CFkSHKFVsjaiVeRehOwB1tgBxucB19gB2NgB26EBz2U="}}}
+[2026-04-03T13:51:18.138Z] Unknown message type: jfs, content: "CNSeAhDMgAEiCPucAYboDAAAKLcB"
 
-[2026-04-02T14:19:50.890Z] Unknown message type: jhw, content: "CFkSHKFVsjaiVeRehOwB1tgBxucB19gB2NgB26EBz2U="
+[2026-04-03T13:51:18.134Z] {"event":{"content":{"type_url":"type.ankama.com/jhr","value":"EIDUkwEY+5wBIgsIARDn3KsCIMyAAQ=="}}}
 
-[2026-04-02T14:19:50.899Z] {"event":{"content":{"type_url":"type.ankama.com/jhw","value":"CCoS6QGASoo0izSOZJFkk2SVZJdkmQKZZJtkn4QBoIQBoYQBo4QBpIQBpaIBpYQBpqIBpoQBp4QBp6IBqIQBqKIBqYQBqaIBqoQBqqIBq4QBq6IBrGSshAGsogGtaq2EAa2iAa5qroQBrqIBr2qvhAGwhAGypAGzNryiAb6kAb+kAcCkAcDUAcFiwaQBw2LNQviWAf6IAYRphmmIaYppjGmOaZBpo0mkS6VLpmenZ6dLu9EBwrsByuUB0WXRadJp02nUadVp1mndB94H3wfgB+EH4gfjB+QH6zfsN+038g/zM/VF9kX3M/hF+UX6RQ=="}}}
+[2026-04-03T13:51:18.138Z] {"event":{"content":{"type_url":"type.ankama.com/iac","value":"CP+DtxE="}}}
 
-[2026-04-02T14:19:50.900Z] Unknown message type: jhw, content: "CCoS6QGASoo0izSOZJFkk2SVZJdkmQKZZJtkn4QBoIQBoYQBo4QBpIQBpaIBpYQBpqIBpoQBp4QBp6IBqIQBqKIBqYQBqaIBqoQBqqIBq4QBq6IBrGSshAGsogGtaq2EAa2iAa5qroQBrqIBr2qvhAGwhAGypAGzNryiAb6kAb+kAcCkAcDUAcFiwaQBw2LNQviWAf6IAYRphmmIaYppjGmOaZBpo0mkS6VLpmenZ6dLu9EBwrsByuUB0WXRadJp02nUadVp1mndB94H3wfgB+EH4gfjB+QH6zfsN+038g/zM/VF9kX3M/hF+UX6RQ=="
+[2026-04-03T13:51:18.138Z] {"event":{"content":{"type_url":"type.ankama.com/jfs","value":"CNSeAhDMgAEiCPucAYboDAAAKLcB"}}}
 
-[2026-04-02T14:19:50.900Z] {"event":{"content":{"type_url":"type.ankama.com/jhw","value":"CBkSaZCeAZRcpAyntQGnwwGtYrTYAbZTvosBv4gBw2DF2AHGOcZaxmDG2AHHPcdax2DIYMlgymDLPsxgzWDOYNe0Adxq3WfeXeRj5WPongHpngHqugHruwHsuwHudO6dAfVj9ZkB92b8/QH+PQ=="}}}
+[2026-04-03T13:51:18.139Z] {"event":{"content":{"type_url":"type.ankama.com/jfs","value":"CNSeAhDMgAEiCPucAYboDAAAKLcB"}}}
 
-[2026-04-02T14:19:50.901Z] {"event":{"content":{"type_url":"type.ankama.com/jhw","value":"CAwSpwGJaopqi2qMao1qkYABkoABk4ABlGiUgAGUkwGVgAGWgAGXgAGYgAGZgAGaApqAAZsCm4ABnIABngmegAGfCZ9Nn4ABoYABpZ0BpminaKdpqGipaK1TrrgBsA2xU7ENsp0BuZ0Bup0Bu50BvJ0BvZ0Bvp0Bw2/EBMjeActU0UXSggHUb9Zn2WfZVd36AeKjAexU7VTuVO6KAfFZ8lnzWffRAf0K/gr/OQ=="}}}
+[2026-04-03T13:51:18.138Z] Unknown message type: iac, content: "CP+DtxE="
 
-[2026-04-02T14:19:50.901Z] Unknown message type: jhw, content: "CBkSaZCeAZRcpAyntQGnwwGtYrTYAbZTvosBv4gBw2DF2AHGOcZaxmDG2AHHPcdax2DIYMlgymDLPsxgzWDOYNe0Adxq3WfeXeRj5WPongHpngHqugHruwHsuwHudO6dAfVj9ZkB92b8/QH+PQ=="
+[2026-04-03T13:51:18.139Z] Unknown message type: jfs, content: "CNSeAhDMgAEiCPucAYboDAAAKLcB"
 
-[2026-04-02T14:19:50.901Z] Unknown message type: jhw, content: "CAwSpwGJaopqi2qMao1qkYABkoABk4ABlGiUgAGUkwGVgAGWgAGXgAGYgAGZgAGaApqAAZsCm4ABnIABngmegAGfCZ9Nn4ABoYABpZ0BpminaKdpqGipaK1TrrgBsA2xU7ENsp0BuZ0Bup0Bu50BvJ0BvZ0Bvp0Bw2/EBMjeActU0UXSggHUb9Zn2WfZVd36AeKjAexU7VTuVO6KAfFZ8lnzWffRAf0K/gr/OQ=="
+[2026-04-03T13:51:18.139Z] {"event":{"content":{"type_url":"type.ankama.com/jhr","value":"EIDUkwEY+5wBIgsIARDo3KsCIMyAAQ=="}}}
 
-[2026-04-02T14:19:55.811Z] {"event":{"content":{"type_url":"type.ankama.com/jsh","value":"EAE="}}}
+[2026-04-03T13:51:18.140Z] Modification d'un item en vente aux enchères : {"price":20091,"itemInfo":{"amountSold":1,"itemId":16460}}
 
-[2026-04-02T14:19:55.812Z] Unknown message type: jsh, content: "EAE="
+[2026-04-03T13:51:18.144Z] Unknown message type: jfs, content: "CNSeAhDMgAEiCPucAYboDAAAKLcB"
 
-[2026-04-02T14:19:57.856Z] {"event":{"content":{"type_url":"type.ankama.com/isj","value":"EAcaBKgC/QEg3+P+////////AQ=="}}}
+[2026-04-03T13:51:18.144Z] {"event":{"content":{"type_url":"type.ankama.com/jfs","value":"CNSeAhDMgAEiCPucAYboDAAAKLcB"}}}
 
-[2026-04-02T14:19:57.856Z] Unknown message type: isj, content: "EAcaBKgC/QEg3+P+////////AQ=="
+[2026-04-03T13:51:18.144Z] Unknown message type: iac, content: "CLaCtxE="
 
-[2026-04-02T14:19:58.799Z] {"event":{"content":{"type_url":"type.ankama.com/jgd","value":"ChoKBSgBSOEEENYRIEwongYyCbQev58CoMIeABBMGJ4G"}}}
+[2026-04-03T13:51:18.139Z] {"event":{"content":{"type_url":"type.ankama.com/jdu","value":"CNXUqwI="}}}
 
-[2026-04-02T14:19:58.802Z] Unknown message type: jgd, content: {"auctionInfo":{"pricesBytes":{"type":"Buffer","data":[180,30,191,159,2,160,194,30,0]}},"itemId":798}
+[2026-04-03T13:51:18.144Z] {"event":{"content":{"type_url":"type.ankama.com/jfs","value":"CNSeAhDMgAEiCPucAYboDAAAKLcB"}}}
 
-[2026-04-02T14:20:00.834Z] {"event":{"content":{"type_url":"type.ankama.com/jsh","value":"EAE="}}}
+[2026-04-03T13:51:18.144Z] {"event":{"content":{"type_url":"type.ankama.com/jdu","value":"CNTUqwI="}}}
 
-[2026-04-02T14:20:00.834Z] Unknown message type: jsh, content: "EAE="
+[2026-04-03T13:51:18.144Z] {"event":{"content":{"type_url":"type.ankama.com/iac","value":"CLaCtxE="}}}
+
+[2026-04-03T13:51:18.145Z] {"event":{"content":{"type_url":"type.ankama.com/jhr","value":"EIDUkwEY+5wBIgsIARDp3KsCIMyAAQ=="}}}
+
+[2026-04-03T13:51:18.146Z] Modification d'un item en vente aux enchères : {"price":20091,"itemInfo":{"amountSold":1,"itemId":16460}}
+
+[2026-04-03T13:51:18.144Z] Unknown message type: jfs, content: "CNSeAhDMgAEiCPucAYboDAAAKLcB"
+
+[2026-04-03T13:51:18.150Z] {"event":{"content":{"type_url":"type.ankama.com/jfs","value":"CNSeAhDMgAEiCPucAYboDAAAKLcB"}}}
+
+[2026-04-03T13:51:18.150Z] Unknown message type: jfs, content: "CNSeAhDMgAEiCPucAYboDAAAKLcB"
+
+[2026-04-03T13:51:19.518Z] Unknown message type: jsh, content: "EAE="
+
+[2026-04-03T13:51:19.518Z] {"event":{"content":{"type_url":"type.ankama.com/jsh","value":"EAE="}}}
 

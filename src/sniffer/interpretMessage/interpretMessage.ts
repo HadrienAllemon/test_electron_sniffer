@@ -1,6 +1,7 @@
 import protobuf from 'protobufjs';
 import { takeAction } from './takeAction';
 import appendLogs from '../utls/appendLogs';
+import { protoCache } from '../protoHandler/loadAllProto';
 
 
 const typeUrlToProtoFile: { [key: string]: protobuf.Root } = {
@@ -14,43 +15,35 @@ const typeUrlToProtoFile: { [key: string]: protobuf.Root } = {
     'jcv': protobuf.loadSync('./proto/typeUrl/jcv.proto'),
     'jer': protobuf.loadSync('./proto/typeUrl/jer.proto'),
     'jgd': protobuf.loadSync('./proto/typeUrl/jgd.proto'),
+    'jdu': protobuf.loadSync('./proto/typeUrl/jdu.proto'),
 };
 
 
 export const decodeMessage = (typeUrl: string, base64Data: string) => {
-    const typeName = typeUrl.split('/').pop(); // Extract the type name
-    if (!typeName) {
-        console.error("No type name in ", typeUrl)
+    const typeName = typeUrl.split('/').pop();
+    if (!typeName) return;
+
+    const MessageType = protoCache.get(typeName);
+
+    if (!MessageType) {
+        appendLogs(`Unknown message type: ${typeName}, content: ${base64Data}\n\n`);
         return;
     }
-    const protoRoot = typeUrlToProtoFile[typeName];
-    if (!protoRoot) {
-        console.error(`Unknown type URL: ${typeUrl}`);
-        appendLogs(`Unknown message type: ${typeName}, content: ${JSON.stringify(base64Data)}\n\n`);
-        console.error("Log appended")
-        return;
-    }
-
-
-
-    const MessageType = protoRoot.lookupType(`com.ankama.dofus.server.game.protocol.${typeName}`);
 
     const buffer = Buffer.from(base64Data, 'base64');
+
     try {
-        console.log(typeUrl, base64Data)
-        const decodedMessage = MessageType.decode(buffer);
-        const messageContent = MessageType.toObject(decodedMessage, {
+        const decoded = MessageType.decode(buffer);
+
+        const messageContent = MessageType.toObject(decoded, {
             longs: String,
             enums: String,
             defaults: true,
-            arrays: true,
-            objects: true,
         });
-        takeAction(typeName, messageContent, base64Data, buffer)
+
+        takeAction(typeName, messageContent, base64Data, buffer);
+
     } catch (error) {
-        console.log("failed to decode message", buffer, typeName, error)
+        console.log("Decode failed:", typeName, error);
     }
-    // console.log(base64Data)
-
-
-}
+};

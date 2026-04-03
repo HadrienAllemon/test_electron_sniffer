@@ -1,5 +1,20 @@
+import { JerMessage } from "@src/interfaces/MessageMap/JerMessage";
+import { MessageMap } from "../../interfaces/MessageMap";
 import { addItemsBought, addItemsSold, addTax } from "../sqlite/queries";
 import appendLogs from "../utls/appendLogs";
+import { IDbItemSold } from "@src/interfaces/dbReady/IDbItemSold";
+import { TaxNaturesEnum } from "@src/interfaces/dbReady/TaxNatureEnum";
+import { IDbItemBought } from "@src/interfaces/dbReady/IDbItemBought";
+
+interface AuctionContext {
+    lastJduTimestamp: number | null;
+    lastSeenTransactionHint: number | null;
+}
+
+const auctionContext: AuctionContext = {
+    lastJduTimestamp: null,
+    lastSeenTransactionHint: null
+};
 
 function decodePackedVarints(buffer: Buffer): number[] {
     const result = [];
@@ -26,43 +41,8 @@ function decodePackedVarints(buffer: Buffer): number[] {
     return result;
 }
 
-type offlineItemsSold = {
-    items: offlineItemSold[];
-}
 
-type offlineItemSold = {
-    itemId: number;
-    amountSold: number;
-    details: {
-        totalGains: number
-    }
-}
-
-export type itemSold = {
-    itemId: taxNatures,
-    amountSold: number,
-    profit: number
-}
-
-export type itemBought = {
-    itemId: taxNatures,
-    amountBought: number,
-    price: number
-}
-
-export type tax = {
-    id?: number
-    tax_nature: number,
-    value: number
-}
-
-enum taxNatures {
-    "AuctionNewItem" = 1,
-    "AuctionNewPrice" = 2,
-    "Zaap" = 3
-}
-
-function flattenOllineItems(message: offlineItemsSold): itemSold[] {
+function flattenOllineItems(message: JerMessage): IDbItemSold[] {
     if (!message?.items) {
         console.log("no items in ", message)
         return [];
@@ -74,14 +54,16 @@ function flattenOllineItems(message: offlineItemsSold): itemSold[] {
             profit: item.details?.totalGains || 0
         }
     ))
-    // return {
-    //     itemId: item.itemId,
-    //     amountSold: item.amountSold,
-    //     totalGains: item.details?.totalGains || null, // Extract `totalGains` if `details` exists
-    // };
 }
 
-export const takeAction = (typeName: string, messageContent: any, base64Data: string, buffer: any) => {
+
+
+export function takeAction<K extends keyof MessageMap>(
+    typeName: K,
+    messageContent: MessageMap[K],
+    base64Data: string,
+    buffer: Buffer
+): void {
     console.log("Received message of type:", typeName)
     switch (typeName) {
         case "iyc": {
@@ -108,16 +90,41 @@ export const takeAction = (typeName: string, messageContent: any, base64Data: st
         case "imz": {
             // guild login ? 
         }
+        case "jdu": {
+            // auction house update - can be used to flag that the player is modifying an item listed
+            console.log("Received jdu message, updating lastJduTimestamp to:", Date.now())
+            auctionContext.lastJduTimestamp = Date.now();
+            auctionContext.lastSeenTransactionHint = messageContent?.transactionId;
+            break;
+        }
         case "jhr": {
-            // mise en vente - Tax Added
-            console.log("Mise en vente : ", messageContent, base64Data)
-            const taxValue = -Math.round(-(messageContent as any).price / 100 * 2)
-            addTax([{ tax_nature: taxNatures["AuctionNewItem"], value: taxValue }])
-            break
+            // This part is a bit messy but I don't have a better idea. 
+            // Basically, if the last "jdu" message was received less than 2 seconds ago, we consider that this
+            // "jhr" message is a modification of an existing auction item, and not a new listing.
+            const now = Date.now();
+            const isModification = (now - auctionContext.lastJduTimestamp) < 2000;
+            console.log("Received jhr message, isModification:", isModification, "time since last jdu:", now - auctionContext.lastJduTimestamp)
+
+            const taxRate = isModification ? 0.01 : 0.02;
+
+            console.log("Auction:", isModification ? "MODIFICATION" : "NEW");
+            appendLogs(`${isModification ? "Modification" : "Nouvelle mise en vente"} d'un item en vente aux enchères : ${JSON.stringify(messageContent)}\n\n`);
+
+            if (messageContent?.price) {
+                const taxValue = -Math.round(-(messageContent.price * taxRate));
+                addTax([{
+                    tax_nature: isModification
+                        ? TaxNaturesEnum["AuctionNewPrice"]
+                        : TaxNaturesEnum["AuctionNewItem"],
+                    value: taxValue
+                }]);
+            }
+
+            break;
         }
         case "jcv": {
             console.log("Achat :", messageContent, base64Data)
-            const itemBought: itemBought = {
+            const itemBought: IDbItemBought = {
                 itemId: messageContent["id"],
                 price: messageContent["price"],
                 amountBought: messageContent["quantity"]
@@ -126,52 +133,14 @@ export const takeAction = (typeName: string, messageContent: any, base64Data: st
             addItemsBought([itemBought])
             break
         }
-        case "jfv": {
-            // mise en vente - Tax Modified
-            console.log("Modification d'item en vente : ", messageContent, base64Data)
-            const taxValue = -Math.round(-(messageContent as any).priceSet / 100 * 1)
-            addTax([{ tax_nature: taxNatures["AuctionNewPrice"], value: taxValue }])
 
 
-            break
-        }
-        case "jpx": {
-            const rawValueBytes = Buffer.from(base64Data, 'base64');
-            const field2Length = buffer[2]; // Length of the first item value
-            const itemValue1 = rawValueBytes.slice(3, 3 + field2Length).toString('utf-8'); // Extract ASCII
-            const allValuesItem1 = itemValue1.split(/[^0-9]/).filter(a => a.length)
-
-            const field1Length = buffer[1]
-            const itemValue2 = rawValueBytes.slice(3, 3 + field1Length).toString('utf-8'); // Extract ASCII
-            const allValuesItem2 = itemValue2.split(/[^0-9]/).filter(a => a.length)
-
-            if (allValuesItem1.length === 4 && allValuesItem1.every(str => str.match(/[1-9]/))) {
-                const itemSold: itemSold = {
-                    itemId: +allValuesItem1[1],
-                    profit: +allValuesItem1[0],
-                    amountSold: +allValuesItem1[3]
-                }
-                console.log("adding item to db : ", itemSold, allValuesItem1)
-                addItemsSold([itemSold])
-            } else if (allValuesItem2.length === 4 && allValuesItem2.every(str => str.match(/[1-9]/))) {
-                const itemBought: itemBought = {
-                    itemId: +allValuesItem2[0],
-                    price: +allValuesItem2[3],
-                    amountBought: +allValuesItem2[2]
-                }
-                console.log("adding item to db : ", itemBought, allValuesItem2)
-                addItemsBought([itemBought])
-            } else if (allValuesItem1.length === 1 && allValuesItem1.every(str => str.match(/[1-9]/))) {
-                addTax([{ tax_nature: taxNatures["Zaap"], value: +allValuesItem1[0] }])
-            }
-            break
-        }
         case "jer": {
             // auction sell - OFFLINE -
-            const offlineItems = messageContent as offlineItemsSold
-            const itemsSold = flattenOllineItems(offlineItems)
-            console.log("OFFLINE AUCTION", itemsSold.length)
-            addItemsSold(itemsSold)
+            const offlineItems = messageContent;
+            const itemsSold = flattenOllineItems(offlineItems);
+            console.log("OFFLINE AUCTION", itemsSold.length);
+            addItemsSold(itemsSold);
             break
         }
 
