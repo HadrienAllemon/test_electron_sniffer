@@ -8,3 +8,8 @@ message Any {
     .google.protobuf.Any content=1;
      bytes value = 2;      // Encoded message data
 }
+
+message _anyDecoder {
+    .google.protobuf.Any content=1;
+     bytes value = 2;      // Encoded message data
+}

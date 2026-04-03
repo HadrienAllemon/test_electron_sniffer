@@ -1,5 +1,8 @@
 import db from "./ensureDatabase"
 import { IItemSold, IItemBought, ITransaction, ITax } from "../../interfaces";
+import { IDbItemSold } from "@src/interfaces/dbReady/IDbItemSold";
+import { IDbItemBought } from "@src/interfaces/dbReady/IDbItemBought";
+import { IDbTax } from "@src/interfaces/dbReady/IDbTax";
 
 export const selectItems = () => {
     if (!db) return;
@@ -11,7 +14,7 @@ export const selectItems = () => {
             row.profit);
     });
 }
-export const addItemsSold = (items: itemSold[]) => {
+export const addItemsSold = (items: IDbItemSold[]) => {
     if (!db) return;
     const insert = db.prepare("insert into itemsSold (item_id, profit, amountSold, created_at) values (?,?,?,?)")
 
@@ -19,7 +22,7 @@ export const addItemsSold = (items: itemSold[]) => {
         insert.run(item.itemId, item.profit, item.amountSold, new Date().toISOString())
     })
 }
-export const addItemsBought = (items: itemBought[]) => {
+export const addItemsBought = (items: IDbItemBought[]) => {
     if (!db) return;
     const insert = db.prepare("insert into itemsBought (item_id, price, amountbought, created_at) values (?,?,?,?)")
 
@@ -28,7 +31,7 @@ export const addItemsBought = (items: itemBought[]) => {
     })
 }
 
-export const addTax = (taxes: tax[]) => {
+export const addTax = (taxes: IDbTax[]) => {
     if (!db) return;
     console.log("adding taxes", taxes);
     const insert = db.prepare("insert into taxes (tax_nature, value, created_at) values (?,?,?)");

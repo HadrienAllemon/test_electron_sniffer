@@ -17,5 +17,8 @@ export const mainConfig: Configuration = {
   target: 'electron-renderer',
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json'],
+    alias: {
+      '@src': __dirname + '/src/',
+    },
   },
 };
