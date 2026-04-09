@@ -54,6 +54,7 @@
     "@chakra-ui/react": "^2.10.5",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@jitsi/robotjs": "^0.6.21",
     "ag-grid-react": "^33.0.4",
     "better-sqlite3": "^11.8.1",
     "cap": "^0.2.1",
@@ -65,6 +66,7 @@
     "protobufjs": "^7.4.0",
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "robotjs": "^0.7.0"
   }
 }

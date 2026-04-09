@@ -5,6 +5,7 @@ import appendLogs from "../utls/appendLogs";
 import { IDbItemSold } from "@src/interfaces/dbReady/IDbItemSold";
 import { TaxNaturesEnum } from "@src/interfaces/dbReady/TaxNatureEnum";
 import { IDbItemBought } from "@src/interfaces/dbReady/IDbItemBought";
+import { typeStringDelayed } from "@jitsi/robotjs";
 
 interface AuctionContext {
     lastJduTimestamp: number | null;
@@ -156,11 +157,29 @@ export function takeAction<K extends keyof MessageMap>(
 
         case "jgd": {
             // Auction Price checking
-            if (messageContent?.auctionInfo?.pricesBytes) {
-                const raw = Buffer.from(messageContent.auctionInfo.pricesBytes, "hex");
-                const prices = decodePackedVarints(raw);
-                console.log("FOUND PRICES", prices);
+            let msg = messageContent as MessageMap["jgd"];
+            const prices = msg?.auctionInfo
+            const priceByQuantity = [];
+            if (!prices) break;
+
+            for (let i = 0; i < prices.length; i++) {
+                let auction = prices[i];
+                let raw = Buffer.from(auction.pricesBytes);
+                let decodedPrice = decodePackedVarints(raw);
+                if (!decodedPrice.length || decodedPrice.length < 4) continue;
+                priceByQuantity.push({
+                    by1: decodedPrice[0],
+                    by10: decodedPrice[1],
+                    by100: decodedPrice[2],
+                    by1000: decodedPrice[3],
+                })
             }
+            if(!priceByQuantity.length) break;
+
+            priceByQuantity.sort((a, b) => a.by1 - b.by1);
+            const priceStr = (priceByQuantity[0].by1 - 1).toString();
+            console.log("Received jgd message, lowest price for item", msg, "is", priceByQuantity[0].by1, "suggested price to undercut:", priceStr);
+            typeStringDelayed(priceStr, 3000);
         }
 
 
