@@ -21,6 +21,10 @@ const typeUrlToProtoFile: { [key: string]: protobuf.Root } = {
 
 export const decodeMessage = (typeUrl: string, base64Data: string) => {
     const typeName = typeUrl.split('/').pop();
+    if (typeName === "jgd"){
+        console.log("Decoded jgd message:", typeUrl, base64Data);
+    }
+
     if (!typeName) return;
 
     const MessageType = protoCache.get(typeName);
@@ -41,6 +45,7 @@ export const decodeMessage = (typeUrl: string, base64Data: string) => {
             defaults: true,
         });
 
+       
         takeAction(typeName, messageContent, base64Data, buffer);
 
     } catch (error) {

@@ -1,7 +1,7 @@
 export interface JgdMessage {
-    auctionInfo: JgdItemAuctionInfo;
+    auctionInfo: JgdItemAuctionInfo[];
     itemId: number;
 }
 interface JgdItemAuctionInfo {
-    pricesBytes: Uint8Array;
+    pricesBytes: Buffer;
 }
