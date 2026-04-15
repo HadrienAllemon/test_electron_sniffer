@@ -3,20 +3,21 @@ import { IItemSold, IItemBought, ITransaction, ITax } from "../../interfaces";
 import { IDbItemSold } from "@src/interfaces/dbReady/IDbItemSold";
 import { IDbItemBought } from "@src/interfaces/dbReady/IDbItemBought";
 import { IDbTax } from "@src/interfaces/dbReady/IDbTax";
+import { IDbItemPrice } from "@src/interfaces/dbReady/IDbItemPrice";
 
 export const selectItems = () => {
     if (!db) return;
     const select = db.prepare(`select * from itemsSold`)
     let rows = select.all()
     rows.forEach((row: any) => {
-        console.log(row.item_id + "\t" +
+        console.log(row.itemId + "\t" +
             row.amountSold + "\t" +
             row.profit);
     });
 }
 export const addItemsSold = (items: IDbItemSold[]) => {
     if (!db) return;
-    const insert = db.prepare("insert into itemsSold (item_id, profit, amountSold, created_at) values (?,?,?,?)")
+    const insert = db.prepare("insert into itemsSold (itemId, profit, amountSold, created_at) values (?,?,?,?)")
 
     items.forEach(item => {
         insert.run(item.itemId, item.profit, item.amountSold, new Date().toISOString())
@@ -24,11 +25,17 @@ export const addItemsSold = (items: IDbItemSold[]) => {
 }
 export const addItemsBought = (items: IDbItemBought[]) => {
     if (!db) return;
-    const insert = db.prepare("insert into itemsBought (item_id, price, amountbought, created_at) values (?,?,?,?)")
+    const insert = db.prepare("insert into itemsBought (itemId, price, amountbought, created_at) values (?,?,?,?)")
 
     items.forEach(item => {
         insert.run(item.itemId, item.price, item.amountBought, new Date().toISOString())
     })
+}
+
+export const addItemPrice = (itemPrice: IDbItemPrice): void => {
+    if (!db) return;
+    const insert = db.prepare("insert into itemsPrices (itemId, by1, by10, by100, created_at) values (?,?,?,?,?)")
+    insert.run(itemPrice.itemId, itemPrice.by1, itemPrice.by10, itemPrice.by100, new Date().toISOString())
 }
 
 export const addTax = (taxes: IDbTax[]) => {
@@ -46,7 +53,7 @@ export const getItemsBought = () => {
     const select = db.prepare(`
         select 
             itemsBought.id, 
-            item_id, 
+            itemsBought.itemId, 
             level, 
             iconId, 
             amountBought, 
@@ -55,9 +62,9 @@ export const getItemsBought = () => {
             created_at
         from itemsBought 
             left join itemNames
-            on itemsBought.item_id = itemNames.itemId
+            on itemsBought.itemId = itemNames.itemId
             left join items 
-            on itemsBought.item_id = items.id`)
+            on itemsBought.itemId = items.id`)
     const rows = select.all();
     return rows;
 }
@@ -66,7 +73,7 @@ export const getItemsSold = (): IItemSold[] => {
     const select = db.prepare<IItemSold[], IItemSold>(`
         select 
             itemsSold.id, 
-            item_id, 
+            itemsSold.itemId, 
             level, 
             iconId, 
             amountSold, 
@@ -75,9 +82,9 @@ export const getItemsSold = (): IItemSold[] => {
             created_at
         from itemsSold 
             left join itemNames
-            on itemsSold.item_id = itemNames.itemId
+            on itemsSold.itemId = itemNames.itemId
             left join items 
-            on itemsSold.item_id = items.id`)
+            on itemsSold.itemId = items.id`)
     const rows = select.all();
     return rows;
 
@@ -95,6 +102,17 @@ export const getTaxes = (): ITax[] => {
     const rows = select.all();
     return rows;
 }
+export const itemIdSet = new Set<number>();
+export const getItemsIds = (): Promise<boolean> => {
+    if (!db) return;
+    return new Promise((resolve) => {
+        const select = db.prepare(`select distinct itemId from itemNames`)
+        const rows = select.all();
+        rows.forEach((row: any) => itemIdSet.add(row.itemId));
+        console.log("Loaded item IDs:", itemIdSet.size);
+        resolve(true);
+    });
+}
 
 
 export const getTransactions = (): ITransaction[] => {
@@ -109,6 +127,8 @@ export const getTransactions = (): ITransaction[] => {
 
 
 
+
+
 function mapSold(row: IItemSold): ITransaction {
     return {
         id: row.id,
@@ -117,9 +137,9 @@ function mapSold(row: IItemSold): ITransaction {
         date: new Date(row.created_at),
         amount: row.amountSold,
         value: row.profit, // already positive
-        label: `Item #${row.item_id}`,
-        itemId: row.item_id,
-        iconId:row.iconId,
+        label: `Item #${row.itemId}`,
+        itemId: row.itemId,
+        iconId: row.iconId,
     };
 }
 
@@ -131,9 +151,9 @@ function mapBought(row: IItemBought): ITransaction {
         date: new Date(row.created_at),
         amount: row.amountBought,
         value: -row.price, // negative
-        label: `Item #${row.item_id}`,
-        itemId: row.item_id,
-        iconId:row.iconId,
+        label: `Item #${row.itemId}`,
+        itemId: row.itemId,
+        iconId: row.iconId,
     };
 }
 

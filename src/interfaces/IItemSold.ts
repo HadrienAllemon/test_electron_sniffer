@@ -1,6 +1,6 @@
 export interface IItemSold {
     id?: number;
-    item_id: number;
+    itemId: number;
     fr:string // name of item in french
     amountSold: number;
     profit: number;

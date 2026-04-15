@@ -21,7 +21,7 @@ function createTables(db: Sq3Database.Database, resolve:(value:any)=>void) {
     db.exec(`
     CREATE TABLE IF NOT EXISTS itemsSold (
         id INTEGER PRIMARY KEY ,
-        item_id int not null,
+        itemId int not null,
         amountSold int not null,
         profit int not null,
         created_at datetime not null
@@ -29,7 +29,7 @@ function createTables(db: Sq3Database.Database, resolve:(value:any)=>void) {
     db.exec(`
         CREATE TABLE IF NOT EXISTS itemsBought (
             id INTEGER PRIMARY KEY ,
-            item_id int not null,
+            itemId int not null,
             amountBought int not null,
             price int not null,
             created_at datetime not null
