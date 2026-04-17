@@ -34,8 +34,16 @@ export const addItemsBought = (items: IDbItemBought[]) => {
 
 export const addItemPrice = (itemPrice: IDbItemPrice): void => {
     if (!db) return;
-    const insert = db.prepare("insert into itemsPrices (itemId, by1, by10, by100, created_at) values (?,?,?,?,?)")
-    insert.run(itemPrice.itemId, itemPrice.by1, itemPrice.by10, itemPrice.by100, new Date().toISOString())
+    const upsert = db.prepare(`
+        insert into itemsPrices (itemId, by1, by10, by100, created_at)
+        values (?, ?, ?, ?, ?)
+        on conflict(itemId) do update set
+            by1 = excluded.by1,
+            by10 = excluded.by10,
+            by100 = excluded.by100,
+            created_at = excluded.created_at
+    `)
+    upsert.run(itemPrice.itemId, itemPrice.by1, itemPrice.by10, itemPrice.by100, new Date().toISOString())
 }
 
 export const addTax = (taxes: IDbTax[]) => {
@@ -102,6 +110,39 @@ export const getTaxes = (): ITax[] => {
     const rows = select.all();
     return rows;
 }
+export interface IPetItemXpRatio {
+    itemId:            number;
+    name:              string;
+    xp:                number;
+    by1:               number;
+    by10:              number;
+    by100:             number;
+    xpPerKama_by1:     number;
+    xpPerKama_by10:    number;
+    xpPerKama_by100:   number;
+}
+
+export const getPetItemXpRatios = (): IPetItemXpRatio[][] => {
+    if (!db) return [];
+    const select = db.prepare<IPetItemXpRatio[], []>(`
+        SELECT
+            p.itemId,
+            n.fr                            AS name,
+            p.xp,
+            pr.by1,
+            pr.by10,
+            pr.by100,
+            p.xp / pr.by1                   AS xpPerKama_by1,
+            p.xp / pr.by10  * 10            AS xpPerKama_by10,
+            p.xp / pr.by100 * 100           AS xpPerKama_by100
+        FROM PetItemXp p
+        INNER JOIN itemsPrices pr ON p.itemId = pr.itemId
+        LEFT  JOIN itemNames   n  ON p.itemId = n.itemId
+        ORDER BY xpPerKama_by1 DESC
+    `);
+    return select.all();
+}
+
 export const itemIdSet = new Set<number>();
 export const getItemsIds = (): Promise<boolean> => {
     if (!db) return;
