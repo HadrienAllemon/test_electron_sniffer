@@ -12,7 +12,7 @@ export const rendererConfig: Configuration = {
   module: {
     rules,
   },
-  target: 'electron-renderer',
+  target: 'web',
   plugins,
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css'],

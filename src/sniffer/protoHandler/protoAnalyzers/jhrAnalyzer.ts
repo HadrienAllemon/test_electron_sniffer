@@ -5,7 +5,7 @@ import { detectorAll, getAtPath, hasPath } from "./getObjectBySchema";
 import { JHR_SCHEMA } from "./jhrSchema";
 
 const hasItemId = hasPath(JHR_SCHEMA.itemId, v => itemIdSet.has(v));
-const hasPrice  = hasPath(JHR_SCHEMA.price,  v => typeof v === "number" && v > 0);
+const hasPrice  = hasPath(JHR_SCHEMA.price,  v => typeof v === "number" && v > 0 && v in [1,10,100,1000]);
 
 export const jhrAnalyzer: IAnalyzer<JhrMessage> = {
     type: "JHR",

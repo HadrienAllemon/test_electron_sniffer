@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Summary } from "../summaries/Summary";
 import { ItemTable } from "../tables/ItemTable"
-import { ipcRenderer } from "electron";
 import { ColDef } from 'ag-grid-community';
 import { dateDiff } from "../../utils/DateFunctions";
 
@@ -30,7 +29,7 @@ export const ItemsBought = () => {
     ]);
     const [ItemsBought, setItemsBought] = useState<any[] | undefined>(undefined)
     async function queryItemsBought() {
-        const capInstance = await ipcRenderer.invoke('getItemsBought', { /* args */ });
+        const capInstance = await window.api.getItemsBought();
         return capInstance
     }
     useEffect(() => {

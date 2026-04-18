@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { ipcRenderer } from "electron";
 import { Summary } from "../summaries/Summary";
 import { ItemTable } from "../tables/ItemTable";
 import { ColDef, ModuleRegistry } from 'ag-grid-community';
@@ -29,7 +28,7 @@ export const ItemsSold = () => {
     ]);
 
     async function queryItemsBought() {
-        const capInstance = await ipcRenderer.invoke('getItemsSold', { /* args */ });
+        const capInstance = await window.api.getItemsSold();
         return capInstance
     }
     useEffect(() => {

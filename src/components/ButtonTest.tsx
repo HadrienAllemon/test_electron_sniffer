@@ -1,8 +1,6 @@
-import { ipcRenderer } from "electron";
-
 export const ButtonTest = () => {
     async function startSniffing() {
-        const capInstance = await ipcRenderer.invoke('getItemsBought', { /* args */ });
+        const capInstance = await window.api.getItemsBought();
       }
       
     return (

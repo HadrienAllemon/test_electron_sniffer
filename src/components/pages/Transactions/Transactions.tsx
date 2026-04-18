@@ -3,7 +3,6 @@ import { Summary } from "../../summaries/Summary";
 import { ItemTable } from "../../tables/ItemTable"
 import { ColDef } from 'ag-grid-community';
 import { dateDiff } from "../../../utils/DateFunctions";
-import { getTransactions } from "../../../sniffer/sqlite/queries";
 import { ITransaction } from "../../../interfaces";
 import "./Transactions.css";
 import ProfitChart from "../../charts/ProfitChart";
@@ -98,8 +97,18 @@ export const Transactions = () => {
         }
     };
 
+    async function queryTransactions() {
+        const capInstance = await window.api.getTransactions();
+        return capInstance
+    }
+
     useEffect(() => {
-        setTransactions(getTransactions());
+        queryTransactions().then((response) => {
+            setTransactions(response)
+        }).catch((error) => {
+            console.error(error);
+            setTransactions([])
+        });
     }, []);
 
 

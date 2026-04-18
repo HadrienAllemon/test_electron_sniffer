@@ -7,7 +7,7 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 import sniff from "./sniffer"
-import { getItemsBought, getItemsSold } from './sniffer/sqlite/queries';
+import { getItemsBought, getItemsSold, getTransactions } from './sniffer/sqlite/queries';
 import { ensureDB } from './sniffer/sqlite/ensureDatabase';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -21,8 +21,8 @@ const createWindow = (): void => {
     height: 1080,
     width: 1920,
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      nodeIntegration: false,
+      contextIsolation: true,
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
   });
@@ -74,6 +74,9 @@ ipcMain.handle('getItemsBought', async () => {
 ipcMain.handle('getItemsSold', async () => {
   const rows = getItemsSold()
   return rows;
+});
+ipcMain.handle('getTransactions', async () => {
+  return getTransactions();
 });
 
 

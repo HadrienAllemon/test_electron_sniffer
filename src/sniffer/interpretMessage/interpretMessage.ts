@@ -20,8 +20,6 @@ export const decodeMessage = (typeUrl: string, base64Data: string) => {
     const buffer = Buffer.from(base64Data, 'base64');
 
     try {
-        console.log(typeUrl)
-
         const decodedProto = decodeProto(buffer);
         const protoEvent = handleProto(decodedProto);
       
