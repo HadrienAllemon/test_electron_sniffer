@@ -1,4 +1,6 @@
 import { IDbItemPrice } from "../dbReady/IDbItemPrice";
 
-export type ProtoEventType = "SALE";
-export type DomainEvent =  { type: ProtoEventType; data: IDbItemPrice }
+export type ProtoEventType = "SALE" | "JHR" | "JDU" | "JCV" | "JER" | "JGD";
+export type DomainEvent = { type: "SALE"; data: IDbItemPrice } | { type: ProtoEventType; data: any } | null;
+
+// export type DomainEvent = { type: ProtoEventType; data: any } | null;

@@ -11,7 +11,8 @@
     "publish": "electron-forge publish",
     "lint": "eslint --ext .ts,.tsx .",
     "import-pet-xp": "ts-node --transpile-only scripts/importPetItemXp.ts",
-    "get-pet-xp": "ts-node --transpile-only scripts/getPetItemXp.ts"
+    "get-pet-xp": "ts-node --transpile-only scripts/getPetItemXp.ts",
+    "postinstall": "electron-rebuild"
   },
   "build": {
     "extraResources": [
@@ -28,6 +29,7 @@
     "@electron-forge/plugin-fuses": "^7.6.0",
     "@electron-forge/plugin-webpack": "^7.6.0",
     "@electron/fuses": "^1.8.0",
+    "@electron/rebuild": "^4.0.3",
     "@types/better-sqlite3": "^7.6.12",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",

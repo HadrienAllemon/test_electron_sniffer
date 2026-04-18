@@ -20,26 +20,17 @@ export const decodeMessage = (typeUrl: string, base64Data: string) => {
     const buffer = Buffer.from(base64Data, 'base64');
 
     try {
+        console.log(typeUrl)
+
         const decodedProto = decodeProto(buffer);
         const protoEvent = handleProto(decodedProto);
-        if (typeUrl === "type.ankama.com/jct"){
-            console.log("jct");
-        }
+      
         if (protoEvent) {
-            takeAction(protoEvent.type, protoEvent.data, base64Data, buffer);
+            takeAction(protoEvent.type, protoEvent.data);
         } else {
             appendLogs(`Unrecognized proto message type: ${typeName}, content: ${base64Data}\n\n`);
         }
-        // const decoded = MessageType.decode(buffer);
 
-        // const messageContent = MessageType.toObject(decoded, {
-        //     longs: String,
-        //     enums: String,
-        //     defaults: true,
-        // });
-
-        
-        // takeAction(typeName, messageContent, base64Data, buffer);
 
     } catch (error) {
         console.log("Decode failed:", typeName, error);

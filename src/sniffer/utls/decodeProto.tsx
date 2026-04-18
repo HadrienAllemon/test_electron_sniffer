@@ -15,29 +15,26 @@ export function decodeProto(buffer: Buffer, offset = 0, end = buffer.length): an
             value = v;
             offset += len;
         }
-        
+
         else if (wireType === 2) {
             const [len, lenLen] = readVarint(buffer, offset);
             offset += lenLen;
-        
+
             const subBuffer = buffer.slice(offset, offset + len);
-        
-            // Try protobuf decode
+
             const decoded = decodeProto(subBuffer);
-        
-            if (Object.keys(decoded).length > 0) {
+            const packed = tryDecodePackedVarints(subBuffer);
+            const str = tryDecodeUtf8(subBuffer);
+
+
+            if (packed && isLikelyPriceArray(packed)) {
+                value = packed;
+            } else if (Object.keys(decoded).length > 0) {
                 value = decoded;
-            } else {
-                // Try packed varints
-                const packed = decodePackedVarints(subBuffer);
-        
-                if (packed.length > 1) {
-                    value = packed; // 🎯 this is your prices
-                } else {
-                    value = subBuffer; // fallback
-                }
+            } else if (str !== null) {
+                value = str;
             }
-        
+
             offset += len;
         } else {
             break
@@ -73,15 +70,56 @@ function readVarint(buffer: Buffer, offset: number): [number, number] {
     return [result, pos - offset + 1];
 }
 
-function decodePackedVarints(buffer: Buffer): number[] {
+function tryDecodeUtf8(buffer: Buffer): string | null {
+    if (buffer.length === 0) return null;
+    // Only treat as a string if all bytes are printable ASCII — high bytes (> 0x7E)
+    // appear in both packed varint sequences and proto sub-messages, so they're
+    // ambiguous and should fall through to the packed-varints path.
+    if (!buffer.every(b => b >= 0x20 && b <= 0x7E)) return null;
+    return buffer.toString('utf8');
+}
+
+// Returns null if the buffer doesn't cleanly decode as packed varints
+// (i.e. last varint's MSB continuation bit would read past the buffer).
+function tryDecodePackedVarints(buffer: Buffer): number[] | null {
     const result: number[] = [];
     let offset = 0;
 
     while (offset < buffer.length) {
+        if (buffer[offset] === undefined) return null;
         const [value, len] = readVarint(buffer, offset);
+        // If readVarint would have read past the buffer, bail out
+        if (offset + len > buffer.length) return null;
         result.push(value);
         offset += len;
     }
 
     return result;
+}
+
+function isLikelyPriceArray(values: number[]): boolean {
+    const hasNegative = values.some(v => v < 0);
+    if (hasNegative) return false;
+    if (values.length === 1) return values[0] > 0;
+
+    if (values.length >= 2 && values.length <= 4) {
+        return values[0] > 0 && values[1] >= values[0];
+    }
+    // * for bigger arrays, it needs to let through items with lots of prices listed
+    // * But to prevent an object to be misinterpreted as an array. 
+    // * Best solution would be to check the first l - 1 values are in ascending order, and the last one is much bigger than the first one.
+    if (values.length >= 5) {
+        const positives = values.filter(v => v > 0);
+        let lastValue = 0;
+        let firstValue = positives[0];
+
+        if (!values.some(v => v > firstValue)) return false;
+        for (const v of positives) {
+            if (v < lastValue) return false;
+            lastValue = v;
+        }
+        return true
+    }
+
+    return false;
 }

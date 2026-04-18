@@ -2,7 +2,21 @@ import { itemIdSet } from "../../sqlite/queries";
 
 type Detector = (obj: any) => boolean;
 
-export const hasPath = (path: string[], predicate: (v: any) => boolean): Detector => {
+export const getAtPath = (obj: any, path: readonly string[]): any => {
+    let current = obj;
+    for (const key of path) {
+        if (current == null) return undefined;
+        current = current[key];
+    }
+    return current;
+}
+
+export const asArray = <T>(v: T | T[] | null | undefined): T[] => {
+    if (v == null) return [];
+    return Array.isArray(v) ? v : [v];
+}
+
+export const hasPath = (path: readonly string[], predicate: (v: any) => boolean): Detector => {
     return (obj) => {
         let current = obj;
 
@@ -13,6 +27,14 @@ export const hasPath = (path: string[], predicate: (v: any) => boolean): Detecto
 
         return predicate(current);
     };
+}
+
+export const hasPathWithEqualValue = (path1: readonly string[], path2: readonly string[]): Detector => {
+    return (obj) => {
+        const val1 = getAtPath(obj, path1);
+        const val2 = getAtPath(obj, path2);
+        return val1 !== undefined && val1 === val2;
+    }
 }
 
 
