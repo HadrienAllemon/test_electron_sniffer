@@ -9,7 +9,10 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts,.tsx ."
+    "lint": "eslint --ext .ts,.tsx .",
+    "import-pet-xp": "ts-node --transpile-only scripts/importPetItemXp.ts",
+    "get-pet-xp": "ts-node --transpile-only scripts/getPetItemXp.ts",
+    "postinstall": "electron-rebuild"
   },
   "build": {
     "extraResources": [
@@ -26,6 +29,7 @@
     "@electron-forge/plugin-fuses": "^7.6.0",
     "@electron-forge/plugin-webpack": "^7.6.0",
     "@electron/fuses": "^1.8.0",
+    "@electron/rebuild": "^4.0.3",
     "@types/better-sqlite3": "^7.6.12",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
@@ -60,8 +64,10 @@
     "cap": "^0.2.1",
     "chalk": "^5.4.1",
     "chart.js": "^4.4.7",
+    "dotenv": "^17.4.2",
     "electron-squirrel-startup": "^1.0.1",
     "framer-motion": "^12.0.1",
+    "fuse.js": "^7.3.0",
     "jotai": "^2.11.3",
     "protobufjs": "^7.4.0",
     "react": "^19.0.0",

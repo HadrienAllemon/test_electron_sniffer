@@ -1,0 +1,20 @@
+    BUFFER : 
+    08 b3 45 10 2b 1a 1b 0a 09 9a 1f 85 a4 01 cd e8 0c 00 10 b9 b0 01 18 b3 45 22 05 08 be 06 18 01 28 2b
+    
+    Result from protobuf-decoder :
+    1	varint 8883
+	2	varint 43
+    3	protobuf	     
+        1	bytes	9a 1f 85 a4 01 cd e8 0c 00 // Array of prices
+        2	varint	As uint: 22585
+        3	varint	As uint: 8883
+
+    GOT => 
+    
+1 =
+8883
+2 =
+43
+3 =
+(18) [10, 9, 3994, 20997, 209997, 0, 16, 22585, 24, 8883, 34, 5, 8, 830, 24, 1, 40, 43]
+

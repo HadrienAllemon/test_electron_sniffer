@@ -4,8 +4,9 @@ import { Cap } from './decoders';
 import { networkInterfaces } from "os";
 
 
-const DEVICE_IP = '192.168.0.101';
-const CAPTURE_FILTER = 'tcp port 5555';
+const DEVICE_IP = process.env.DEVICE_IP ?? '192.168.0.101';
+const GAME_PORT = process.env.GAME_PORT ?? '5555';
+const CAPTURE_FILTER = `tcp port ${GAME_PORT}`;
 const BUF_SIZE = 10 * 1024 * 1024; // 10MB ring buffer
 const PACKET_SIZE = 65535;          // Max Ethernet frame size
 
