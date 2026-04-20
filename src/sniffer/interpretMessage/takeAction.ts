@@ -59,6 +59,12 @@ export function takeAction(typeName: ProtoEventType, messageContent: any): void 
             break;
         }
 
+        case "OFFLINE_AUCTION": {
+            const items = messageContent as IDbItemSold[];
+            addItemsSold(items);
+            break;
+        }
+
         case "JDU": {
             auctionContext.lastJduTimestamp = Date.now();
             auctionContext.lastSeenTransactionHint = messageContent.transactionId;
