@@ -27,7 +27,7 @@ export const TopTabs = () => {
             <TabList style={{ borderBottom: 0, justifyContent: "space-around" }}>
                 <CustomTab index={0}>Transactions</CustomTab>
                 <CustomTab index={1}>Items Vendus</CustomTab>
-                <CustomTab index={2}>Taxes</CustomTab>
+                <CustomTab index={2}>Familiers</CustomTab>
             </TabList>
         </Tabs>
     )

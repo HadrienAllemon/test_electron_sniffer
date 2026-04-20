@@ -1,0 +1,29 @@
+.searchResults {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    background: #1e1e2e;
+    border: 1px solid #444;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 280;
+    max-height: 240;
+    overflow-y: auto;
+}
+
+.searchResultsItem {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8;
+    padding: 12px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #dbd4aca6;
+    border-radius: 4px;
+}
+
+.searchResultsItem:hover {
+    background: #7c6f26;
+}

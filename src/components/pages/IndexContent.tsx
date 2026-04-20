@@ -1,9 +1,7 @@
-import { useAtom, useAtomValue } from "jotai"
+import { useAtomValue } from "jotai"
 import { TabIndex } from "../stores/MainStore"
-import { ItemsBought } from "./ItemsBought";
 import { ItemsSold } from "./ItemsSold";
-import { Taxes } from "./Taxes";
-import ProfitChart from "../charts/ProfitChart";
+import { PetXpRatio } from "./PetXpRatio/PetXpRatio";
 import { Transactions } from "./Transactions/Transactions";
 
 export const IndexContent = () =>{
@@ -17,7 +15,7 @@ export const IndexContent = () =>{
                 return <ItemsSold/>
             }
             case 2:{
-                return null
+                return <PetXpRatio/>
             }
         }
     }

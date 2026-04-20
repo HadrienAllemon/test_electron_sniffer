@@ -7,7 +7,7 @@ import { app, BrowserWindow, ipcMain } from 'electron';
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
 import sniff from "./sniffer"
-import { getItemsBought, getItemsSold, getTransactions } from './sniffer/sqlite/queries';
+import { getItemsBought, getItemsSold, getTransactions, getPetItemXpRatios, searchItems, addPetItemXp, dbEvents } from './sniffer/sqlite/queries';
 import { ensureDB } from './sniffer/sqlite/ensureDatabase';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -15,9 +15,11 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+let mainWindow: BrowserWindow | null = null;
+
 const createWindow = (): void => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     height: 1080,
     width: 1920,
     webPreferences: {
@@ -77,6 +79,16 @@ ipcMain.handle('getItemsSold', async () => {
 });
 ipcMain.handle('getTransactions', async () => {
   return getTransactions();
+});
+ipcMain.handle('getPetItemXpRatios', async () => {
+  return getPetItemXpRatios();
+});
+
+ipcMain.handle('searchItems', (_event, query: string) => searchItems(query));
+ipcMain.handle('addPetItemXp', (_event, itemId: number, xp: number) => addPetItemXp(itemId, xp));
+
+dbEvents.on('price-updated', () => {
+  mainWindow?.webContents.send('prices-updated');
 });
 
 

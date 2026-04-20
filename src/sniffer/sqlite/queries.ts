@@ -1,9 +1,12 @@
 import db from "./ensureDatabase"
+import { EventEmitter } from "events";
 import { IItemSold, IItemBought, ITransaction, ITax } from "../../interfaces";
 import { IDbItemSold } from "@src/interfaces/dbReady/IDbItemSold";
 import { IDbItemBought } from "@src/interfaces/dbReady/IDbItemBought";
 import { IDbTax } from "@src/interfaces/dbReady/IDbTax";
 import { IDbItemPrice } from "@src/interfaces/dbReady/IDbItemPrice";
+
+export const dbEvents = new EventEmitter();
 
 export const selectItems = () => {
     if (!db) return;
@@ -35,15 +38,17 @@ export const addItemsBought = (items: IDbItemBought[]) => {
 export const addItemPrice = (itemPrice: IDbItemPrice): void => {
     if (!db) return;
     const upsert = db.prepare(`
-        insert into itemsPrices (itemId, by1, by10, by100, created_at)
-        values (?, ?, ?, ?, ?)
+        insert into itemsPrices (itemId, by1, by10, by100, by1000, created_at)
+        values (?, ?, ?, ?, ?, ?)
         on conflict(itemId) do update set
             by1 = excluded.by1,
             by10 = excluded.by10,
             by100 = excluded.by100,
+            by1000 = excluded.by1000,
             created_at = excluded.created_at
     `)
-    upsert.run(itemPrice.itemId, itemPrice.by1, itemPrice.by10, itemPrice.by100, new Date().toISOString())
+    upsert.run(itemPrice.itemId, itemPrice.by1, itemPrice.by10, itemPrice.by100, itemPrice.by1000, new Date().toISOString())
+    dbEvents.emit('price-updated');
 }
 
 export const addTax = (taxes: IDbTax[]) => {
@@ -54,6 +59,18 @@ export const addTax = (taxes: IDbTax[]) => {
     taxes.forEach(tax => {
         insert.run(tax.tax_nature, tax.value, new Date().toISOString())
     })
+}
+
+export const addPetItemXp = (itemId: number, xp: number) => {
+    if (!db) return;
+    const upsert = db.prepare(`
+        insert into PetItemXp (itemId, xp, created_at)
+        values (?, ?, ?)
+        on conflict(itemId) do update set
+            xp = excluded.xp,
+            created_at = excluded.created_at
+    `)
+    upsert.run(itemId, xp, new Date().toISOString())
 }
 
 export const getItemsBought = () => {
@@ -110,37 +127,87 @@ export const getTaxes = (): ITax[] => {
     const rows = select.all();
     return rows;
 }
-export interface IPetItemXpRatio {
-    itemId:            number;
-    name:              string;
-    xp:                number;
-    by1:               number;
-    by10:              number;
-    by100:             number;
-    xpPerKama_by1:     number;
-    xpPerKama_by10:    number;
-    xpPerKama_by100:   number;
+export interface IItemSearchResult {
+    itemId: number;
+    fr:     string;
+    iconId: number;
 }
 
-export const getPetItemXpRatios = (): IPetItemXpRatio[][] => {
+// SQLite LIKE is case-insensitive for ASCII. Accent-insensitive matching is
+// done in JS below via Unicode normalization, so no ICU extension is needed.
+export const searchItems = (query: string): IItemSearchResult[] => {
     if (!db) return [];
-    const select = db.prepare<IPetItemXpRatio[], []>(`
+    const select = db.prepare<[string], IItemSearchResult>(`
+        SELECT n.itemId, n.fr, i.iconId
+        FROM itemNames n
+        LEFT JOIN items i ON n.itemId = i.id
+        WHERE n.fr LIKE '%' || ? || '%'
+        LIMIT 30
+    `);
+    const normalized = query.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const rows = select.all(query);
+    // Secondary filter: accent-insensitive match so "epi" finds "Épi de blé"
+    return rows.filter(row =>
+        row.fr.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .includes(normalized.toLowerCase())
+    );
+};
+
+interface IPetItemXpRatioRaw {
+    itemId: number;
+    name:   string;
+    xp:     number;
+    by1:    number | null;
+    by10:   number | null;
+    by100:  number | null;
+    by1000: number | null;
+}
+
+export interface IPetItemXpRatio {
+    itemId:            number;
+    iconId?:           number;
+    name:              string;
+    xp:                number;
+    by1:               number | null;
+    by10:              number | null;
+    by100:             number | null;
+    by1000:            number | null;
+    xpPerKama_by1:     number | null;
+    xpPerKama_by10:    number | null;
+    xpPerKama_by100:   number | null;
+    xpPerKama_by1000:  number | null;
+}
+
+const ratio = (xp: number, price: number | null, qty: number): number | null =>
+    price ? (xp / price) * qty : null;
+
+export const getPetItemXpRatios = (): IPetItemXpRatio[] => {
+    if (!db) return [];
+    const select = db.prepare<[], IPetItemXpRatioRaw>(`
         SELECT
             p.itemId,
-            n.fr                            AS name,
+            i.iconId,
+            n.fr  AS name,
             p.xp,
             pr.by1,
             pr.by10,
             pr.by100,
-            p.xp / pr.by1                   AS xpPerKama_by1,
-            p.xp / pr.by10  * 10            AS xpPerKama_by10,
-            p.xp / pr.by100 * 100           AS xpPerKama_by100
+            pr.by1000
         FROM PetItemXp p
         INNER JOIN itemsPrices pr ON p.itemId = pr.itemId
         LEFT  JOIN itemNames   n  ON p.itemId = n.itemId
-        ORDER BY xpPerKama_by1 DESC
+        LEFT  JOIN items       i  ON p.itemId = i.id
     `);
-    return select.all();
+    return select.all()
+        .map(row => ({
+            ...row,
+            xpPerKama_by1:    ratio(row.xp, row.by1,    1),
+            xpPerKama_by10:   ratio(row.xp, row.by10,   10),
+            xpPerKama_by100:  ratio(row.xp, row.by100,  100),
+            xpPerKama_by1000: ratio(row.xp, row.by1000, 1000),
+        }))
+        .sort((a, b) => (b.xpPerKama_by1 ?? -Infinity) - (a.xpPerKama_by1 ?? -Infinity));
 }
 
 export const itemIdSet = new Set<number>();

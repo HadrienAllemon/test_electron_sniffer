@@ -1,6 +1,5 @@
 import { IDbItemPrice } from "@src/interfaces/dbReady/IDbItemPrice";
 import { IAnalyzer } from "@src/interfaces/protoObj/IAnalyzer";
-import { itemIdSet } from "@src/sniffer/sqlite/queries";
 import { detectorAll, hasPath, hasPathWithEqualValue } from "./getObjectBySchema";
 import { SALE_SCHEMA } from "./saleSchema";
 
@@ -25,9 +24,10 @@ export const saleAnalyzer: IAnalyzer<IDbItemPrice> = {
 
             return {
                 itemId: id,
-                by1:   prices[0] ?? null,
-                by10:  prices[1] ?? null,
-                by100: prices[2] ?? null,
+                by1:    prices[0] ?? null,
+                by10:   prices[1] ?? null,
+                by100:  prices[2] ?? null,
+                by1000: prices[3] ?? null,
             };
         } catch {
             return null;
