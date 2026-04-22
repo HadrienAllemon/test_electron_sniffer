@@ -3,7 +3,7 @@ import protobuf from 'protobufjs';
 import startSniffing from './sniffer/sniffer';
 import { ensureDB } from './sqlite/ensureDatabase';
 import { loadAllProtos } from './protoHandler/loadAllProto';
-import { getItemsIds } from './sqlite/queries';
+import { getItemsRaw } from './sqlite/queries';
 // const Cap = require('cap').Cap;
 // const decoders = require('cap').decoders;
 // const PROTOCOL = decoders.PROTOCOL;
@@ -34,7 +34,7 @@ const root = protobuf.loadSync('./proto/game/message.proto');
 const Message = root.lookupType('com.ankama.dofus.server.game.protocol.Message');
 const sniff = async () => {
     await ensureDB()
-    await getItemsIds()
+    await getItemsRaw()
 
     loadAllProtos('./proto/typeUrl')
     startSniffing(Message)

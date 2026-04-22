@@ -1,4 +1,4 @@
-import { itemIdSet } from "../sqlite/queries";
+import {itemIdNameMap} from "../sqlite/queries";
 
 export function findItemIds(obj: any, results: number[] = []): number[] {
     if (!obj) return results;

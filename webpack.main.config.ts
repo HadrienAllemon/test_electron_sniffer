@@ -14,7 +14,7 @@ export const mainConfig: Configuration = {
     rules,
   },
   plugins,
-  target: 'electron-renderer',
+  target: 'electron-main',
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json'],
     alias: {

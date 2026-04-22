@@ -11,6 +11,7 @@
     width: 280;
     max-height: 240;
     overflow-y: auto;
+    width: 100%;
 }
 
 .searchResultsItem {

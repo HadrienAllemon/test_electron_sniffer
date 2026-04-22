@@ -8,6 +8,42 @@ import { AddPetItemForm } from "./AddPetItemForm";
 const formatRatio = (value: number | null) =>
     value == null ? "—" : value.toFixed(3);
 
+const getColor = (date: Date) => {
+    const now = new Date();
+    const diffMs = now.getTime() - new Date(date).getTime();
+
+    const hour = 1000 * 60 * 60;
+    const h48 = 48 * hour;
+    const h168 = 7 * 24 * hour;
+
+    let hue;
+
+    if (diffMs <= h48) {
+        // 0h → 48h : green → orange
+        const ratio = diffMs / h48; // 0 → 1
+        hue = 120 - (90 * ratio);  // 120 → 30
+    } else {
+        // 48h → 7d : orange → red
+        const ratio = Math.min((diffMs - h48) / (h168 - h48), 1); // 0 → 1
+        hue = 30 - (30 * ratio); // 30 → 0
+    }
+
+    return `hsl(${hue}, 70%, 50%)`;
+};
+
+const getLastUpdate = (date: Date) => {
+    if (date == null) return "—";
+    const dateStr = date.toLocaleDateString("fr-FR", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+    });
+
+    return <div style={{color:getColor(date)}}>{dateStr}</div>;
+}
+
 const colDefs: ColDef<IPetItemXpRatio>[] = [
     {
         field: "iconId",
@@ -53,6 +89,12 @@ const colDefs: ColDef<IPetItemXpRatio>[] = [
         flex: 2,
         cellRenderer: ({ data }: { data: IPetItemXpRatio }) => formatRatio(data.xpPerKama_by1000),
     },
+    {
+        field: "created_at",
+        headerName: "Dernière maj.",
+        flex: 2,
+        cellRenderer: ({ data }: { data: IPetItemXpRatio }) => getLastUpdate(data.created_at),
+    }
 ];
 
 

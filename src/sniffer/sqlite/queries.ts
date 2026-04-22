@@ -129,12 +129,13 @@ export const getTaxes = (): ITax[] => {
 }
 export interface IItemSearchResult {
     itemId: number;
-    fr:     string;
+    fr: string;
     iconId: number;
 }
 
 // SQLite LIKE is case-insensitive for ASCII. Accent-insensitive matching is
 // done in JS below via Unicode normalization, so no ICU extension is needed.
+// It might be best to find a way to optimise this in the future if performance becomes an issue.
 export const searchItems = (query: string): IItemSearchResult[] => {
     if (!db) return [];
     const select = db.prepare<[string], IItemSearchResult>(`
@@ -146,6 +147,23 @@ export const searchItems = (query: string): IItemSearchResult[] => {
     `);
     const normalized = query.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const rows = select.all(query);
+    const collator = new Intl.Collator('fr', { sensitivity: 'base' });
+
+    const q = normalized.toLowerCase();
+
+    rows.sort((a, b) => {
+        const aName = a.fr.toLowerCase();
+        const bName = b.fr.toLowerCase();
+
+        const aStarts = aName.startsWith(q);
+        const bStarts = bName.startsWith(q);
+
+        if (aStarts !== bStarts) {
+            return aStarts ? -1 : 1;
+        }
+
+        return collator.compare(aName, bName);
+    });
     // Secondary filter: accent-insensitive match so "epi" finds "Épi de blé"
     return rows.filter(row =>
         row.fr.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -156,27 +174,29 @@ export const searchItems = (query: string): IItemSearchResult[] => {
 
 interface IPetItemXpRatioRaw {
     itemId: number;
-    name:   string;
-    xp:     number;
-    by1:    number | null;
-    by10:   number | null;
-    by100:  number | null;
+    name: string;
+    xp: number;
+    by1: number | null;
+    by10: number | null;
+    by100: number | null;
     by1000: number | null;
+    created_at: string | null;
 }
 
 export interface IPetItemXpRatio {
-    itemId:            number;
-    iconId?:           number;
-    name:              string;
-    xp:                number;
-    by1:               number | null;
-    by10:              number | null;
-    by100:             number | null;
-    by1000:            number | null;
-    xpPerKama_by1:     number | null;
-    xpPerKama_by10:    number | null;
-    xpPerKama_by100:   number | null;
-    xpPerKama_by1000:  number | null;
+    itemId: number;
+    iconId?: number;
+    name: string;
+    xp: number;
+    by1: number | null;
+    by10: number | null;
+    by100: number | null;
+    by1000: number | null;
+    xpPerKama_by1: number | null;
+    xpPerKama_by10: number | null;
+    xpPerKama_by100: number | null;
+    xpPerKama_by1000: number | null;
+    created_at?: Date;
 }
 
 const ratio = (xp: number, price: number | null, qty: number): number | null =>
@@ -193,7 +213,8 @@ export const getPetItemXpRatios = (): IPetItemXpRatio[] => {
             pr.by1,
             pr.by10,
             pr.by100,
-            pr.by1000
+            pr.by1000,
+            pr.created_at
         FROM PetItemXp p
         INNER JOIN itemsPrices pr ON p.itemId = pr.itemId
         LEFT  JOIN itemNames   n  ON p.itemId = n.itemId
@@ -202,21 +223,27 @@ export const getPetItemXpRatios = (): IPetItemXpRatio[] => {
     return select.all()
         .map(row => ({
             ...row,
-            xpPerKama_by1:    ratio(row.xp, row.by1,    1),
-            xpPerKama_by10:   ratio(row.xp, row.by10,   10),
-            xpPerKama_by100:  ratio(row.xp, row.by100,  100),
+            xpPerKama_by1: ratio(row.xp, row.by1, 1),
+            xpPerKama_by10: ratio(row.xp, row.by10, 10),
+            xpPerKama_by100: ratio(row.xp, row.by100, 100),
             xpPerKama_by1000: ratio(row.xp, row.by1000, 1000),
+            created_at: row.created_at ? new Date(row.created_at) : undefined,
         }))
         .sort((a, b) => (b.xpPerKama_by1 ?? -Infinity) - (a.xpPerKama_by1 ?? -Infinity));
 }
 
+export const itemIdNameMap = new Map<number, string>();
 export const itemIdSet = new Set<number>();
-export const getItemsIds = (): Promise<boolean> => {
+export const getItemsRaw = (): Promise<boolean> => {
     if (!db) return;
     return new Promise((resolve) => {
-        const select = db.prepare(`select distinct itemId from itemNames`)
+        const select = db.prepare(`
+            select distinct itemId, fr from itemNames
+            where fr is not null
+            `)
         const rows = select.all();
-        rows.forEach((row: any) => itemIdSet.add(row.itemId));
+        rows.forEach((row: any) => itemIdNameMap.set(row.itemId, row.fr));
+        itemIdNameMap.forEach((name, id) => itemIdSet.add(id));
         console.log("Loaded item IDs:", itemIdSet.size);
         resolve(true);
     });
