@@ -12,6 +12,7 @@
     "lint": "eslint --ext .ts,.tsx .",
     "import-pet-xp": "ts-node --transpile-only scripts/importPetItemXp.ts",
     "get-pet-xp": "ts-node --transpile-only scripts/getPetItemXp.ts",
+    "get-categories": "ts-node --transpile-only scripts/itemType.ts",
     "postinstall": "electron-rebuild"
   },
   "build": {
