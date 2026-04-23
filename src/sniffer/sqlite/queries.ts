@@ -5,6 +5,7 @@ import { IDbItemSold } from "@src/interfaces/dbReady/IDbItemSold";
 import { IDbItemBought } from "@src/interfaces/dbReady/IDbItemBought";
 import { IDbTax } from "@src/interfaces/dbReady/IDbTax";
 import { IDbItemPrice } from "@src/interfaces/dbReady/IDbItemPrice";
+import Database from "better-sqlite3";
 
 export const dbEvents = new EventEmitter();
 
@@ -142,7 +143,9 @@ export const searchItems = (query: string): IItemSearchResult[] => {
         SELECT n.itemId, n.fr, i.iconId
         FROM itemNames n
         LEFT JOIN items i ON n.itemId = i.id
-        WHERE n.fr LIKE '%' || ? || '%'
+        LEFT JOIN Categories  c  ON i.typeId = c.id
+        WHERE c.superTypeId == ${superTypeByName.get("Ressource")?.id}
+        AND n.fr LIKE '%' || ? || '%'
         LIMIT 30
     `);
     const normalized = query.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -203,7 +206,6 @@ const ratio = (xp: number, price: number | null, qty: number): number | null =>
     price ? (xp / price) * qty : null;
 
 export const getPetItemXpRatios = (): IPetItemXpRatio[] => {
-    if (!db) return [];
     const select = db.prepare<[], IPetItemXpRatioRaw>(`
         SELECT
             p.itemId,
@@ -216,7 +218,7 @@ export const getPetItemXpRatios = (): IPetItemXpRatio[] => {
             pr.by1000,
             pr.created_at
         FROM PetItemXp p
-        INNER JOIN itemsPrices pr ON p.itemId = pr.itemId
+        LEFT  JOIN itemsPrices pr ON p.itemId = pr.itemId
         LEFT  JOIN itemNames   n  ON p.itemId = n.itemId
         LEFT  JOIN items       i  ON p.itemId = i.id
     `);
@@ -249,12 +251,36 @@ export const getItemsRaw = (): Promise<boolean> => {
     });
 }
 
+// Loaded once when the db is initialized
+interface SuperType {
+    id: number;
+    className: string;
+    fr: string;
+    en: string;
+    de: string;
+    es: string;
+    pt: string;
+}
+export const superTypeCache = new Map<number, SuperType>();
+export const superTypeByName = new Map<string, SuperType>();
+export const loadSuperTypes = async () => {
+    const rows = db.prepare(`
+        SELECT st.id, st.className, stn.fr, stn.en, stn.de, stn.es, stn.pt
+        FROM CategoriesSuperType st
+        JOIN CategoriesSuperTypeNames stn ON stn.superTypeId = st.id
+    `).all() as any[];
+    for (const row of rows) {
+        superTypeCache.set(row.id, row);
+        superTypeByName.set(row.fr, row);
+    }
+    return true;
+};
+
 
 export const getTransactions = (): ITransaction[] => {
     const itemsSold = getItemsSold().map(mapSold);
     const itemsBought = getItemsBought().map(mapBought);
     const taxes = getTaxes().map(mapTax);
-    console.log(taxes);
     const allTransactions = [...itemsSold, ...itemsBought, ...taxes].sort((a, b) => b.date.getTime() - a.date.getTime());
     return allTransactions
 }

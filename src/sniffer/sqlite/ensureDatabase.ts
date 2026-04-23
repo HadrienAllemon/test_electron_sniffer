@@ -5,19 +5,14 @@ import fs from "node:fs"
 let db = new Sq3Database(process.env.DB_PATH ?? './db/itemsHistory.db');
 export const ensureDB = () => {
     console.log("current db ovbject: ", db)
-    return new Promise((resolve)=>resolve(db));
-    // return createDatabase();
+    return createDatabase();
 }
 
 const createDatabase = () => {
-    return new Promise((resolve) => {
-        var db = new Sq3Database(process.env.DB_PATH ?? './db/itemsHistory.db');
-        createTables(db, resolve);
-        console.log("DATABASE CREATED")
-    })
+    createTables(db);
 }
 
-function createTables(db: Sq3Database.Database, resolve:(value:any)=>void) {
+function createTables(db: Sq3Database.Database) {
     db.exec(`
     CREATE TABLE IF NOT EXISTS itemsSold (
         id INTEGER PRIMARY KEY ,
@@ -76,8 +71,45 @@ function createTables(db: Sq3Database.Database, resolve:(value:any)=>void) {
             by10 int,
             by100 int,
             created_at datetime not null
-        )
-        `);
+        )`);
+
+    db.exec(`CREATE TABLE IF NOT EXISTS Categories (
+                id              INTEGER PRIMARY KEY,
+                superTypeId     INTEGER NOT NULL,
+                categoryId      INTEGER NOT NULL,
+                isInEncyclopedia INTEGER NOT NULL DEFAULT 0,  -- stored as 0/1 (SQLite bool)
+                rawZone         TEXT,
+                craftXpRatio    REAL NOT NULL DEFAULT -1,
+                evolutiveTypeId INTEGER NOT NULL DEFAULT 0,
+                className       TEXT
+            )`);
+
+    db.exec(`CREATE TABLE IF NOT EXISTS CategoriesNames (
+                categoryId  INTEGER NOT NULL,
+                nameKey     TEXT,           -- the "id" field ("29686"), renamed to avoid clash
+                fr          TEXT,
+                en          TEXT,
+                de          TEXT,
+                es          TEXT,
+                pt          TEXT,
+                PRIMARY KEY (categoryId)
+            )`);
+
+    db.exec(`CREATE TABLE IF NOT EXISTS CategoriesSuperType (
+                id          INTEGER PRIMARY KEY,
+                className   TEXT
+            )`);
+
+    db.exec(`CREATE TABLE IF NOT EXISTS CategoriesSuperTypeNames (
+                superTypeId INTEGER NOT NULL,
+                fr          TEXT,
+                en          TEXT,
+                de          TEXT,
+                es          TEXT,
+                pt          TEXT,
+                PRIMARY KEY (superTypeId)
+            )`);
+
 
     db.exec(`
         CREATE INDEX IF NOT EXISTS idx_item_id ON items(id);
@@ -86,29 +118,29 @@ function createTables(db: Sq3Database.Database, resolve:(value:any)=>void) {
         CREATE INDEX IF NOT EXISTS idx_item_name_item_id ON itemNames(itemId);
     `);
     console.log("TABLE CREATED")
-    addItemsIdToDb(0, resolve)
+    // addItemsIdToDb(0, resolve)
 }
 
-const addItemsIdToDb = (index = 0, resolve:(value:any)=>void) => {
-    if (fs.existsSync(`./items/items${index}.json`)) {
-        console.log("start reading", `./items/items${index}.json`);
-        const data = fs.readFileSync(`./items/items${index}.json`, 'utf8')
-        const items: any[] = JSON.parse(data);
-        const insertId = db.prepare("insert or ignore into items (id, typeId, level, iconId) values (?,?,?,?)")
-        const insertDescription = db.prepare("insert or ignore into itemDescriptions (id, itemId, pt, de, en, fr, es) values (?,?,?,?,?,?,?)")
-        const insertName = db.prepare("insert or ignore into itemNames (id, itemId, pt, de, en, fr, es) values (?,?,?,?,?,?,?)")
-        for (let i = 0; i < items.length; i++) {
-            insertId.run(items[i].id, items[i].typeId, items[i].level, items[i].iconId)
-            insertDescription.run(items[i].description.id, items[i].id, items[i].description.pt, items[i].description.de, items[i].description.en, items[i].description.fr, items[i].description.es)
-            insertName.run(items[i].name.id, items[i].id, items[i].name.pt, items[i].name.de, items[i].name.en, items[i].name.fr, items[i].name.es)
-        }
-        addItemsIdToDb(index + 1, resolve)
-    } else {
-        console.log("no such file ", `./items/items${index}.json`)
-        resolve(true);
-        return
-    }
-};
+// const addItemsIdToDb = (index = 0, resolve: (value: any) => void) => {
+//     if (fs.existsSync(`./items/items${index}.json`)) {
+//         console.log("start reading", `./items/items${index}.json`);
+//         const data = fs.readFileSync(`./items/items${index}.json`, 'utf8')
+//         const items: any[] = JSON.parse(data);
+//         const insertId = db.prepare("insert or ignore into items (id, typeId, level, iconId) values (?,?,?,?)")
+//         const insertDescription = db.prepare("insert or ignore into itemDescriptions (id, itemId, pt, de, en, fr, es) values (?,?,?,?,?,?,?)")
+//         const insertName = db.prepare("insert or ignore into itemNames (id, itemId, pt, de, en, fr, es) values (?,?,?,?,?,?,?)")
+//         for (let i = 0; i < items.length; i++) {
+//             insertId.run(items[i].id, items[i].typeId, items[i].level, items[i].iconId)
+//             insertDescription.run(items[i].description.id, items[i].id, items[i].description.pt, items[i].description.de, items[i].description.en, items[i].description.fr, items[i].description.es)
+//             insertName.run(items[i].name.id, items[i].id, items[i].name.pt, items[i].name.de, items[i].name.en, items[i].name.fr, items[i].name.es)
+//         }
+//         addItemsIdToDb(index + 1, resolve)
+//     } else {
+//         console.log("no such file ", `./items/items${index}.json`)
+//         resolve(true);
+//         return
+//     }
+// };
 
 
 

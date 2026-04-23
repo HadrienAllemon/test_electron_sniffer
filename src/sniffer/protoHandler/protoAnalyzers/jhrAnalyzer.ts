@@ -1,6 +1,6 @@
 import { JhrMessage } from "@src/interfaces/MessageMap/JhrMessage";
 import { IAnalyzer } from "@src/interfaces/protoObj/IAnalyzer";
-import {itemIdNameMap} from "@src/sniffer/sqlite/queries";
+import {itemIdNameMap, itemIdSet} from "@src/sniffer/sqlite/queries";
 import { detectorAll, getAtPath, hasPath } from "./getObjectBySchema";
 import { JHR_SCHEMA } from "./jhrSchema";
 
