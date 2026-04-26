@@ -13,7 +13,8 @@
     "get-categories": "cross-env ELECTRON_RUN_AS_NODE=1 .\\node_modules\\.bin\\electron -r ts-node/register scripts/itemType.ts",
     "import-pet-xp": "cross-env ELECTRON_RUN_AS_NODE=1 .\\node_modules\\.bin\\electron -r ts-node/register scripts/importPetItemXp.ts",
     "get-pet-xp": "cross-env ELECTRON_RUN_AS_NODE=1 .\\node_modules\\.bin\\electron -r ts-node/register scripts/getPetItemXp.ts",
-    "postinstall": "electron-rebuild"
+    "postinstall": "electron-rebuild",
+    "test": "jest"
   },
   "build": {
     "extraResources": [
@@ -32,6 +33,7 @@
     "@electron/fuses": "^1.8.0",
     "@electron/rebuild": "^4.0.4",
     "@types/better-sqlite3": "^7.6.12",
+    "@types/jest": "^30.0.0",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
@@ -43,9 +45,11 @@
     "eslint": "^8.57.1",
     "eslint-plugin-import": "^2.31.0",
     "fork-ts-checker-webpack-plugin": "^7.3.0",
+    "jest": "^29.7.0",
     "module-alias": "^2.2.3",
     "node-loader": "^2.1.0",
     "style-loader": "^3.3.4",
+    "ts-jest": "^29.4.9",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "~4.5.4"

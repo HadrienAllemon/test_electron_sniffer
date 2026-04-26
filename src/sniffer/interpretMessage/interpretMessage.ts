@@ -10,19 +10,23 @@ export const decodeMessage = (typeUrl: string, base64Data: string) => {
     const typeName = typeUrl.split('/').pop();
 
     if (!typeName) return;
-    
+
     const MessageType = protoCache.get(typeName);
 
     if (!MessageType) {
         appendLogs(`Unknown message type: ${typeName}, content: ${base64Data}\n\n`);
     }
-
     const buffer = Buffer.from(base64Data, 'base64');
 
     try {
+        if (typeUrl === "type.ankama.com/jho") {
+            console.log("jho")
+            
+        }
+        
         const decodedProto = decodeProto(buffer);
         const protoEvent = handleProto(decodedProto);
-      
+
         if (protoEvent) {
             takeAction(protoEvent.type, protoEvent.data);
         } else {

@@ -1,15 +1,15 @@
-import db from "./ensureDatabase"
+import { getDb } from "./ensureDatabase"
 import { EventEmitter } from "events";
 import { IItemSold, IItemBought, ITransaction, ITax } from "../../interfaces";
 import { IDbItemSold } from "@src/interfaces/dbReady/IDbItemSold";
 import { IDbItemBought } from "@src/interfaces/dbReady/IDbItemBought";
 import { IDbTax } from "@src/interfaces/dbReady/IDbTax";
 import { IDbItemPrice } from "@src/interfaces/dbReady/IDbItemPrice";
-import Database from "better-sqlite3";
 
 export const dbEvents = new EventEmitter();
 
 export const selectItems = () => {
+    const db = getDb();
     if (!db) return;
     const select = db.prepare(`select * from itemsSold`)
     let rows = select.all()
@@ -20,6 +20,7 @@ export const selectItems = () => {
     });
 }
 export const addItemsSold = (items: IDbItemSold[]) => {
+    const db = getDb();
     if (!db) return;
     const insert = db.prepare("insert into itemsSold (itemId, profit, amountSold, created_at) values (?,?,?,?)")
 
@@ -28,6 +29,7 @@ export const addItemsSold = (items: IDbItemSold[]) => {
     })
 }
 export const addItemsBought = (items: IDbItemBought[]) => {
+    const db = getDb();
     if (!db) return;
     const insert = db.prepare("insert into itemsBought (itemId, price, amountbought, created_at) values (?,?,?,?)")
 
@@ -37,6 +39,7 @@ export const addItemsBought = (items: IDbItemBought[]) => {
 }
 
 export const addItemPrice = (itemPrice: IDbItemPrice): void => {
+    const db = getDb();
     if (!db) return;
     const upsert = db.prepare(`
         insert into itemsPrices (itemId, by1, by10, by100, by1000, created_at)
@@ -53,6 +56,7 @@ export const addItemPrice = (itemPrice: IDbItemPrice): void => {
 }
 
 export const addTax = (taxes: IDbTax[]) => {
+    const db = getDb();
     if (!db) return;
     console.log("adding taxes", taxes);
     const insert = db.prepare("insert into taxes (tax_nature, value, created_at) values (?,?,?)");
@@ -63,6 +67,7 @@ export const addTax = (taxes: IDbTax[]) => {
 }
 
 export const addPetItemXp = (itemId: number, xp: number) => {
+    const db = getDb();
     if (!db) return;
     const upsert = db.prepare(`
         insert into PetItemXp (itemId, xp, created_at)
@@ -75,41 +80,43 @@ export const addPetItemXp = (itemId: number, xp: number) => {
 }
 
 export const getItemsBought = () => {
+    const db = getDb();
     if (!db) return;
     const select = db.prepare(`
-        select 
-            itemsBought.id, 
-            itemsBought.itemId, 
-            level, 
-            iconId, 
-            amountBought, 
-            price, 
+        select
+            itemsBought.id,
+            itemsBought.itemId,
+            level,
+            iconId,
+            amountBought,
+            price,
             de,en,fr,es,
             created_at
-        from itemsBought 
+        from itemsBought
             left join itemNames
             on itemsBought.itemId = itemNames.itemId
-            left join items 
+            left join items
             on itemsBought.itemId = items.id`)
     const rows = select.all();
     return rows;
 }
 export const getItemsSold = (): IItemSold[] => {
+    const db = getDb();
     if (!db) return;
     const select = db.prepare<IItemSold[], IItemSold>(`
-        select 
-            itemsSold.id, 
-            itemsSold.itemId, 
-            level, 
-            iconId, 
-            amountSold, 
-            profit, 
+        select
+            itemsSold.id,
+            itemsSold.itemId,
+            level,
+            iconId,
+            amountSold,
+            profit,
             de,en,fr,es,
             created_at
-        from itemsSold 
+        from itemsSold
             left join itemNames
             on itemsSold.itemId = itemNames.itemId
-            left join items 
+            left join items
             on itemsSold.itemId = items.id`)
     const rows = select.all();
     return rows;
@@ -117,12 +124,13 @@ export const getItemsSold = (): IItemSold[] => {
 }
 
 export const getTaxes = (): ITax[] => {
+    const db = getDb();
     if (!db) return;
     const select = db.prepare<ITax[], ITax>(`
-        select 
-            id, 
-            tax_nature, 
-            value, 
+        select
+            id,
+            tax_nature,
+            value,
             created_at
         from taxes`)
     const rows = select.all();
@@ -138,6 +146,7 @@ export interface IItemSearchResult {
 // done in JS below via Unicode normalization, so no ICU extension is needed.
 // It might be best to find a way to optimise this in the future if performance becomes an issue.
 export const searchItems = (query: string): IItemSearchResult[] => {
+    const db = getDb();
     if (!db) return [];
     const select = db.prepare<[string], IItemSearchResult>(`
         SELECT n.itemId, n.fr, i.iconId
@@ -148,7 +157,7 @@ export const searchItems = (query: string): IItemSearchResult[] => {
         AND n.fr LIKE '%' || ? || '%'
         LIMIT 30
     `);
-    const normalized = query.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const normalized = query.normalize('NFD').replace(/[̀-ͯ]/g, '');
     const rows = select.all(query);
     const collator = new Intl.Collator('fr', { sensitivity: 'base' });
 
@@ -169,7 +178,7 @@ export const searchItems = (query: string): IItemSearchResult[] => {
     });
     // Secondary filter: accent-insensitive match so "epi" finds "Épi de blé"
     return rows.filter(row =>
-        row.fr.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        row.fr.normalize('NFD').replace(/[̀-ͯ]/g, '')
             .toLowerCase()
             .includes(normalized.toLowerCase())
     );
@@ -199,6 +208,7 @@ export interface IPetItemXpRatio {
     xpPerKama_by10: number | null;
     xpPerKama_by100: number | null;
     xpPerKama_by1000: number | null;
+    bestXpRatio?: number;
     created_at?: Date;
 }
 
@@ -206,6 +216,8 @@ const ratio = (xp: number, price: number | null, qty: number): number | null =>
     price ? (xp / price) * qty : null;
 
 export const getPetItemXpRatios = (): IPetItemXpRatio[] => {
+    const db = getDb();
+    if (!db) return [];
     const select = db.prepare<[], IPetItemXpRatioRaw>(`
         SELECT
             p.itemId,
@@ -229,6 +241,12 @@ export const getPetItemXpRatios = (): IPetItemXpRatio[] => {
             xpPerKama_by10: ratio(row.xp, row.by10, 10),
             xpPerKama_by100: ratio(row.xp, row.by100, 100),
             xpPerKama_by1000: ratio(row.xp, row.by1000, 1000),
+            bestXpRatio: Math.max(
+                ratio(row.xp, row.by1, 1) ?? -Infinity,
+                ratio(row.xp, row.by10, 10) ?? -Infinity,
+                ratio(row.xp, row.by100, 100) ?? -Infinity,
+                ratio(row.xp, row.by1000, 1000) ?? -Infinity,
+            ),
             created_at: row.created_at ? new Date(row.created_at) : undefined,
         }))
         .sort((a, b) => (b.xpPerKama_by1 ?? -Infinity) - (a.xpPerKama_by1 ?? -Infinity));
@@ -237,6 +255,7 @@ export const getPetItemXpRatios = (): IPetItemXpRatio[] => {
 export const itemIdNameMap = new Map<number, string>();
 export const itemIdSet = new Set<number>();
 export const getItemsRaw = (): Promise<boolean> => {
+    const db = getDb();
     if (!db) return;
     return new Promise((resolve) => {
         const select = db.prepare(`
@@ -264,6 +283,8 @@ interface SuperType {
 export const superTypeCache = new Map<number, SuperType>();
 export const superTypeByName = new Map<string, SuperType>();
 export const loadSuperTypes = async () => {
+    const db = getDb();
+    if (!db) return false;
     const rows = db.prepare(`
         SELECT st.id, st.className, stn.fr, stn.en, stn.de, stn.es, stn.pt
         FROM CategoriesSuperType st
@@ -284,8 +305,6 @@ export const getTransactions = (): ITransaction[] => {
     const allTransactions = [...itemsSold, ...itemsBought, ...taxes].sort((a, b) => b.date.getTime() - a.date.getTime());
     return allTransactions
 }
-
-
 
 
 

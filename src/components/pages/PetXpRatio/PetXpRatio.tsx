@@ -41,7 +41,20 @@ const getLastUpdate = (date: Date) => {
         minute: "2-digit",
     });
 
-    return <div style={{color:getColor(date)}}>{dateStr}</div>;
+    return <div style={{ color: getColor(date) }}>{dateStr}</div>;
+}
+const TOTAL_XP = 179592;
+
+function formatBestRatio(data: IPetItemXpRatio) {
+    const options = [
+        { size: 1, ratio: data.xpPerKama_by1 },
+        { size: 10, ratio: data.xpPerKama_by10 },
+        { size: 100, ratio: data.xpPerKama_by100 },
+        { size: 1000, ratio: data.xpPerKama_by1000 },
+    ].filter(o => o.ratio != null);
+    if (options.length === 0) return "—";
+
+    return "By " + options.sort((a, b) => b.ratio - a.ratio)[0].size;
 }
 
 const colDefs: ColDef<IPetItemXpRatio>[] = [
@@ -69,31 +82,65 @@ const colDefs: ColDef<IPetItemXpRatio>[] = [
         field: "xpPerKama_by1",
         headerName: "XP/K ×1",
         flex: 2,
-        cellRenderer: ({ data }: { data: IPetItemXpRatio }) => formatRatio(data.xpPerKama_by1),
+        cellRenderer: ({ data }: { data: IPetItemXpRatio }) => (
+            <div>
+                <div>{formatRatio(data.xpPerKama_by1)}</div>
+                <div>{179592 / data.xpPerKama_by1}</div>
+            </div>
+        )
     },
     {
         field: "xpPerKama_by10",
         headerName: "XP/K ×10",
         flex: 2,
-        cellRenderer: ({ data }: { data: IPetItemXpRatio }) => formatRatio(data.xpPerKama_by10),
+        cellRenderer: ({ data }: { data: IPetItemXpRatio }) => (
+            <div>
+                <div>{formatRatio(data.xpPerKama_by10)}</div>
+                <div>{179592 / data.xpPerKama_by10}</div>
+            </div>
+        )
     },
     {
         field: "xpPerKama_by100",
         headerName: "XP/K ×100",
         flex: 2,
-        cellRenderer: ({ data }: { data: IPetItemXpRatio }) => formatRatio(data.xpPerKama_by100),
+        cellRenderer: ({ data }: { data: IPetItemXpRatio }) => (
+            <div>
+                <div>{formatRatio(data.xpPerKama_by100)}</div>
+                <div>{179592 / data.xpPerKama_by100}</div>
+            </div>
+        )
     },
     {
         field: "xpPerKama_by1000",
         headerName: "XP/K ×1000",
         flex: 2,
-        cellRenderer: ({ data }: { data: IPetItemXpRatio }) => formatRatio(data.xpPerKama_by1000),
+        cellRenderer: ({ data }: { data: IPetItemXpRatio }) => (
+            <div>
+                <div>By {formatRatio(data.xpPerKama_by1000)}</div>
+                <div>{179592 / data.xpPerKama_by1000}</div>
+            </div>
+        )
     },
     {
         field: "created_at",
         headerName: "Dernière maj.",
         flex: 2,
         cellRenderer: ({ data }: { data: IPetItemXpRatio }) => getLastUpdate(data.created_at),
+    },
+    {
+        field: "bestXpRatio",
+        headerName: "Best Ratio",
+        autoHeight: true,
+        flex: 2,
+        cellRenderer: ({ data }: { data: IPetItemXpRatio }) => {
+            return (
+                <div>
+                    <div style={{fontWeight:"bold"}}>{formatBestRatio(data)}</div>
+                    <div>{formatPrice(TOTAL_XP / data.bestXpRatio)}</div>
+                </div >
+            )
+        }
     }
 ];
 

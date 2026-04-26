@@ -2,9 +2,12 @@ import Sq3Database from "better-sqlite3";
 
 import fs from "node:fs"
 
-let db = new Sq3Database(process.env.DB_PATH ?? './db/itemsHistory.db');
+let db: Sq3Database.Database | null = null;
+
+export const getDb = (): Sq3Database.Database | null => db;
+
 export const ensureDB = () => {
-    console.log("current db ovbject: ", db)
+    db = new Sq3Database(process.env.DB_PATH ?? './db/itemsHistory.db');
     return createDatabase();
 }
 
@@ -144,5 +147,5 @@ function createTables(db: Sq3Database.Database) {
 
 
 
-export default db;
+export default { getDb };
 
