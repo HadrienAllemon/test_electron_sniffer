@@ -16,9 +16,19 @@ interface AuctionContext {
     lastSeenTransactionHint: number | null;
 }
 
+interface PriceUpdateContext {
+    lastPriceUpdateTimestamp: number | null,
+    lastSeenItemId: number | null,
+}
+
 const auctionContext: AuctionContext = {
     lastJduTimestamp: null,
     lastSeenTransactionHint: null,
+};
+
+const priceUpdateContext: PriceUpdateContext = {
+    lastPriceUpdateTimestamp: null,
+    lastSeenItemId: null
 };
 
 function decodePackedVarints(buffer: Buffer): number[] {
@@ -42,18 +52,30 @@ function decodePackedVarints(buffer: Buffer): number[] {
 
 function jerToItemsSold(message: JerMessage): IDbItemSold[] {
     return (message.items ?? []).map(item => ({
-        itemId:     item.itemId,
+        itemId: item.itemId,
         amountSold: item.amountSold,
-        profit:     item.details?.totalGains ?? 0,
+        profit: item.details?.totalGains ?? 0,
     }));
 }
 
 export function takeAction(typeName: ProtoEventType, messageContent: any): void {
     switch (typeName) {
-        case "SALE": {
+        case "PRICE_UPDATE": {
+            const msg = messageContent as IDbItemPrice;
+            const shouldUpdate =
+                msg.itemId === priceUpdateContext.lastSeenItemId &&
+                (Date.now() - priceUpdateContext?.lastPriceUpdateTimestamp) < 30000
+            if (shouldUpdate) {
+                addItemPrice(msg);
+                priceUpdateContext.lastPriceUpdateTimestamp = Date.now();
+            }
+            break;
+        }
+        case "PRICE": {
             const msg = messageContent as IDbItemPrice;
             addItemPrice(msg);
-            
+            priceUpdateContext.lastPriceUpdateTimestamp = Date.now();
+            priceUpdateContext.lastSeenItemId = msg.itemId;
             const suggestedPrice = (msg.by1 - 1).toString();
             typeStringDelayed(suggestedPrice, 3000);
             break;
@@ -77,7 +99,7 @@ export function takeAction(typeName: ProtoEventType, messageContent: any): void 
             const isModification = auctionContext.lastJduTimestamp !== null &&
                 (now - auctionContext.lastJduTimestamp) < 2000;
 
-            const taxRate  = isModification ? 0.01 : 0.02;
+            const taxRate = isModification ? 0.01 : 0.02;
             const taxValue = Math.round(msg.price * taxRate);
 
             appendLogs(`${isModification ? "Modification" : "Nouvelle mise en vente"} — itemId: ${msg.itemInfo.itemId}, price: ${msg.price}\n\n`);
@@ -92,9 +114,9 @@ export function takeAction(typeName: ProtoEventType, messageContent: any): void 
         case "JCV": {
             const msg = messageContent as JcvMessage;
             const item: IDbItemBought = {
-                itemId:      msg.id,
+                itemId: msg.id,
                 amountBought: msg.quantity,
-                price:       msg.price,
+                price: msg.price,
             };
             addItemsBought([item]);
             break;
@@ -108,7 +130,7 @@ export function takeAction(typeName: ProtoEventType, messageContent: any): void 
         }
 
         // case "JGD": {
-           
+
         // }
 
         default: {

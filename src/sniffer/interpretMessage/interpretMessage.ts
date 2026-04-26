@@ -19,8 +19,8 @@ export const decodeMessage = (typeUrl: string, base64Data: string) => {
     const buffer = Buffer.from(base64Data, 'base64');
 
     try {
-        if (typeUrl === "type.ankama.com/jho") {
-            console.log("jho")
+        if (typeUrl === "type.ankama.com/jfv") {
+            console.log("jfv")
             
         }
         
