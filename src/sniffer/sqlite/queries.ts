@@ -138,7 +138,9 @@ export const getTaxes = (): ITax[] => {
 }
 export interface IItemSearchResult {
     itemId: number;
-    fr: string;
+    name: string;
+    description?: string;
+    level:number;
     iconId: number;
 }
 
@@ -149,13 +151,14 @@ export const searchItems = (query: string): IItemSearchResult[] => {
     const db = getDb();
     if (!db) return [];
     const select = db.prepare<[string], IItemSearchResult>(`
-        SELECT n.itemId, n.fr, i.iconId
+        SELECT n.itemId, n.fr name, i.iconId, i.level, d.fr description
         FROM itemNames n
         LEFT JOIN items i ON n.itemId = i.id
         LEFT JOIN Categories  c  ON i.typeId = c.id
+        LEFT JOIN itemDescriptions d on d.itemId = n.itemId
         WHERE c.superTypeId == ${superTypeByName.get("Ressource")?.id}
         AND n.fr LIKE '%' || ? || '%'
-        LIMIT 30
+        LIMIT 5
     `);
     const normalized = query.normalize('NFD').replace(/[̀-ͯ]/g, '');
     const rows = select.all(query);
@@ -164,8 +167,8 @@ export const searchItems = (query: string): IItemSearchResult[] => {
     const q = normalized.toLowerCase();
 
     rows.sort((a, b) => {
-        const aName = a.fr.toLowerCase();
-        const bName = b.fr.toLowerCase();
+        const aName = a.name.toLowerCase();
+        const bName = b.name.toLowerCase();
 
         const aStarts = aName.startsWith(q);
         const bStarts = bName.startsWith(q);
@@ -178,7 +181,7 @@ export const searchItems = (query: string): IItemSearchResult[] => {
     });
     // Secondary filter: accent-insensitive match so "epi" finds "Épi de blé"
     return rows.filter(row =>
-        row.fr.normalize('NFD').replace(/[̀-ͯ]/g, '')
+        row.name.normalize('NFD').replace(/[̀-ͯ]/g, '')
             .toLowerCase()
             .includes(normalized.toLowerCase())
     );

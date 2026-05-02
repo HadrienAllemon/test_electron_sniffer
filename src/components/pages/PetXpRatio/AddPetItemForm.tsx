@@ -1,13 +1,20 @@
 import { IItemSearchResult } from "@src/sniffer/sqlite/queries";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import "./AddPetItemForm.css";
+import { SearchResultItem } from "./SearchResultItem";
 
-export const AddPetItemForm = ({ onAdded }: { onAdded: () => void }) => {
+interface AddPetItemFormProps {
+    onAdded: () => void;
+    idList: number[];
+}
+
+export const AddPetItemForm: React.FC<AddPetItemFormProps> = ({ onAdded, idList }) => {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<IItemSearchResult[]>([]);
     const [selected, setSelected] = useState<IItemSearchResult | null>(null);
     const [xp, setXp] = useState("");
     const debounceRef = useRef<ReturnType<typeof setTimeout>>(null);
+    const trackedIds = useMemo(() => new Set(idList), [idList]);
 
     useEffect(() => {
         if (selected) return;
@@ -23,7 +30,7 @@ export const AddPetItemForm = ({ onAdded }: { onAdded: () => void }) => {
 
     const handleSelect = (item: IItemSearchResult) => {
         setSelected(item);
-        setQuery(item.fr);
+        setQuery(item.name);
         setResults([]);
     };
 
@@ -43,31 +50,27 @@ export const AddPetItemForm = ({ onAdded }: { onAdded: () => void }) => {
         });
     };
 
+
     return (
-        <div style={{ display: "flex", gap: 8, alignItems: "center", position: "relative" }}>
-            <div style={{ position: "relative" }}>
+        <div className="formWrapper" style={{ display: "flex", gap: 8, alignItems: "center", position: "relative" }}>
+            <div className="formControls" style={{ position: "relative" }}>
                 <input
                     type="text"
                     placeholder="Rechercher un item (min. 3 car.)"
                     value={query}
                     onChange={e => handleQueryChange(e.target.value)}
-                    style={{ width: 280 }}
+                    className="searchInput"
                 />
                 {results.length > 0 && (
                     <ul className="searchResults">
                         {results.map(item => (
-                            <li
+                            <SearchResultItem
                                 key={item.itemId}
-                                onClick={() => handleSelect(item)}
-                                className="searchResultsItem"
-                            >
-                                <div style={{
-                                    width: 24, height: 24, flexShrink: 0,
-                                    backgroundImage: `url("https://api.dofusdb.fr/img/items/${item.iconId}.png")`,
-                                    backgroundSize: "cover",
-                                }} />
-                                <span>{item.fr}</span>
-                            </li>
+                                item={item}
+                                query={query}
+                                tracked={trackedIds.has(item.itemId)}
+                                onSelect={handleSelect}
+                            />
                         ))}
                     </ul>
                 )}
@@ -78,7 +81,7 @@ export const AddPetItemForm = ({ onAdded }: { onAdded: () => void }) => {
                 value={xp}
                 min={1}
                 onChange={e => setXp(e.target.value)}
-                style={{ width: 100 }}
+                className="xpInput"
             />
             <button onClick={handleSubmit} disabled={!selected || !xp}>
                 Ajouter

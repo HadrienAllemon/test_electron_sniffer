@@ -163,7 +163,7 @@ export const PetXpRatio = () => {
     return (
         <div className="tabWrapper">
             <div className="filterRow kamaBgBackground">
-                <AddPetItemForm onAdded={fetchData} />
+                <AddPetItemForm idList={rows.map(d=>d.itemId)} onAdded={fetchData} />
                 <button onClick={fetchData}>Actualiser</button>
             </div>
             <div style={{ flex: 9 }}>

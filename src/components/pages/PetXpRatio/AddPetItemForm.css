@@ -1,3 +1,10 @@
+.formWrapper {
+    display: flex;
+    gap: 8;
+    align-items: center;
+    position: relative;
+}
+
 .searchResults {
     position: absolute;
     top: 100%;
@@ -8,23 +15,90 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 280;
+    width: 24em;
     max-height: 240;
     overflow-y: auto;
-    width: 100%;
 }
 
 .searchResultsItem {
+    position: relative;
     color: white;
-    display: flex;
     align-items: center;
-    gap: 8;
-    padding: 12px 10px;
+    padding: 12px 14px;
     cursor: pointer;
     border-bottom: 1px solid #dbd4aca6;
     border-radius: 4px;
+    transition: background 0.15s ease, transform 0.05s ease;
 }
 
 .searchResultsItem:hover {
-    background: #7c6f26;
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.25), transparent);
+    border-left: 2px solid #D4AF37;
+    transform: scale(0.98);
+}
+
+.searchResultsItem.tracked {
+    background: rgba(126, 217, 87, 0.08);
+}
+
+.itemHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.itemIcon {
+    background-color: rgb(255, 255, 255, .05);
+    background-size: 55px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    flex: 0 0 auto;
+}
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    flex: 1;
+}
+
+.itemName {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #e6edf3;
+}
+
+.itemLvl {
+    font-size: 0.85rem;
+    color: #b4b4b4;
+}
+
+.itemDescription {
+    font-size: 0.85rem;
+    color: #868585;
+    margin-top: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.highlight {
+    color: #FFD700;
+    text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+}
+
+.alreadyTracked {
+    margin-left: .5em;
+    text-shadow: 0 0 3px rgba(255, 215, 0, 0.2);
+    font-weight: 600;
+}
+
+.xpInput {
+    width: 100px;
+}
+
+.searchInput {
+    width: 280px;
 }
