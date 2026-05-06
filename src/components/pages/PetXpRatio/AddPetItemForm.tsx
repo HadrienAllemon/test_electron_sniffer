@@ -6,9 +6,10 @@ import { SearchResultItem } from "./SearchResultItem";
 interface AddPetItemFormProps {
     onAdded: () => void;
     idList: number[];
+    show: boolean;
 }
 
-export const AddPetItemForm: React.FC<AddPetItemFormProps> = ({ onAdded, idList }) => {
+export const AddPetItemForm: React.FC<AddPetItemFormProps> = ({ onAdded, idList, show }) => {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<IItemSearchResult[]>([]);
     const [selected, setSelected] = useState<IItemSearchResult | null>(null);
@@ -50,42 +51,43 @@ export const AddPetItemForm: React.FC<AddPetItemFormProps> = ({ onAdded, idList 
         });
     };
 
-
     return (
-        <div className="formWrapper" style={{ display: "flex", gap: 8, alignItems: "center", position: "relative" }}>
-            <div className="formControls" style={{ position: "relative" }}>
+        <div className={"addPetItemForm" + (show ? " visible" : "")} >
+            <div className={"filterRow kamaBgBackground formWrapper"} >
+                <div className="formControls" >
+                    <input
+                        type="text"
+                        placeholder="Rechercher un item (min. 3 car.)"
+                        value={query}
+                        onChange={e => handleQueryChange(e.target.value)}
+                        className="searchInput"
+                    />
+                    {results.length > 0 && (
+                        <ul className="searchResults">
+                            {results.map(item => (
+                                <SearchResultItem
+                                    key={item.itemId}
+                                    item={item}
+                                    query={query}
+                                    tracked={trackedIds.has(item.itemId)}
+                                    onSelect={handleSelect}
+                                />
+                            ))}
+                        </ul>
+                    )}
+                </div>
                 <input
-                    type="text"
-                    placeholder="Rechercher un item (min. 3 car.)"
-                    value={query}
-                    onChange={e => handleQueryChange(e.target.value)}
-                    className="searchInput"
+                    type="number"
+                    placeholder="XP"
+                    value={xp}
+                    min={1}
+                    onChange={e => setXp(e.target.value)}
+                    className="xpInput"
                 />
-                {results.length > 0 && (
-                    <ul className="searchResults">
-                        {results.map(item => (
-                            <SearchResultItem
-                                key={item.itemId}
-                                item={item}
-                                query={query}
-                                tracked={trackedIds.has(item.itemId)}
-                                onSelect={handleSelect}
-                            />
-                        ))}
-                    </ul>
-                )}
+                <button onClick={handleSubmit} disabled={!selected || !xp}>
+                    Ajouter
+                </button>
             </div>
-            <input
-                type="number"
-                placeholder="XP"
-                value={xp}
-                min={1}
-                onChange={e => setXp(e.target.value)}
-                className="xpInput"
-            />
-            <button onClick={handleSubmit} disabled={!selected || !xp}>
-                Ajouter
-            </button>
         </div>
     );
 };

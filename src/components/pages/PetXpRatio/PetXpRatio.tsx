@@ -136,7 +136,7 @@ const colDefs: ColDef<IPetItemXpRatio>[] = [
         cellRenderer: ({ data }: { data: IPetItemXpRatio }) => {
             return (
                 <div>
-                    <div style={{fontWeight:"bold"}}>{formatBestRatio(data)}</div>
+                    <div style={{ fontWeight: "bold" }}>{formatBestRatio(data)}</div>
                     <div>{formatPrice(TOTAL_XP / data.bestXpRatio)}</div>
                 </div >
             )
@@ -148,6 +148,7 @@ const colDefs: ColDef<IPetItemXpRatio>[] = [
 
 export const PetXpRatio = () => {
     const [rows, setRows] = useState<IPetItemXpRatio[]>([]);
+    const [showAddForm, setShowAddForm] = useState(false);
 
     const fetchData = () => {
         window.api.getPetItemXpRatios()
@@ -163,8 +164,9 @@ export const PetXpRatio = () => {
     return (
         <div className="tabWrapper">
             <div className="filterRow kamaBgBackground">
-                <AddPetItemForm idList={rows.map(d=>d.itemId)} onAdded={fetchData} />
+                <button onClick={() => setShowAddForm((prev) => !prev)}>+ Ajouter</button>
                 <button onClick={fetchData}>Actualiser</button>
+                <AddPetItemForm show={showAddForm} idList={rows.map(d => d.itemId)} onAdded={fetchData} />
             </div>
             <div style={{ flex: 9 }}>
                 <ItemTable data={rows} colDefs={colDefs} />
